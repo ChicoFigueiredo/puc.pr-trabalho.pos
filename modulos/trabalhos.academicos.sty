@@ -1,0 +1,301 @@
+%%
+%% Customizações do abnTeX2 (http://abnTeX2.googlecode.com) para UDESC/CCT
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The Current Maintainer of this work is FELIPE JOEL ZIMANN, felipezimann@hotmail.com
+%%
+%% Further information about abnTeX2 are available on https://github.com/abntex/abntex2
+%%
+
+% --------------------------------------------------------
+% INICIO DAS CUSTOMIZACOES PARA A UDESC
+% --------------------------------------------------------
+
+\ProvidesPackage{udescCCT}[2018/06/22]
+
+% Usar mais de 1 argumento default
+\usepackage{xargs}
+
+
+% --------------------------------------------------------
+% Capa Padrão
+% --------------------------------------------------------
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \center
+
+	{\MakeTextUppercase{\ABNTEXchapterfont\large\bfseries\imprimirautor}}
+
+    \vfill
+    \begin{center}
+    {\MakeTextUppercase{\ABNTEXchapterfont\bfseries\Large\imprimirtitulo}}
+    \end{center}
+    \vfill
+
+	{\large\bfseries\imprimirlocal}
+	\par
+	{\large\bfseries\imprimirdata}
+	\vspace*{1cm}
+  \end{capa}
+}
+
+% --------------------------------------------------------
+% Command Capa Padrão
+% --------------------------------------------------------
+
+%	\linethickness{0.75pt}	\line(0,1){25}
+\newcommand\imprimirCapaCustom[3]{
+	\begin{capa}%
+		\setlrmarginsandblock{1cm}{*}{*}
+		\setulmarginsandblock{1.5cm}{*}{*}
+		\checkandfixthelayout
+		\flushleft %
+		{\begin{minipage}[c]{\textwidth} \setlength{\parskip}{0cm}
+				\includegraphics[trim={0cm 0cm 0cm 0cm},clip,width=10cm]{./modulos/logo-pucpr-pos.digital.png} \par
+				\SingleSpacing\sffamily\large\bfseries
+				\MakeTextUppercase{\Large\bfseries\sffamily#3} \par
+		\end{minipage}}
+
+
+		\vspace*{\fill}
+		{\begin{minipage}[c]{20cm}
+				\flushright
+				\fcolorbox{#1}{#1}{
+					\begin{minipage}{0.8\textwidth}
+						\vspace{0.5cm}
+						\color{white}
+						\begin{tabular}{ c | m{13cm} }
+							& \MakeTextUppercase{\sffamily#2} \\[12pt]
+							& \flushleft{\MakeTextUppercase{\Large\bfseries\sffamily\imprimirtitulo}}
+						\end{tabular}
+						\vspace{0.5cm}
+					\end{minipage}
+				}
+		\end{minipage}}
+		\flushright
+
+
+		\vspace*{\fill}
+		{\begin{minipage}[c]{\textwidth}
+				\center
+				{\MakeTextUppercase{\large\sffamily\imprimirautor}}
+		\end{minipage}}
+
+		\vspace*{\fill}
+
+		{\begin{minipage}[c]{\textwidth}
+				\center
+				{\MakeTextUppercase{\sffamily\imprimirlocal, \imprimirdata}}
+		\end{minipage}}
+
+
+	\end{capa}
+}
+
+
+
+% --------------------------------------------------------
+% Capa Padrão UDESC - Trabalho
+% --------------------------------------------------------
+\newcommand{\imprimircapaTrabalho}{%
+	\imprimirCapaCustom{CapaAmareloUDESC}{\imprimirtipotrabalho}{\imprimirinstituicao}
+}
+
+% --------------------------------------------------------
+% Capa Padrão UDESC - Dissertação
+% --------------------------------------------------------
+\newcommand{\imprimircapaDissertacao}{%
+	\imprimirCapaCustom{CapaVerdeUDESC}{DISSERTAÇÃO DE MESTRADO}{\imprimirinstituicao}
+}
+
+% --------------------------------------------------------
+% Capa Padrão UDESC - TCC
+% --------------------------------------------------------
+\newcommand{\imprimircapaTCC}{%
+	\imprimirCapaCustom{CapaAzulUDESC}{TRABALHO DE CONCLUSÃO DE CURSO}{\imprimirinstituicao}
+}
+
+% --------------------------------------------------------
+% Capa Padrão UDESC - Pós-Doc
+% --------------------------------------------------------
+\newcommand{\imprimircapaPosDoc}{%
+	\imprimirCapaCustom{CapaAzulUDESC}{RELAT\'ORIO DE P\'OS--DOUTORADO}{\imprimirinstituicao}
+}
+
+
+% --------------------------------------------------------
+% Capa Padrão UDESC - Tese
+% --------------------------------------------------------
+\newcommand{\imprimircapaTese}{%
+	\imprimirCapaCustom{CapaAzulUDESC}{TESE DE DOUTORADO}{\imprimirinstituicao}
+}
+
+% --------------------------------------------------------
+% folha de rosto
+% --------------------------------------------------------
+
+\makeatletter
+
+\renewcommand{\folhaderostocontent}{
+    \begin{center}
+
+    {\MakeTextUppercase{\ABNTEXchapterfont\large\imprimirautor}}\\
+    {\MakeTextUppercase{\ABNTEXchapterfont\large\matricula}}
+
+    \vspace*{\fill}\vspace*{\fill}
+
+    {\MakeTextUppercase{\ABNTEXchapterfont\bfseries\large\imprimirtitulo}}
+
+    \vspace*{\fill}
+
+    \abntex@ifnotempty{\imprimirpreambulo}{%
+      \hspace{.45\textwidth}
+      {\begin{minipage}{.52\textwidth}
+      	\SingleSpacing
+      	\imprimirpreambulo\par
+      	\vspace*{8pt}
+      	{\imprimirorientadorRotulo~\imprimirorientador\par}
+      	\abntex@ifnotempty{\imprimircoorientador}{%
+      	{\imprimircoorientadorRotulo~\imprimircoorientador}%
+    	}%
+      \end{minipage}}%
+    }%
+    \vspace*{\fill}\vspace*{\fill}
+
+    {\large\bfseries\imprimirlocal}
+    \par
+    {\large\bfseries\imprimirdata}
+    \vspace*{2cm}
+    \end{center}
+}
+
+
+
+% --------------------------------------------------------
+% Fontes padroes de part, chapter, section, subsection e subsubsection
+% --------------------------------------------------------
+% --- Chapter ---
+\renewcommand{\ABNTEXchapterfont}{\fontseries{b}} %\bfseries
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
+% --- Part ---
+\renewcommand{\ABNTEXpartfont}{\ABNTEXchapterfont}
+\renewcommand{\ABNTEXpartfontsize}{\LARGE}
+% --- Section ---
+\renewcommand{\ABNTEXsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+% --- SubSection ---
+\renewcommand{\ABNTEXsubsectionfont}{\fontseries{b}} %\bfseries
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+% --- SubSubSection ---
+\renewcommand{\ABNTEXsubsubsectionfont}{\itshape}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+
+\renewcommand{\ABNTEXsubsubsubsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
+% ---
+
+% --------------------------------------------------------
+% Fontes das entradas do sumario
+% --------------------------------------------------------
+
+\renewcommand{\cftpartfont}{\ABNTEXpartfont\selectfont}
+\renewcommand{\cftpartpagefont}{\normalsize\selectfont}
+
+\renewcommand{\cftchapterfont}{\ABNTEXchapterfont\selectfont}
+\renewcommand{\cftchapterpagefont}{\normalsize\selectfont}
+
+\renewcommand{\cftsectionfont}{\ABNTEXsectionfont\selectfont}
+\renewcommand{\cftsectionpagefont}{\normalsize\selectfont}
+
+\renewcommand{\cftsubsectionfont}{\ABNTEXsubsectionfont\selectfont}
+\renewcommand{\cftsubsectionpagefont}{\normalsize\selectfont}
+
+\renewcommand{\cftsubsubsectionfont}{\normalfont\itshape\selectfont}
+\renewcommand{\cftsubsubsectionpagefont}{\normalsize\selectfont}
+
+\renewcommand{\cftparagraphfont}{\normalfont\selectfont}
+\renewcommand{\cftparagraphpagefont}{\normalsize\selectfont}
+
+% --------------------------------------------------------
+% Usando os pacotes hyperref, uppercase...
+% Para deixar a section do toc uppercase precisa de:
+% --------------------------------------------------------
+\usepackage{textcase}
+
+\let\oldcontentsline\contentsline
+\def\contentsline#1#2{%
+  \expandafter\ifx\csname l@#1\endcsname\l@section
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi
+  {%
+    \oldcontentsline{#1}{\MakeTextUppercase{#2}}%
+  }{%
+    \oldcontentsline{#1}{#2}%
+  }%
+}
+
+
+% --------------------------------------------------------
+% Renomenando as entradas de APÊNDICES E ANEXOS
+% --------------------------------------------------------
+
+\renewcommand{\apendicesname}{AP\^ENDICES}
+\renewcommand{\anexosname}{ANEXOS}
+
+
+% Manipulação de Strings
+\RequirePackage{xstring}
+
+% Comando para inverter sobrenome e nome
+\newcommand{\invertname}[1]{%
+  \StrBehind{#1}{{}}, \StrBefore{#1}{{}}%
+}
+
+
+% --------------------------------------------------------
+% Alterando os estilos de Caption e Fonte
+% --------------------------------------------------------
+
+% Define o comando \fonte que respeita as configurações de caption do memoir ou do caption
+\renewcommand{\fonte}[2][\fontename]{%
+  \M@gettitle{#2}%
+  \memlegendinfo{#2}%
+  \par
+  \begingroup
+     \@parboxrestore
+     \if@minipage
+       \@setminipage
+     \fi
+     \ABNTEXfontereduzida
+     \configureseparator
+     \captiondelim{\ABNTEXcaptionfontedelim}
+     \@makecaption{#1}{\ignorespaces #2}\par
+  \endgroup}
+
+
+\captionstyle[\raggedright]{\raggedright}
+
+\makeatother
+
+
+
+
+% ---
+% FIM DAS CUSTOMIZACOES PARA A  Universidade do Estado de Santa Catarina - UDESC/CCT
+% ---
+
+
+
+
+

@@ -1,0 +1,46 @@
+@Article{Goncalves2013,
+  author       = {Daniele Cristina Gon{\c{c}}alves and Frederico da Silva Reis},
+  date         = {2013-08},
+  journaltitle = {Bolema: Boletim de Educa{\c{c}}{\~{a}}o Matem{\'{a}}tica},
+  title        = {Atividades investigativas de aplica{\c{c}}{\~{o}}es das derivadas utilizando o {GeoGebra}},
+  year         = {2013},
+  doi          = {10.1590/s0103-636x2013000300006},
+  number       = {46},
+  pages        = {417--432},
+  url          = {https://www.scielo.br/j/bolema/a/BfHyVhF5txJGnVSgDV9VnDF/?lang=pt},
+  volume       = {27},
+  file         = {:Goncalves2013 - Atividades Investigativas De Aplicacoes Das Derivadas Utilizando O GeoGebra.pdf:PDF},
+  publisher    = {{FapUNIFESP} ({SciELO})},
+}
+
+@Article{Silva2011,
+  author       = {Benedito Antonio da Silva},
+  date         = {2011-10-27},
+  journaltitle = {Educação Matemática Pesquisa: revista do Programa de Estudos Pós-Graduados em Educação Matemática. - São Paulo.},
+  title        = {Diferentes dimensões do ensino e aprendizagem do Cálculo},
+  year         = {2011},
+  editor       = {Pontifícia Universidade Católica de São Paulo},
+  number       = {3},
+  url          = {https://revistas.pucsp.br/index.php/emp/article/view/7101},
+  volume       = {13},
+  file         = {:Silva2011 - Diferentes Dimensões Do Ensino E Aprendizagem Do Cálculo.pdf:PDF},
+}
+
+@Book{Bezerra1974,
+  author = {Manoel Jairo Bezerra},
+  date   = {1974-12-31},
+  title  = {Curso de Matemática},
+  year   = {1974},
+  file   = {:T\:/Livros/Manoel Jairo Bezerra/Curso de Matematica (241)/Curso de Matematica - Manoel Jairo Bezerra.pdf:PDF},
+}
+
+@Book{Iezzi2013,
+  author = {Carlos Murakami; Nilson José Machado; Gelson Iezzi},
+  date   = {2013-12-31},
+  title  = {Fundamentos de Matematica Elementar - Vol.08: Limites, Derivadas e Noções de Integral},
+  year   = {2013},
+}
+
+@Comment{jabref-meta: databaseType:biblatex;}
+
+@Comment{jabref-meta: fileDirectoryLatex-chico-CEREBRO:T:\\Estudar\\#01-Matematica\\!!03-Sem\\01-EDUCAÇÃO ESPECIAL (CEL1694-3734363) 9004\\Atividade-Estruturada\\Trab003\\bibliografia;}
