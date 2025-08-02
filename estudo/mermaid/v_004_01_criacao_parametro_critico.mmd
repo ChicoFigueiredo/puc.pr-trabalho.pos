@@ -1,0 +1,29 @@
+sequenceDiagram
+    participant Admin as Administrador
+    participant Portal as Configuration Portal
+    participant MGMT as Management API
+    participant Workflow as Workflow Engine
+    participant Approver as Aprovador
+    participant DIST as Distribution API
+    participant SDK as Client SDK
+    participant API as API Cliente
+    
+    Admin->>Portal: Criar parâmetro crítico
+    Portal->>MGMT: POST /parameters (critical)
+    MGMT->>MGMT: Validar schema
+    MGMT->>Workflow: Trigger approval workflow
+    
+    Workflow->>Approver: Notificação Teams/Email
+    Approver->>Portal: Revisar e aprovar
+    Portal->>MGMT: PUT /parameters/{id}/approve
+    
+    MGMT->>Events: Publish ParameterApproved
+    Events->>DIST: Event notification
+    DIST->>Redis: Update cache
+    DIST->>SignalR: Push notification
+    
+    SignalR->>SDK: Real-time update
+    SDK->>SDK: Update local cache
+    SDK->>API: Configuration available
+    
+    Note over Admin,API: Total time: <2 minutes

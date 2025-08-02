@@ -1,0 +1,157 @@
+# ==============================================================================
+# .gitignore para Trabalho de Pós-Graduação PUC-PR
+# Projeto: Arquitetura de Parametrizador de Dados para Canais Digitais
+# Autor: Francisco Lima Figueiredo
+# ==============================================================================
+
+# Node.js (para pasta estudo/mermaid/)
+# ====================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+package-lock.json
+.npm
+.yarn-integrity
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs gerais
+# ===========
+logs/
+*.log
+*.log.*
+
+# Arquivos temporários
+# ===================
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+temp/
+tmp/
+.cache/
+.temp/
+
+# IDE e Editores
+# ==============
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Sistema Operacional
+# ===================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.VolumeIcon.icns
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# LaTeX (pasta latex/)
+# ===================
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.out
+*.toc
+*.synctex.gz
+*.synctex(busy)
+*.pdfsync
+*.bcf
+*.run.xml
+*.nav
+*.snm
+*.vrb
+*.xdv
+
+# Arquivos de compilação LaTeX específicos
+latex/zz.auxiliar/
+latex/zz.pdf/
+
+# Arquivos acadêmicos temporários
+# ===============================
+# Rascunhos e versões temporárias
+*_rascunho.*
+*_temp.*
+*_draft.*
+versao_temp/
+rascunhos/
+
+# Arquivos de backup automático
+*.autosave
+*_backup_*
+*_bak_*
+
+# Arquivos específicos do projeto
+# ===============================
+# Manter os arquivos essenciais do trabalho acadêmico:
+# - Todos os .md em estudo/
+# - Todos os .mmd em estudo/mermaid/
+# - Todos os .svg em estudo/mermaid/svg/
+# - Todos os .tex em latex/
+# - Bibliografia e referências
+
+# Excluir apenas processamentos temporários
+processing/
+output_temp/
+generated_temp/
+
+# Arquivos de configuração pessoal
+# ================================
+.personal/
+.config_local/
+credenciais.*
+senhas.*
+
+# Arquivos grandes e binários desnecessários
+# ==========================================
+*.zip
+*.rar
+*.7z
+*.tar.gz
+*.exe
+*.msi
+*.dmg
+*.iso
+
+# Exceções importantes - MANTER estes arquivos:
+# =============================================
+# !estudo/**/*.md          # Manter todos os markdowns do estudo
+# !estudo/**/*.mmd         # Manter todos os diagramas mermaid
+# !estudo/**/*.svg         # Manter todos os SVGs gerados
+# !latex/**/*.tex          # Manter todos os arquivos LaTeX
+# !latex/**/*.bib          # Manter bibliografias
+# !.github/**              # Manter configurações do GitHub
+# !README.md               # Manter documentação principal

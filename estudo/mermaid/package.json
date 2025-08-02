@@ -1,0 +1,19 @@
+{
+  "name": "mermaid-diagrams-generator",
+  "version": "1.0.0",
+  "description": "Gerador automatizado de diagramas SVG a partir de arquivos Mermaid para o trabalho de pós-graduação",
+  "main": "generate-svgs.js",
+  "scripts": {
+    "generate": "node generate-svgs.js",
+    "generate-single": "npx mmdc -i",
+    "clean": "rm -rf svg/*.svg",
+    "build": "npm run clean && npm run generate",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["mermaid", "svg", "diagrams", "automation", "trabalho-pos-graduacao"],
+  "author": "Francisco Lima Figueiredo",
+  "license": "MIT",
+  "dependencies": {
+    "@mermaid-js/mermaid-cli": "^11.9.0"
+  }
+}

@@ -1,0 +1,35 @@
+sequenceDiagram
+    participant API as API Cliente
+    participant SDK as Configuration SDK
+    participant L1 as L1 Cache (Memory)
+    participant DIST as Distribution API
+    participant L2 as L2 Cache (Redis)
+    participant COSMOS as Cosmos DB
+    
+    API->>SDK: GetParameter("login.timeout")
+    SDK->>L1: Check local cache
+    
+    alt Cache Hit (L1)
+        L1->>SDK: Return cached value
+        SDK->>API: Configuration value
+        Note over API,L1: Latency: ~1ms
+    else Cache Miss (L1)
+        SDK->>DIST: GET /parameters/login.timeout
+        DIST->>L2: Check Redis cache
+        
+        alt Cache Hit (L2)
+            L2->>DIST: Return cached value
+            DIST->>SDK: Configuration value
+            SDK->>L1: Update local cache
+            SDK->>API: Configuration value
+            Note over API,L2: Latency: ~10ms
+        else Cache Miss (L2)
+            DIST->>COSMOS: Query parameter
+            COSMOS->>DIST: Parameter data
+            DIST->>L2: Update Redis cache
+            DIST->>SDK: Configuration value
+            SDK->>L1: Update local cache
+            SDK->>API: Configuration value
+            Note over API,COSMOS: Latency: ~50ms
+        end
+    end

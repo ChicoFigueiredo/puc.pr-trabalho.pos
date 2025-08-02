@@ -55,6 +55,10 @@ Deverão apresentar apenas as referências utilizadas no texto. As referências,
     - \subsection
 - O arquivo LaTeX deve ser gerado com base no conteúdo do arquivo Markdown, seguindo a mesma estrutura e formatação.
 - Demais elementos do latex, como \documentclass, \usepackage, \begin{document}, \end{document}, etc. não devem ser incluídos no arquivo, pois o arquivo será utilizado como parte de um projeto maior que já possui esses elementos.
+- Não copiar a seção de bibliografia do arquivo markdown, pois ela já está no arquivo bibtex ./latex/bibliografia/!!!bibliografia.bib e deve ser referenciada no arquivo LaTeX.
 
 # Diagramas mermaid
 - Os diagramas mermaid devem ser gerados com a sintaxe correta, iniciando com `::: mermaid` e terminando com `:::` para delimitar o bloco de código.
+- Os diagramas mermaid inseridos no markdown também tem que ser gravados no arquivo .mmd na pasta `estudo/mermaid/`, 1 arquivo para cada diagrama, com o nome `v_999_99_nome_do_diagrama.mmd`, onde `nome_do_diagrama` é o nome do diagrama em questão, v_999 faz referencia a versão do markdown e 99 o sequencial do diagrama no texto.
+- Os agentes devem criar arquivos .svg para cada diagrama mermaid, usando ferramentas node.js para isso, com o nome `v_999_99_nome_do_diagrama.svg`, onde `nome_do_diagrama` é o nome do diagrama em questão, v_999 faz referencia a versão do markdown e 99 o sequencial do diagrama no texto.
+- Os arquivos .svg devem ser gerados na pasta `estudo/mermaid/svg/`, seguindo a mesma estrutura de nomeação dos arquivos .mmd.
