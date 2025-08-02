@@ -1,0 +1,24 @@
+{
+    "InternalPDFViewer": {
+        "Embedded": true,
+        "File": "zz.pdf/001-Artigo-Francisco.Lima.Figueiredo-espg.pdf"
+    },
+    "Session": {
+        "Bookmarks": [
+        ],
+        "CurrentFile": "001-Artigo-Francisco.Lima.Figueiredo-espg.tex",
+        "FileVersion": 1,
+        "Files": [
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "001-Artigo-Francisco.Lima.Figueiredo-espg.tex",
+                "FirstLine": 50,
+                "FoldedLines": "",
+                "Line": 0
+            }
+        ],
+        "MasterFile": "",
+        "VerticalSplit": false
+    }
+}
