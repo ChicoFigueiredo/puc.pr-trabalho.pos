@@ -1,0 +1,3 @@
+[submodule "repositorio-das"]
+	path = repositorio-das
+	url = git@gitlab.com:teia-caixa/documentos/repositorio-das.git
