@@ -1,0 +1,591 @@
+Texto
+Descrição gerada automaticamente
+Texto
+Descrição gerada automaticamente
+R E S O L U Ç Ã O N° 274/2024 – CONSUN 
+
+ 
+
+ 
+
+ 
+
+APROVA, AD REFERENDUM DO CONSUN, AS 
+DIRETRIZES PARA USO DA INTELIGÊNCIA 
+ARTIFICIAL – IA NA PUCPR, A PARTIR DO 2º 
+SEMESTRE DE 2024. 
+
+ 
+
+ 
+
+ 
+
+O Presidente do Conselho Universitário, no uso 
+de suas atribuições estatutárias e considerando as disposições contidas no § 3° do art. 
+6° do Regimento Geral da PUCPR, 
+
+ 
+
+ 
+
+ 
+
+R E S O L V E: 
+
+ 
+
+ 
+
+ 
+
+Art. 1° Aprovar, ad referendum do CONSUN, as diretrizes para uso da 
+Inteligência Artificial – IA na Pontifícia Universidade Católica do Paraná, a partir do 2º 
+semestre de 2024. 
+
+ 
+
+Art. 2º Fixar a vigência desta Resolução a partir da presente data, revogadas 
+as disposições em contrário. 
+
+ 
+
+ 
+
+Pontifícia Universidade Católica do Paraná, Sala de Sessões do Conselho Universitário, em 
+Curitiba, aos vinte e um dias do mês de agosto de dois e mil e vinte e quatro.Assinatura - ROGERIO RENATO MATEUCCI 
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rogério Renato Mateucci 
+
+PRESIDENTE 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ANEXO 
+
+DIRETRIZES PARA USO DA INTELIGÊNCIA ARTIFICIAL – IA NA PONTIFÍCIA 
+UNIVERSIDADE CATÓLICA DO PARANÁ 
+
+
+Texto
+Descrição gerada automaticamente
+Texto
+Descrição gerada automaticamente 
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DIRETRIZES PARA USO DA 
+INTELIGÊNCIA ARTIFICIAL – IA 
+NA PUCPR 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Agosto de 2024 
+
+ 
+
+
+Texto
+Descrição gerada automaticamente
+Texto
+Descrição gerada automaticamente
+Pontifícia Universidade Católica do Paraná (PUCPR) 
+
+Reitor: Ir. Rogério Renato Mateucci 
+
+Vice-Reitor: Vidal Martins 
+
+Pró-Reitoria de Desenvolvimento Educacional: Ericson Sávio Falabretti 
+
+Pró-Reitoria de Operações Acadêmicas: Andreia Malucelli 
+
+Pró-Reitoria de Pesquisa, Pós-Graduação e Inovação: Paula Cristina Trevilatto 
+
+Pró-Reitoria de Missão, Identidade e Extensão: Fabiano Incerti 
+
+ 
+
+Observatório de Inteligência Artificial no Ensino Superior da PUCPR (OIAES-
+PUCPR) 
+
+ 
+
+Membros do núcleo interno do OIAES: 
+
+Anna Carolina Legroski 
+
+Elisangela Ferretti Manffra 
+
+Ericson Sávio Falabretti 
+
+Murilo Karasinski 
+
+Patrícia Eliane da Rosa Sardeto 
+
+ 
+
+Membros do núcleo estendido do OIAES: 
+
+Airton Rodrigues 
+
+Andreia Malucelli 
+
+Ângela Leitão 
+
+Cinthia Obladen de Almendra Freitas 
+
+Cleybe Hiole Vieira 
+
+
+Emerson Paraíso 
+
+Emilton Lima Júnior 
+
+Érica Regina Takano Natti 
+
+Fernando Augusto Dondeo 
+
+Guilherme Brittes Benitez 
+
+Gustavo Grander 
+
+Júlio César Nievola 
+
+Kleber Bez Birolo Candiotto 
+
+Leonardo Gonçalves 
+
+Luis Fernando Kunii 
+
+Matheus de Lima Goedert 
+
+Míriam Stolses Mazo 
+
+Paulo Otávio Mussi Augusto 
+
+Rafael Sabino Gomes 
+
+Suyane Tolentino de Souza 
+
+Waldemiro Gremski 
+
+ 
+
+Apoio: Creare – Centro de Ensino e Aprendizagem da PUCPR 
+
+ 
+
+
+Texto
+Descrição gerada automaticamente
+Texto
+Descrição gerada automaticamente 
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+SUMÁRIO 
+
+ 
+
+ 
+APRESENTAÇÃO........................................................................................ 5 
+1. 
+PRINCÍPIOS PARA USO DE IA NA PUCPR ....................................... 5 
+2. 
+PRODUÇÃO DE CONTEÚDO COM AUXÍLIO DE IA NA PUCPR ....... 6 
+3. 
+IA E OS PROCESSOS DE ENSINO E APRENDIZAGEM ................... 7 
+4. 
+IA GENERATIVA, PESQUISA CIENTÍFICA E DESENVOLVIMENTO 
+TECNOLÓGICO .................................................................................. 8 
+
+
+ 
+
+ 
+
+ 
+
+
+Texto
+Descrição gerada automaticamente
+Texto
+Descrição gerada automaticamente 
+
+
+DIRETRIZES PARA USO DA INTELIGÊNCIA ARTIFICIAL – IA NA PUCPR 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+APRESENTAÇÃO 
+
+
+ 
+
+Diante da crescente disponibilidade de ferramentas de Inteligência Artificial – 
+IA, a comunidade acadêmica da PUCPR tem manifestado diversos questionamentos e 
+preocupações quanto a seu uso, especialmente no âmbito da pesquisa e do ensino. 
+
+ 
+
+Reconhecendo os potenciais benefícios dessa tecnologia para os processos 
+de ensino, aprendizagem, pesquisa e desenvolvimento, a Universidade considera essencial 
+que seu uso seja pautado por autonomia, responsabilidade, ética, senso crítico e honestidade 
+por parte de professores, estudantes e colaboradores. 
+
+ 
+
+Sendo assim, a PUCPR, desenvolveu o presente documento, cujos objetivos 
+são: 
+
+I - 
+apresentar o posicionamento da Instituição relativo ao uso de ferramentas de IA nos 
+processos de ensino, aprendizagem, pesquisa e desenvolvimento; 
+II - 
+oferecer orientações preliminares sobre procedimentos, processos e boas práticas 
+para o uso de ferramentas de IA, com a possibilidade de futuras alterações decorrentes 
+do diálogo contínuo com a comunidade acadêmica. 
+
+
+ 
+
+Esse documento estabelece, no âmbito da PUCPR: 
+
+I - 
+princípios gerais sobre o uso de ferramentas de IA; 
+II - 
+diretrizes para elaboração de conteúdos, incluindo trabalhos acadêmicos e científicos, 
+com uso de IA; 
+III - 
+diretrizes para o uso de IA nos processos de ensino e aprendizagem; 
+IV - 
+diretrizes para o uso de IA na pesquisa e desenvolvimento. 
+
+
+ 
+
+
+ 
+
+
+1. 
+PRINCÍPIOS PARA USO DE IA NA PUCPR 
+
+
+ 
+
+A utilização da IA no contexto acadêmico deve ser feita em consonância com 
+os Princípios da Graduação da PUCPR1, com a política corporativa de IA do Grupo Marista2, 
+com a Lei Geral de Proteção de Dados – LGPD, com o Regimento Geral da PUCPR e demais 
+documentos regulatórios da Instituição e com as orientações do Magistério da Igreja Católica. 
+
+1 PUCPR. Plano de Desenvolvimento da Graduação: Princípios da Graduação. Disponível 
+em: <https://www.pucpr.br/estatico/pdg/#!/principios-da-graduacao>. Acesso em 28 jun 2024. 
+
+2 The Rome Call for AI Ethics. Disponível em: https://www.romecall.org/wp-
+content/uploads/2022/03/RomeCall_Paper_web.pdf. Acesso em 20/08/2024 
+
+ 
+
+ 
+
+
+Texto
+Descrição gerada automaticamente
+Texto
+Descrição gerada automaticamente
+Adicionalmente, a seleção e o uso de ferramentas de IA devem priorizar 
+aquelas que satisfaçam os seguintes critérios: 
+
+I - 
+Transparência – as políticas dos sistemas de IA devem estar disponíveis para os 
+usuários, além de serem claras e compreensíveis; 
+II - 
+Rastreabilidade – as fontes utilizadas para geração de conteúdos devem ser 
+informadas pela ferramenta; 
+III - 
+Inclusão – a inclusão social e tecnológica deve ser permitida pela ferramenta, que não 
+deve ser motivo de exclusão; 
+IV - 
+Responsabilidade – a responsabilidade sobre os conteúdos gerados e publicados é 
+exclusiva do usuário; 
+V - 
+Não-discriminação – os sistemas e ferramentas de IA devem ter políticas e 
+mecanismos que inibam a geração, promoção e replicação de conteúdos com vieses 
+que gerem ou potencializem qualquer forma de discriminação; 
+VI - 
+Segurança e Privacidade – esses sistemas devem ser usados de forma a respeitar a 
+privacidade dos usuários e a segurança cibernética da Instituição; 
+VII - 
+Centralidade do Ser Humano – os sistemas de IA devem ser usados como apoio ao 
+desenvolvimento cognitivo e socioemocional, à formação integral dos cidadãos e 
+profissionais, colaborando para a imprescindibilidade do ser humano. 
+
+
+ 
+
+
+ 
+
+
+2. 
+PRODUÇÃO DE CONTEÚDO COM AUXÍLIO DE IA NA PUCPR 
+
+
+ 
+
+Ao utilizarem as ferramentas de IA para produção de conteúdo de qualquer 
+natureza os autores: 
+
+I - 
+assumem responsabilidade total e exclusiva pela produção final; 
+II - 
+devem observar a política de uso da ferramenta de IA verificando as implicações legais 
+e éticas antes de sua utilização; 
+III - 
+devem considerar que o uso de ferramentas de IA pode resultar na perda de ineditismo 
+ou autoria do conteúdo, dependendo da política da empresa proprietária da 
+ferramenta; 
+IV - 
+não devem listar ferramentas de IA como coautoras, pois elas não atendem aos 
+critérios de responsabilidade necessários; 
+V - 
+devem revisar os conteúdos gerados pela IA antes de submetê-los a 
+compartilhamento, publicação ou avaliação dentro ou fora da PUCPR; 
+VI - 
+devem assegurar que os conteúdos gerados com IA sejam consistentes e com fontes 
+confiáveis, evitando que essa tecnologia se torne a principal ou única fonte de 
+informação, além de verificar a credibilidade das fontes por ela recomendadas; 
+VII - 
+devem identificar e eliminar qualquer viés, discurso ou linguagem inapropriada e 
+discriminatória presentes nos conteúdos produzidos com a IA; 
+VIII - 
+devem certificar-se de que não haja plágio introduzido por ferramentas de IA nos 
+materiais produzidos; 
+IX - 
+devem declarar explicitamente o uso de qualquer ferramenta de IA incluindo a seguinte 
+declaração padrão nos materiais produzidos: 
+
+
+
+Texto
+Descrição gerada automaticamente
+Texto
+Descrição gerada automaticamente 
+
+
+“Durante a preparação deste [TIPO DE CONTEÚDO], o(s) autor(es) usaram 
+[FERRAMENTA, VERSÃO] para [EXPLICITAR MOTIVOS]. Após usar essa 
+ferramenta, o(s) autor(es) revisaram e editaram o conteúdo conforme necessário 
+e assumem total responsabilidade pelo conteúdo.” 
+
+
+ 
+
+
+ 
+
+
+3. 
+IA E OS PROCESSOS DE ENSINO E APRENDIZAGEM 
+
+
+ 
+
+3.1 
+Cabe a professores e estudantes: 
+
+
+I - 
+respeitar as recomendações do item 2, relativas à produção de conteúdo vinculado 
+aos processos de ensino e aprendizagem tais como: apresentações de slides, planos 
+de ensino, casos, relatórios, projetos, textos de trabalhos de conclusão de cursos, 
+ensaios, redações, provas, peças jurídicas, vídeos, músicas, desenhos técnicos, 
+logotipos, códigos computacionais, entre outros; 
+
+
+Estar ciente que: 
+
+
+a) 
+o uso de imagem e voz de pessoas em atividades e/ou trabalhos acadêmicos, 
+gerados ou alterados com o uso de ferramentas de IA, só deve ser manejado 
+com conhecimento e consentimento expresso da pessoa ali retratada; 
+b) 
+no caso da ferramenta de IA utilizada para gerar vídeos, músicas, desenhos 
+técnicos, logotipos, entre outros, conduzir a uma produção com plágio, os 
+autores ou divulgadores serão os responsáveis, e não a ferramenta. 
+
+
+ 
+
+
+3.2 
+Cabe aos professores: 
+
+
+I - 
+avaliar em que circunstâncias ferramentas de IA podem ou devem ser utilizadas pelos 
+estudantes, considerando os resultados de aprendizagem almejados, as atividades de 
+aprendizagem propostas e os processos avaliativos, exercendo sua autonomia 
+docente; 
+II - 
+orientar os estudantes sobre o uso de ferramentas de IA explicando os critérios de uso, 
+os motivos, o senso crítico necessário, entre outros; 
+III - 
+repensar suas avaliações para que o desempenho dos estudantes não seja 
+mascarado pelo uso de ferramentas de IA; 
+IV - 
+adequar, quando necessário, planos de ensino para que contemplem as mudanças no 
+mundo do trabalho decorrentes da transformação digital associada ao uso de 
+ferramentas de IA nas diversas profissões; 
+V - 
+estabelecer e aplicar, em consonância com o disposto neste documento, 
+consequências acadêmicas para o uso inadequado das ferramentas de IA pelos 
+estudantes, tais como anulação ou redução da nota, declarando-as no plano de 
+ensino. 
+
+
+ 
+
+3.3 
+Cabe aos estudantes: 
+
+
+ 
+
+I - 
+respeitar as decisões e orientações dos professores quanto ao uso de ferramentas de 
+IA para realização de atividades e/ou trabalhos acadêmicos, inclusive nas avaliações 
+formativas e somativas; 
+
+
+
+Texto
+Descrição gerada automaticamente
+Texto
+Descrição gerada automaticamente
+II - 
+na falta de orientações explícitas dos professores, permitindo ou não o uso das 
+ferramentas, os estudantes devem consultar o professor sobre a pertinência do uso 
+para a atividade e/ou trabalho em questão; 
+III - 
+em qualquer circunstância que utilizarem as ferramentas de IA, os estudantes devem 
+fazê-lo de forma ética e honesta, seguindo as diretrizes desse documento e declarando 
+o uso; 
+IV - 
+utilizar as ferramentas de IA com senso crítico, revisando os resultados produzidos 
+antes de incluí-los em suas atividades e/ou trabalhos acadêmicos; 
+V - 
+zelar pelo seu próprio desenvolvimento intelectual, evitando o uso de ferramentas em 
+substituição aos esforços imprescindíveis ao processo de aprendizagem; 
+VI - 
+o uso indevido da IA em atividades e/ou trabalhos acadêmicos se caracteriza como 
+utilização de meio ilícito, passível de sanção disciplinar. 
+
+
+ 
+
+
+ 
+
+
+4. 
+IA GENERATIVA, PESQUISA CIENTÍFICA E DESENVOLVIMENTO TECNOLÓGICO 
+
+
+ 
+
+Na utilização da IA para auxílio à pesquisa e desenvolvimento tecnológico, os 
+pesquisadores devem: 
+
+I - 
+buscar mecanismos de proteção para que dados de pesquisa, projetos, desenhos ou 
+outros tipos de produção intelectual e técnica não tenham seu ineditismo ou autoria 
+comprometidos pelo uso de ferramentas de IA; 
+II - 
+seguir as diretrizes do item 2, na produção e publicação de textos científicos com 
+auxílio de IA; 
+III - 
+ao inserir dados em ferramentas de IA, certificar-se que a LGPD, a política corporativa 
+de IA, a política de privacidade e cibersegurança do Grupo Marista, e a legislação da 
+Ética e Pesquisa com Seres Humanos sejam respeitados; 
+IV - 
+avaliar criticamente os resultados produzidos com auxílio de ferramentas de IA, tais 
+como análises estatísticas, revisões da literatura, meta-análises, entre outros.; 
+V - 
+corrigir distorções, vieses e erros antes de submetê-los à publicação; 
+VI - 
+certificar-se de que não haja plágio introduzido por ferramentas de IA em produções 
+científicas e tecnológicas de sua autoria; 
+VII - 
+responsabilizar-se pelas consequências do uso de ferramentas de IA nas suas 
+pesquisas, configurando utilização de meio ilícito, consoante Regimento Geral da 
+PUCPR, o uso indevido da IA. 
+
+
+ 
+
+
