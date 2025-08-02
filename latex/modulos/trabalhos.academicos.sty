@@ -60,7 +60,7 @@
 		\checkandfixthelayout
 		\flushleft %
 		{\begin{minipage}[c]{\textwidth} \setlength{\parskip}{0cm}
-				\includegraphics[trim={0cm 0cm 0cm 0cm},clip,width=4cm]{modulos/logo-estacio-quadrado-0.pdf} \par
+				\includegraphics[trim={0cm 0cm 0cm 0cm},clip,width=10cm]{./modulos/logo-pucpr-pos.digital.png} \par
 				\SingleSpacing\sffamily\large\bfseries
 				\MakeTextUppercase{\Large\bfseries\sffamily#3} \par
 		\end{minipage}}
@@ -124,14 +124,6 @@
 	\imprimirCapaCustom{CapaAzulUDESC}{TRABALHO DE CONCLUSÃO DE CURSO}{\imprimirinstituicao}
 }
 
-
-% --------------------------------------------------------
-% Capa Padrão UDESC - TCC
-% --------------------------------------------------------
-\newcommand{\imprimircapaArtigo}{%
-	\imprimirCapaCustom{CapaVerdeUDESC}{ARTIGO - TRABALHO DE CONCLUSÃO DE CURSO}{\imprimirinstituicao}
-}
-
 % --------------------------------------------------------
 % Capa Padrão UDESC - Pós-Doc
 % --------------------------------------------------------
@@ -191,31 +183,24 @@
 % --------------------------------------------------------
 % Fontes padroes de part, chapter, section, subsection e subsubsection
 % --------------------------------------------------------
-%
-% Chico: comentado para preservar o padrão do artigo
-%
 % --- Chapter ---
-%\renewcommand{\ABNTEXchapterfont}{\fontseries{b}} %\bfseries
-%\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
-
+\renewcommand{\ABNTEXchapterfont}{\fontseries{b}} %\bfseries
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
 % --- Part ---
-%\renewcommand{\ABNTEXpartfont}{\ABNTEXchapterfont}
-%\renewcommand{\ABNTEXpartfontsize}{\LARGE}
-
+\renewcommand{\ABNTEXpartfont}{\ABNTEXchapterfont}
+\renewcommand{\ABNTEXpartfontsize}{\LARGE}
 % --- Section ---
-%\renewcommand{\ABNTEXsectionfont}{\normalfont}
-%\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
-
+\renewcommand{\ABNTEXsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
 % --- SubSection ---
-%\renewcommand{\ABNTEXsubsectionfont}{\fontseries{b}} %\bfseries
-%\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
-
+\renewcommand{\ABNTEXsubsectionfont}{\fontseries{b}} %\bfseries
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
 % --- SubSubSection ---
-%\renewcommand{\ABNTEXsubsubsectionfont}{\itshape}
-%\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
+\renewcommand{\ABNTEXsubsubsectionfont}{\itshape}
+\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
 
-%\renewcommand{\ABNTEXsubsubsubsectionfont}{\normalfont}
-%\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
+\renewcommand{\ABNTEXsubsubsubsectionfont}{\normalfont}
+\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\normalsize}
 % ---
 
 % --------------------------------------------------------

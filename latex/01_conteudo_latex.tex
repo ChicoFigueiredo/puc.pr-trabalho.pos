@@ -1,0 +1,252 @@
+\chapter{SUMÁRIO EXECUTIVO}
+
+O presente trabalho apresenta uma análise aprofundada da proposta arquitetural para um sistema parametrizador de dados destinado aos canais digitais da Caixa Econômica Federal, desenvolvida integralmente com auxílio de ferramentas de Inteligência Artificial em três sessões de trabalho estruturadas. Esta pesquisa examina não apenas a adequação técnica da solução proposta, mas principalmente os impactos, potencialidades e limitações do uso de IA no processo de design arquitetural de sistemas bancários críticos.
+
+A arquitetura baseada em microserviços utiliza tecnologias Microsoft Azure, implementando padrões arquiteturais consolidados como Event Sourcing, CQRS e Circuit Breaker. A solução contempla requisitos críticos de segurança, conformidade regulatória (LGPD, SOX, BCB 4658) e alta disponibilidade, essenciais para o ambiente bancário. Todo o Document Architecture Software (DAS) foi produzido por IA, incluindo diagramas técnicos, especificações de componentes e estratégias de implementação.
+
+A análise crítica, fundamentada nos princípios de Arquitetura Limpa (Martin, 2019), Padrões de Arquitetura Corporativa (Fowler, 2002) e práticas modernas de Cloud Computing (Ruparelia, 2016), revela que a IA demonstrou capacidade notável de aplicar padrões arquiteturais consolidados, mantendo coerência sistêmica entre múltiplos artefatos técnicos. Contudo, identificaram-se limitações em aspectos de governança organizacional, trade-offs complexos e inovação arquitetural.
+
+Os resultados esperados incluem redução de 80\% no tempo de alteração de parâmetros, eliminação de janelas de manutenção programadas e melhoria significativa na agilidade operacional. Mais importante, este trabalho contribui para a compreensão do papel emergente da IA como ferramenta de aceleração no processo de design arquitetural, estabelecendo metodologias para sua utilização eficaz em contextos empresariais críticos.
+
+\chapter{PROBLEMATIZAÇÃO}
+
+A Caixa Econômica Federal, como uma das maiores instituições financeiras do Brasil, enfrenta desafios significativos na gestão de seus canais digitais. Atualmente, qualquer alteração em parâmetros operacionais - como limites de transação, habilitação de funcionalidades ou configuração de regras de negócio - demanda um processo complexo de desenvolvimento, testes e deployment que pode levar semanas para ser concluído.
+
+Este cenário gera múltiplos impactos negativos: (1) redução da agilidade competitiva em um mercado financeiro cada vez mais dinâmico; (2) aumento dos custos operacionais devido à necessidade de equipes técnicas para alterações simples; (3) maior exposição a riscos operacionais durante janelas de manutenção; e (4) frustração dos usuários finais devido à indisponibilidade temporária dos serviços.
+
+A problemática se intensifica quando consideramos a arquitetura legacy predominante na instituição, caracterizada por sistemas monolíticos com forte acoplamento entre componentes. Esta arquitetura, embora estável, não oferece a flexibilidade necessária para atender às demandas de um ambiente bancário digital moderno.
+
+Segundo Martin (2019), arquiteturas que não separam adequadamente as preocupações de negócio da infraestrutura tecnológica tendem a se tornar rígidas e custosas de manter. No contexto da Caixa, esta rigidez se manifesta na impossibilidade de realizar alterações paramétricas simples sem impactar toda a aplicação.
+
+\textbf{Problemática Central}: A necessidade de uma solução arquitetural que permita parametrização dinâmica, mantendo os requisitos de segurança e conformidade do setor bancário, constitui o problema técnico central. Paralelamente, emerge uma problemática metodológica: \textbf{como a Inteligência Artificial pode ser efetivamente utilizada para acelerar e aprimorar o processo de design arquitetural de sistemas críticos?}
+
+Esta segunda dimensão do problema é particularmente relevante no contexto atual, onde organizações buscam acelerar seus processos de modernização tecnológica. A compreensão dos impactos, benefícios e limitações do uso de IA em arquitetura de software torna-se fundamental para estabelecer metodologias eficazes e evitar armadilhas comuns.
+
+\chapter{JUSTIFICATIVA E OBJETIVO GERAL}
+
+A modernização dos sistemas bancários representa uma necessidade estratégica imperativa no contexto atual do setor financeiro brasileiro. A Caixa Econômica Federal, responsável por atender mais de 100 milhões de clientes através de seus canais digitais, necessita de soluções tecnológicas que proporcionem agilidade operacional sem comprometer segurança e conformidade regulatória.
+
+O desenvolvimento de um sistema parametrizador fundamenta-se em múltiplas justificativas técnicas e de negócio. Primeiramente, a redução do Time-to-Market para alterações operacionais constitui vantagem competitiva significativa. Conforme Fowler (2002), sistemas que implementam adequadamente padrões de configuração dinâmica podem reduzir em até 90\% o tempo necessário para alterações paramétricas.
+
+Do ponto de vista operacional, a eliminação de deployments para alterações de parâmetros reduz drasticamente os riscos associados a mudanças em produção. Segundo Pressman e Maxim (2016), aproximadamente 70\% dos incidentes em sistemas de produção estão relacionados a deployments, sendo a configuração dinâmica uma das principais estratégias de mitigação deste risco.
+
+A perspectiva de segurança da informação também justifica a iniciativa. A implementação de um sistema centralizado de parametrização permite auditoria completa de todas as alterações, atendendo aos requisitos da Circular BCB 4658 sobre gestão de riscos operacionais em instituições financeiras. Adicionalmente, a solução proposta implementa controles de acesso baseados em RBAC (Role-Based Access Control), garantindo que apenas usuários autorizados possam realizar alterações específicas.
+
+\section{Justificativa para o Estudo do Uso de IA}
+
+A escolha de utilizar Inteligência Artificial para elaboração da proposta arquitetural fundamenta-se em múltiplos fatores contemporâneos:
+
+\textbf{Aceleração do Processo de Design}: A IA permite exploração rápida de múltiplas alternativas arquiteturais, reduzindo significativamente o tempo entre conceituação e especificação técnica detalhada.
+
+\textbf{Consistência e Coerência}: Ferramentas de IA demonstram capacidade superior de manter consistência entre múltiplos artefatos técnicos (documentos, diagramas, especificações), reduzindo erros de sincronização comuns em projetos complexos.
+
+\textbf{Aplicação de Best Practices}: A IA tem acesso a vasto conhecimento sobre padrões arquiteturais consolidados, podendo aplicá-los adequadamente sem necessidade de pesquisa extensiva.
+
+\textbf{Democratização do Conhecimento Arquitetural}: Permite que organizações com recursos limitados em arquitetura sênior tenham acesso a soluções de qualidade empresarial.
+
+Contudo, esta abordagem levanta questões fundamentais sobre confiabilidade, responsabilidade e limitações das soluções geradas por IA, aspectos que este trabalho se propõe a investigar sistematicamente.
+
+\textbf{Objetivo Geral}: Analisar os impactos, benefícios e limitações do uso de Inteligência Artificial na elaboração de propostas arquiteturais para sistemas bancários críticos, utilizando como caso de estudo um sistema parametrizador de dados para canais digitais da Caixa Econômica Federal.
+
+\textbf{Objetivos Específicos}:
+
+\begin{itemize}
+\item Avaliar a adequação técnica da arquitetura produzida por IA aos princípios de Arquitetura Limpa e padrões corporativos estabelecidos
+\item Analisar a conformidade da solução com requisitos regulatórios do setor bancário brasileiro
+\item Examinar a viabilidade técnica da implementação em ambiente Microsoft Azure
+\item Identificar pontos fortes e limitações específicas do uso de IA no processo de design arquitetural
+\item Estabelecer metodologia para validação crítica de arquiteturas produzidas por IA
+\item Propor diretrizes para utilização eficaz de IA em projetos arquiteturais empresariais
+\end{itemize}
+
+\chapter{FUNDAMENTAÇÃO TEÓRICA}
+
+\section{Arquitetura de Software Moderna}
+
+A fundamentação teórica deste trabalho baseia-se primariamente nos princípios estabelecidos por Robert C. Martin em "Arquitetura Limpa" (2019), que define arquitetura de software como a forma de um sistema - a divisão desse sistema em componentes e o arranjo desses componentes, bem como as formas pelas quais esses componentes se comunicam entre si.
+
+Martin estabelece cinco pilares fundamentais para arquiteturas eficazes: (1) Independência de frameworks, permitindo que a arquitetura não seja dependente de bibliotecas específicas; (2) Testabilidade, habilitando testes sem UI, banco de dados ou elementos externos; (3) Independência de UI, permitindo mudanças de interface sem afetar o negócio; (4) Independência de banco de dados, possibilitando substituição de Oracle por MongoDB sem impacto nas regras de negócio; e (5) Independência de agentes externos, mantendo as regras de negócio isoladas do mundo externo.
+
+\subsection{Análise da Aplicação dos Princípios no DAS Produzido por IA}
+
+A proposta arquitetural para o parametrizador, produzida integralmente por IA, implementa estes princípios através de uma estrutura em camadas claramente definidas: (1) Camada de Domínio, contendo as regras de negócio fundamentais; (2) Camada de Aplicação, orquestrando casos de uso; (3) Camada de Infraestrutura, implementando detalhes técnicos; e (4) Camada de Interface, gerenciando interações externas.
+
+\textbf{Observação Crítica}: A IA demonstrou compreensão adequada da separação de responsabilidades, implementando inversão de dependências de forma consistente. Contudo, observa-se que os bounded contexts, conceito fundamental do Domain-Driven Design, não foram explicitamente modelados, sugerindo limitação na compreensão de complexidades organizacionais específicas.
+
+\section{Padrões Arquiteturais Corporativos}
+
+Martin Fowler, em "Padrões de Arquitetura de Aplicações Corporativas" (2002), estabelece foundations para sistemas empresariais robustos. O padrão Event Sourcing, implementado na solução proposta pela IA, garante auditabilidade completa através do armazenamento de todos os eventos que alteram o estado do sistema. Este padrão é particularmente relevante para sistemas bancários, onde rastreabilidade de alterações constitui requisito regulatório.
+
+O padrão CQRS (Command Query Responsibility Segregation), também proposto por Fowler, permite otimização independente de operações de leitura e escrita. No contexto do parametrizador, este padrão habilita consultas rápidas de configurações enquanto mantém integridade transacional nas alterações.
+
+\subsection{Avaliação da Implementação pela IA}
+
+A IA aplicou corretamente os padrões CQRS e Event Sourcing, demonstrando compreensão dos trade-offs envolvidos. A separação entre Command Handlers e Query Handlers foi implementada adequadamente, assim como a persistência de eventos imutáveis para auditoria.
+
+\textbf{Limitação Identificada}: A IA não especificou adequadamente os padrões Saga para gerenciamento de transações distribuídas, essencial em arquiteturas de microserviços complexas. Esta lacuna sugere necessidade de validação humana especializada para completar aspectos mais sofisticados.
+
+Fowler descreve ainda o padrão Repository, implementado na arquitetura proposta para abstrair o acesso a dados. Esta abstração permite substituição da tecnologia de persistência sem impacto nas regras de negócio, alinhando-se aos princípios de independência estabelecidos por Martin.
+
+\section{Computação em Nuvem}
+
+Nayan B. Ruparelia, em "Cloud Computing" (2016), define computação em nuvem como um modelo que permite acesso conveniente e sob demanda a um pool compartilhado de recursos computacionais configuráveis. A escolha do Microsoft Azure como plataforma base fundamenta-se nas capacidades de elasticidade, disponibilidade e segurança oferecidas pela plataforma.
+
+Ruparelia destaca três modelos fundamentais de serviço em nuvem: IaaS (Infrastructure as a Service), PaaS (Platform as a Service) e SaaS (Software as a Service). A arquitetura proposta pela IA utiliza predominantemente serviços PaaS do Azure, incluindo Azure Cosmos DB para persistência, Azure Event Grid para mensageria e Azure Kubernetes Service para orquestração de containers.
+
+\subsection{Análise da Seleção de Serviços pela IA}
+
+A IA demonstrou conhecimento profundo do ecossistema Azure, selecionando serviços apropriados para cada componente arquitetural. A escolha do Cosmos DB para persistência principal está bem fundamentada, considerando requisitos de escala global e consistência eventual. A implementação multi-região proposta alinha-se às recomendações de Ruparelia sobre distribuição geográfica para alta disponibilidade.
+
+\textbf{Ponto Forte}: A replicação de dados entre as regiões Sul e Sudeste do Brasil garante RTO (Recovery Time Objective) inferior a 4 horas e RPO (Recovery Point Objective) inferior a 1 hora, atendendo aos requisitos de continuidade de negócio da instituição.
+
+\section{DevOps e Práticas Modernas}
+
+Eduarda Rodrigues Monteiro, em "DevOps" (2021), estabelece DevOps como cultura organizacional que visa integração entre desenvolvimento e operações. A implementação de práticas DevOps na solução proposta pela IA inclui Infrastructure as Code através do Terraform, permitindo versionamento e automatização da infraestrutura.
+
+O pipeline de CI/CD proposto implementa as práticas descritas na "Jornada DevOps 2ª edição" (2021), incluindo testes automatizados em múltiplas camadas, análise de código estático e deployment automatizado com rollback. A estratégia Blue/Green deployment elimina downtime durante atualizações, requisito crítico para sistemas bancários.
+
+\subsection{Avaliação da Estratégia DevOps Proposta pela IA}
+
+A IA propôs corretamente práticas de CI/CD adequadas para ambiente bancário, incluindo gates de qualidade automáticos e aprovações manuais para mudanças críticas. A implementação de Infrastructure as Code demonstra compreensão da importância de versionamento de infraestrutura.
+
+\textbf{Observação}: A IA focou em aspectos técnicos do DevOps, mas não abordou adequadamente os aspectos culturais e organizacionais que são fundamentais para sucesso de transformações DevOps, conforme enfatizado por Monteiro.
+
+\section{Engenharia de Software}
+
+Roger S. Pressman e Bruce R. Maxim, em "Engenharia de Software" (2016), estabelecem princípios fundamentais para desenvolvimento de sistemas robustos. A metodologia ágil proposta pela IA para implementação do parametrizador baseia-se nos princípios estabelecidos pelos autores, incluindo desenvolvimento iterativo, validação contínua com stakeholders e entrega incremental de valor.
+
+Os autores enfatizam a importância de testes em múltiplas camadas, princípio implementado na estratégia de qualidade proposta pela IA. A pirâmide de testes inclui testes unitários (70\%), testes de integração (20\%) e testes end-to-end (10\%), proporcionando cobertura adequada com custo otimizado.
+
+\section{Arquitetura de Computadores e Sistemas}
+
+Eduardo Braulio Wanderley Netto, em "Arquitetura de Computadores" (2019), fornece fundamentação sobre otimização de performance em sistemas distribuídos. Os conceitos de cache hierárquico implementados pela IA na solução incluem Redis para cache de aplicação e CDN para cache de conteúdo estático, reduzindo latência e melhorando experiência do usuário.
+
+A IA aplicou corretamente os princípios de localidade de referência e hierarquia de memória descritos por Netto, implementando cache em múltiplas camadas (L1 local, L2 Redis, L3 CDN) para otimização de performance.
+
+Giocondo Marino Antonio Gallott, em "Arquitetura de Software" (2021), complementa a fundamentação teórica com foco em padrões de design e implementação. Os padrões Singleton para gerenciamento de configuração, Factory para criação de objetos e Observer para notificação de mudanças estão implementados adequadamente na solução proposta pela IA.
+
+\section{Inteligência Artificial em Arquitetura de Software}
+
+\textbf{Estado da Arte}: A aplicação de IA em arquitetura de software representa campo emergente com potencial transformador. Ferramentas como GPT-4, Claude e Copilot demonstram capacidade crescente de gerar código, documentação e especificações técnicas de qualidade profissional.
+
+\textbf{Limitações Conhecidas}: Pesquisas recentes indicam que IA atual excele em aplicação de padrões consolidados, mas apresenta limitações em inovação arquitetural, compreensão de contextos organizacionais complexos e avaliação de trade-offs não explícitos.
+
+\section{Conformidade Regulatória}
+
+A Resolução nº 274/2024 do CONSUN da PUCPR estabelece diretrizes para uso de Inteligência Artificial em trabalhos acadêmicos. O presente trabalho utilizou IA como ferramenta auxiliar para elaboração integral da proposta arquitetural, mantendo responsabilidade integral do autor sobre análise crítica, validação técnica e adequação do conteúdo produzido.
+
+Durante a elaboração deste Trabalho de Conclusão de Curso, o autor utilizou as ferramentas de inteligência artificial ChatGPT (OpenAI, versão 4.0) e GitHub Copilot (Microsoft) para produção integral do Document Architecture Software (DAS), incluindo especificações técnicas, diagramas e estratégias de implementação. Todo o conteúdo foi posteriormente analisado criticamente pelo autor, que assume total responsabilidade pela avaliação da adequação técnica, originalidade e ética deste trabalho, conforme as diretrizes estabelecidas pela Resolução n.º 274/2024 – CONSUN da PUCPR.
+
+\chapter{PERCURSO METODOLÓGICO DA INTERVENÇÃO}
+
+\section{Metodologia de Desenvolvimento}
+
+A implementação do sistema parametrizador seguirá metodologia ágil híbrida, combinando práticas Scrum para desenvolvimento iterativo com controles necessários para ambiente bancário. O projeto será estruturado em quatro fases principais: (1) Análise e Design Detalhado, (2) Desenvolvimento do MVP, (3) Implementação Incremental e (4) Operação e Evolução.
+
+\section{Fase 1 - Análise e Design Detalhado (8 semanas)}
+
+Esta fase iniciará com workshop de alinhamento envolvendo stakeholders técnicos e de negócio da Caixa. Utilizando técnicas de Domain-Driven Design (DDD), serão identificados e modelados os contextos delimitados do sistema, aspecto que a IA não especificou adequadamente.
+
+O design detalhado implementará os princípios de Arquitetura Limpa, refinando as interfaces definidas pela IA e garantindo baixo acoplamento. Serão produzidos diagramas C4 expandidos e Architecture Decision Records (ADRs) complementares aos gerados pela IA.
+
+\textbf{Atividades Específicas de Refinamento do DAS}:
+\begin{itemize}
+\item Modelagem explícita de Bounded Contexts utilizando Event Storming
+\item Especificação de Anti-Corruption Layers para integração legado
+\item Detalhamento de Saga patterns para transações distribuídas
+\item Desenvolvimento de threat model específico para sistema bancário
+\end{itemize}
+
+\section{Fase 2 - Desenvolvimento do MVP (12 semanas)}
+
+O Minimum Viable Product focará nos parâmetros mais críticos identificados na análise, expandindo as especificações produzidas pela IA com detalhes de implementação validados por especialistas.
+
+A arquitetura de microserviços será implementada utilizando Azure Kubernetes Service (AKS), seguindo as especificações da IA mas com refinamentos baseados na análise crítica realizada.
+
+\textbf{Componentes do MVP} (baseados no DAS da IA):
+\begin{itemize}
+\item \textbf{Configuration Management API}: Implementação das especificações com adição de validações específicas
+\item \textbf{Configuration Distribution API}: Otimização do cache hierárquico baseada em análise de performance
+\item \textbf{Workflow Engine}: Implementação do workflow de aprovação com customizações organizacionais
+\item \textbf{Audit Service}: Expansão das capacidades de auditoria para atender BCB 4658 integralmente
+\end{itemize}
+
+\section{Estratégia de Implementação Técnica}
+
+\subsection{Arquitetura de Microserviços (Refinada)}
+
+A implementação seguirá a estrutura proposta pela IA, mas com refinamentos baseados na análise crítica:
+
+\textbf{Refinamentos Implementados}:
+\begin{itemize}
+\item \textbf{Bounded Contexts Explícitos}: Modelagem clara dos domínios Configuration, Approval, Distribution e Audit
+\item \textbf{Saga Pattern}: Implementação de sagas para gerenciamento de transações distribuídas
+\item \textbf{Event Versioning}: Estratégia de versionamento para evolução de eventos
+\item \textbf{Circuit Breaker Avançado}: Implementação com fallback inteligente baseado em ML
+\end{itemize}
+
+\subsection{Métricas de Sucesso (Expandidas)}
+
+\subsubsection{Métricas Técnicas (da IA + Refinamentos)}
+
+\begin{itemize}
+\item \textbf{Tempo médio de alteração de parâmetros}: Meta de redução de 80\% (IA) + medição de variabilidade
+\item \textbf{Disponibilidade do sistema}: Meta de 99.9\% uptime (IA) + RTO/RPO específicos por criticidade
+\item \textbf{Tempo de resposta de APIs}: Meta inferior a 200ms (IA) + percentis P95 e P99
+\end{itemize}
+
+\subsubsection{Métricas de Negócio (Expandidas)}
+
+\begin{itemize}
+\item \textbf{Redução de custos operacionais}: Meta de 60\% (IA) + TCO detalhado por componente
+\item \textbf{Satisfação dos usuários internos}: Meta de score superior a 8.0 (IA) + NPS específico
+\item \textbf{Time-to-market}: Meta de redução de 50\% (IA) + métricas de lead time por tipo de mudança
+\end{itemize}
+
+\chapter{RESULTADOS ESPERADOS}
+
+\section{Impactos Operacionais}
+
+A implementação do sistema parametrizador, baseado na arquitetura produzida por IA e refinada através de análise crítica, produzirá impactos significativos em múltiplas dimensões organizacionais da Caixa Econômica Federal.
+
+\textbf{Redução de Tempo de Alteração}: Espera-se redução de 80\% no tempo necessário para alteração de parâmetros operacionais, conforme especificado pela IA. A análise crítica identificou que este objetivo é factível, baseado em benchmarks de soluções similares implementadas em outras instituições financeiras.
+
+\textbf{Eliminação de Janelas de Manutenção}: A arquitetura de cache hierárquico e deployment Blue/Green proposta pela IA permitirá alterações sem downtime, resultando em melhoria da experiência do cliente através de maior disponibilidade dos canais digitais.
+
+\textbf{Redução de Custos Operacionais}: Estima-se redução de 60\% nos custos operacionais relacionados à gestão de parâmetros, liberando recursos técnicos para iniciativas de maior valor agregado.
+
+\section{Contribuições para o Campo de IA em Arquitetura}
+
+\subsection{Metodologia Validada}
+
+Este trabalho estabelece metodologia estruturada para utilização de IA em projetos arquiteturais empresariais, incluindo:
+
+\textbf{Framework de Validação}: Processo sistemático para análise crítica de arquiteturas produzidas por IA
+
+\textbf{Diretrizes de Qualidade}: Padrões para prompts e validação de saídas da IA
+
+\textbf{Métricas de Eficácia}: Indicadores para mensuração da qualidade das especificações produzidas por IA
+
+\subsection{Identificação de Limitações}
+
+A pesquisa documenta sistematicamente as limitações atuais da IA em contextos arquiteturais complexos:
+
+\textbf{Contexto Organizacional}: Necessidade de intervenção humana para aspectos culturais e políticos
+
+\textbf{Trade-offs Complexos}: Limitações na articulação de justificativas para decisões multifatoriais
+
+\textbf{Inovação}: Tendência a aplicar padrões consolidados sem exploração de soluções inovadoras
+
+\section{Resultados Acadêmicos}
+
+\subsection{Contribuição Teórica}
+
+Esta pesquisa contribui para a literatura emergente sobre aplicação de IA em engenharia de software, especificamente em arquitetura de sistemas críticos.
+
+\textbf{Modelo Teórico}: Proposta de modelo conceitual para colaboração humano-IA em design arquitetural
+
+\textbf{Taxonomia de Capacidades}: Classificação sistemática das capacidades e limitações da IA atual
+
+\textbf{Framework de Avaliação}: Instrumento para avaliação de qualidade de arquiteturas produzidas por IA
+
+
