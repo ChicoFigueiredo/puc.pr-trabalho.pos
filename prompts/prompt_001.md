@@ -25,3 +25,11 @@ Reuna a equipe de novo com as seguintes novas diretrizes
 ----
 
 Tem como transferir o conteúdo #file:v_003_trabalho-pos-puc-pr.md traduzindo para o latex e inserir o conteúdo em #file:01_conteudo_latex.tex respeitando as seções como o trabalho pede
+
+----
+# Versão 3
+Reuna a equipe de novo com as seguintes novas diretrizes:
+- O trabalho está sensacional, mas pediram para enxugar 2 ou 3 páginas.
+- Logo, façam uma sessão de debates e discussão para enxugar as partes menos importantes
+- Aproveitem e façam uma revisão geral do conteúdo, focando na leitura de quem for avaliar o trabalho
+- Faça sessões de debates profundos e escreva a versão 4 em v_004_trabalho-pos-puc-pr.md e sua respectiva ata a partir de #file:v_003_trabalho-pos-puc-pr.md  atendendo aos pedidos acima

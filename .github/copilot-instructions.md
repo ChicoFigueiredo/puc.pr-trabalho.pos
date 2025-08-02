@@ -80,3 +80,16 @@ Descrição dos resultados frente ao percurso do plano de ação planejado. Meia
 - Não mexer nos arquivos que estão na pasta ./repositorio-das, pois eles são de outro projeto e são só leitura.
 - ignorar os arquivos que estão na pasta ./lixeira, pois eles foram descartados e não devem ser utilizados.
 - Salvo pedido em contrário, ignorar os arquivos que estão na pasta ./prompts, pois eles são meus controles de pedido.
+
+
+# Geração do arquivo latex
+- Caso seja pedido a conversão do conteúdo do trabalho para LaTeX, deve ser gerado um arquivo na pasta `latex/` com o nome `01_conteudo_latex.tex`.
+- Deve ser gerado um arquivo LaTeX na pasta `latex/` com o nome `01_conteudo_latex.tex`, que deve conter o conteúdo do trabalho de pós-graduação formatado com a seguinte estrutura:
+    - \chapter
+    - \section
+    - \subsection
+- O arquivo LaTeX deve ser gerado com base no conteúdo do arquivo Markdown, seguindo a mesma estrutura e formatação.
+- Demais elementos do latex, como \documentclass, \usepackage, \begin{document}, \end{document}, etc. não devem ser incluídos no arquivo, pois o arquivo será utilizado como parte de um projeto maior que já possui esses elementos.
+
+# Diagramas mermaid
+- Os diagramas mermaid devem ser gerados com a sintaxe correta, iniciando com `::: mermaid` e terminando com `:::` para delimitar o bloco de código.

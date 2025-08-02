@@ -47,3 +47,14 @@ Deverão apresentar apenas as referências utilizadas no texto. As referências,
 - Para cada novo arquivo gerado, deve ser mantida a mesma estrutura e formatação do arquivo anterior, garantindo a consistência do trabalho.
 - Para cada novo arquivo, deve ser criado um novo arquivo de ata na pasta `estudo/atas/`, com o nome `ata_v_999_trabalho-pos-puc-pr.md`, onde 999 é o mesmo número sequencial do arquivo do trabalho, contendo todas as mudanças e sugestões coletadas na discussão.
 
+# Geração do arquivo latex
+- Caso seja pedido a conversão do conteúdo do trabalho para LaTeX, deve ser gerado um arquivo na pasta `latex/` com o nome `01_conteudo_latex.tex`.
+- Deve ser gerado um arquivo LaTeX na pasta `latex/` com o nome `01_conteudo_latex.tex`, que deve conter o conteúdo do trabalho de pós-graduação formatado com a seguinte estrutura:
+    - \chapter
+    - \section
+    - \subsection
+- O arquivo LaTeX deve ser gerado com base no conteúdo do arquivo Markdown, seguindo a mesma estrutura e formatação.
+- Demais elementos do latex, como \documentclass, \usepackage, \begin{document}, \end{document}, etc. não devem ser incluídos no arquivo, pois o arquivo será utilizado como parte de um projeto maior que já possui esses elementos.
+
+# Diagramas mermaid
+- Os diagramas mermaid devem ser gerados com a sintaxe correta, iniciando com `::: mermaid` e terminando com `:::` para delimitar o bloco de código.
