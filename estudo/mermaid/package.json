@@ -5,9 +5,15 @@
   "main": "generate-svgs.js",
   "scripts": {
     "generate": "node generate-svgs.js",
+    "generate:dark": "node generate-svgs.js dark",
+    "generate:forest": "node generate-svgs.js forest",
+    "generate:neutral": "node generate-svgs.js neutral",
+    "generate:academic": "node generate-svgs.js academic",
+    "generate:default": "node generate-svgs.js default",
     "generate-single": "npx mmdc -i",
     "clean": "rm -rf svg/*.svg",
     "build": "npm run clean && npm run generate",
+    "build:academic": "npm run clean && npm run generate:academic",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["mermaid", "svg", "diagrams", "automation", "trabalho-pos-graduacao"],
