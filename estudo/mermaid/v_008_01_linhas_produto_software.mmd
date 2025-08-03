@@ -1,0 +1,72 @@
+graph TB
+    subgraph "LINHA DE PRODUTO DE SOFTWARE - PARAMETRIZADOR"
+        subgraph "Produto Base"
+            PB1[Core Engine Parametrização]
+            PB2[Auditoria & Compliance]
+            PB3[Segurança Cibernética]
+            PB4[Event Sourcing]
+        end
+        
+        subgraph "Variabilidades por Canal"
+            V1[Mobile Banking]
+            V2[Internet Banking] 
+            V3[ATM Network]
+            V4[Correspondentes]
+        end
+        
+        subgraph "Assets Compartilhados"
+            AC1[Correlation Engine]
+            AC2[Rastreabilidade CMN]
+            AC3[Configuration Manager]
+            AC4[Circuit Breaker]
+        end
+        
+        subgraph "Governança & Evolução"
+            G1[Version Control]
+            G2[Quality Gates]
+            G3[Deployment Pipeline]
+            G4[Monitoring & Analytics]
+        end
+    end
+    
+    subgraph "Conformidade Regulatória"
+        CR1[CMN 4.893/2021]
+        CR2[LGPD]
+        CR3[SOX Controls]
+        CR4[Audit Trail]
+    end
+    
+    PB1 --> V1
+    PB1 --> V2
+    PB1 --> V3
+    PB1 --> V4
+    
+    AC1 --> PB1
+    AC2 --> PB2
+    AC3 --> PB1
+    AC4 --> PB1
+    
+    G1 --> PB1
+    G2 --> V1
+    G2 --> V2  
+    G2 --> V3
+    G2 --> V4
+    G3 --> G1
+    G4 --> G3
+    
+    PB2 --> CR1
+    PB2 --> CR2
+    PB2 --> CR3
+    PB3 --> CR4
+    
+    classDef produto fill:#e1f5fe
+    classDef variabilidade fill:#f3e5f5
+    classDef asset fill:#e8f5e8
+    classDef governanca fill:#fff3e0
+    classDef compliance fill:#ffebee
+    
+    class PB1,PB2,PB3,PB4 produto
+    class V1,V2,V3,V4 variabilidade
+    class AC1,AC2,AC3,AC4 asset
+    class G1,G2,G3,G4 governanca
+    class CR1,CR2,CR3,CR4 compliance

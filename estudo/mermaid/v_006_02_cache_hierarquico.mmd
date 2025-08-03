@@ -1,0 +1,52 @@
+sequenceDiagram
+    participant Client as Cliente Mobile/Web
+    participant CDN as Azure CDN
+    participant Cache_L1 as Cache Redis L1
+    participant Cache_L2 as Cache Redis L2
+    participant API as Parameter API
+    participant DB as Cosmos DB
+    participant Monitor as Application Insights
+    
+    Note over Client, Monitor: Load Balancing Otimizado (Bhowmik, 2017)
+    
+    Client->>CDN: GET /api/parameters/{id}
+    CDN->>CDN: Verifica cache edge (L0)
+    
+    alt Cache CDN Hit
+        CDN-->>Client: Dados cached + TTL
+        CDN->>Monitor: LogCacheHit(edge, responseTime: 50ms)
+    else Cache CDN Miss
+        CDN->>Cache_L1: GET parameter data
+        
+        alt Cache L1 Hit
+            Cache_L1-->>CDN: Dados + TTL restante
+            CDN->>Monitor: LogCacheHit(L1, responseTime: 150ms)
+            CDN-->>Client: Dados cached
+        else Cache L1 Miss
+            Cache_L1->>Cache_L2: GET parameter data
+            
+            alt Cache L2 Hit
+                Cache_L2-->>Cache_L1: Dados + metadata
+                Cache_L1->>Monitor: LogCacheHit(L2, responseTime: 300ms)
+                Cache_L1-->>CDN: Dados refreshed
+                CDN-->>Client: Dados cached
+            else Cache L2 Miss - Database Query
+                Cache_L2->>API: RequestParameter(id)
+                API->>DB: Query parameter
+                DB-->>API: Parameter data + version
+                
+                Note over API, Monitor: Latência Crítica - Sistema Bancário
+                API->>Monitor: LogDatabaseQuery(latency: 800ms)
+                
+                API-->>Cache_L2: Store(data, TTL: 1h)
+                Cache_L2-->>Cache_L1: Forward data
+                Cache_L1-->>CDN: Forward data
+                CDN-->>Client: Fresh data
+                
+                Note over Monitor: Performance Analytics Bhowmik Framework
+                Monitor->>Monitor: AnalyzeLatencyPattern()
+            end
+        end
+    end
+    
+    Note over Client, Monitor: Auto-Scaling Trigger (Horizontal Scaling)

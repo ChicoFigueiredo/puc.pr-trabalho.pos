@@ -1,0 +1,127 @@
+%% Creator: Inkscape 1.4.2 (f4327f4, 2025-05-13), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'v_004_02_cache_hierarquico_svg-tex.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{917.625bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.98242746)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.93829179,0.0269718){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Cosmos DB\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.77482632,0.0269718){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}L2 Cache (Redis)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.6097262,0.0269718){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Distribution API\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.44503474,0.0269718){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}L1 Cache (Memory)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.27993461,0.0269718){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Configuration SDK\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.06170821,0.0269718){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}API Cliente\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.93829179,0.95545566){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Cosmos DB\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.77482632,0.95545566){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}L2 Cache (Redis)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.6097262,0.95545566){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Distribution API\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.44503474,0.95545566){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}L1 Cache (Memory)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.27993461,0.95545566){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Configuration SDK\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.06170821,0.95545566){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}API Cliente\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.25378014,0.73600327){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Latency: ~1ms\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.41806293,0.40662035){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Latency: ~10ms\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.49979567,0.11401716){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Latency: ~50ms\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.05353494,0.58071107){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}alt\end{tabular}}}}%
+    \put(0.52043318,0.57662444){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}[Cache Hit (L2)]\end{tabular}}}}%
+    \put(0.5,0.35185942){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}[Cache Miss (L2)]\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.04536167,0.83816919){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}alt\end{tabular}}}}%
+    \put(0.52043318,0.83408255){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}[Cache Hit (L1)]\end{tabular}}}}%
+    \put(0.5,0.68124234){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}[Cache Miss (L1)]\end{tabular}}}}%
+    \put(0.16959542,0.91663261){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}GetParameter("login.timeout")\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.36166735,0.88067021){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Check local cache\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.36411933,0.80792808){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Return cached value\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.1720474,0.77196567){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Configuration value\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.44340008,0.6591745){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}GET /parameters/login.timeout\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=22]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.69105027,0.6232121){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Check Redis cache\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=23]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.69350225,0.55046996){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Return cached value\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=24]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.44585206,0.51450756){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Configuration value\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=25]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.36166735,0.47854516){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Update local cache\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=26]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.1720474,0.44258275){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Configuration value\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=27]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.772783,0.32979158){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Query parameter\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=28]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.77523498,0.29382918){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Parameter data\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=29]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.69105027,0.25786678){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Update Redis cache\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=30]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.44585206,0.22190437){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Configuration value\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=31]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.36166735,0.18594197){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Update local cache\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=32]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+    \put(0.1720474,0.14997957){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Configuration value\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=33]{v_004_02_cache_hierarquico_svg-tex.pdf}}%
+  \end{picture}%
+\endgroup%

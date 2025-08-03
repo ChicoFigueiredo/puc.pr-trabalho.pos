@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 /**
- * Script para gerar arquivos SVG a partir dos diagramas Mermaid (.mmd)
- * Este script automatiza a criação de SVGs usando @mermaid-js/mermaid-cli
+ * Script para gerar arquivos SVG e PNG (4K) a partir dos diagramas Mermaid (.mmd)
+ * Este script automatiza a criação de SVGs e PNGs usando @mermaid-js/mermaid-cli
  * 
- * Uso: node generate-svgs.js
+ * Uso: node generate-svgs.js [tema]
  * 
  * O script:
  * 1. Procura todos os arquivos .mmd na pasta atual
  * 2. Gera arquivos .svg correspondentes na pasta svg/
- * 3. Usa tema escuro e fundo transparente para melhor integração
+ * 3. Gera arquivos .png em 4K correspondentes na pasta png/
+ * 4. Usa tema escuro e fundo transparente para melhor integração
  */
 
 const { execSync } = require('child_process');
@@ -17,7 +18,16 @@ const path = require('path');
 
 // Configurações
 const INPUT_DIR = './';
-const OUTPUT_DIR = './svg/';
+const SVG_OUTPUT_DIR = './svg/';
+const PNG_OUTPUT_DIR = './png/';
+
+// Configurações 4K para PNG
+const PNG_4K_CONFIG = {
+    width: 3840,    // 4K width
+    height: 2160,   // 4K height
+    scale: 4,       // Alta escala para qualidade superior
+    quality: 100    // Qualidade máxima
+};
 
 // Opções de tema disponíveis: 'default', 'forest', 'dark', 'neutral'
 const THEME_OPTIONS = {
@@ -29,8 +39,8 @@ const THEME_OPTIONS = {
 };
 
 // Configuração atual (pode ser alterada via parâmetro)
-const CURRENT_THEME = process.argv[2] || 'dark';
-const THEME = THEME_OPTIONS[CURRENT_THEME] || 'dark';
+const CURRENT_THEME = process.argv[2] || 'forest';
+const THEME = THEME_OPTIONS[CURRENT_THEME] || 'forest';
 const BACKGROUND = 'transparent';
 
 // Configurações avançadas de cores para trabalhos acadêmicos
@@ -61,16 +71,22 @@ const MERMAID_CONFIG = {
     }
 };
 
-console.log(`🔄 Iniciando geração de SVGs dos diagramas Mermaid...\n`);
+console.log(`🔄 Iniciando geração de SVGs e PNGs (4K) dos diagramas Mermaid...\n`);
 console.log(`🎨 Tema selecionado: ${CURRENT_THEME} (${THEME})`);
 console.log(`📋 Temas disponíveis: ${Object.keys(THEME_OPTIONS).join(', ')}`);
-console.log(`💡 Uso: node generate-svgs.js [tema]\n`);
+console.log(`�️  Configuração PNG 4K: ${PNG_4K_CONFIG.width}x${PNG_4K_CONFIG.height} (escala ${PNG_4K_CONFIG.scale}x)`);
+console.log(`�💡 Uso: node generate-svgs.js [tema]\n`);
 
 try {
-    // Garantir que a pasta svg existe
-    if (!fs.existsSync(OUTPUT_DIR)) {
-        fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-        console.log(`📁 Pasta ${OUTPUT_DIR} criada.`);
+    // Garantir que as pastas existem
+    if (!fs.existsSync(SVG_OUTPUT_DIR)) {
+        fs.mkdirSync(SVG_OUTPUT_DIR, { recursive: true });
+        console.log(`📁 Pasta ${SVG_OUTPUT_DIR} criada.`);
+    }
+    
+    if (!fs.existsSync(PNG_OUTPUT_DIR)) {
+        fs.mkdirSync(PNG_OUTPUT_DIR, { recursive: true });
+        console.log(`📁 Pasta ${PNG_OUTPUT_DIR} criada.`);
     }
 
     // Criar arquivo de configuração temporário se necessário
@@ -97,41 +113,77 @@ try {
     // Processar cada arquivo
     let successCount = 0;
     let errorCount = 0;
+    let svgCount = 0;
+    let pngCount = 0;
 
     for (const mmdFile of mmdFiles) {
         const inputPath = path.join(INPUT_DIR, mmdFile);
-        const svgFileName = mmdFile.replace('.mmd', '.svg');
-        const outputPath = path.join(OUTPUT_DIR, svgFileName);
+        const baseFileName = mmdFile.replace('.mmd', '');
+        const svgFileName = baseFileName + '.svg';
+        const pngFileName = baseFileName + '.png';
+        const svgOutputPath = path.join(SVG_OUTPUT_DIR, svgFileName);
+        const pngOutputPath = path.join(PNG_OUTPUT_DIR, pngFileName);
+
+        console.log(`🔧 Processando: ${mmdFile}`);
+        console.log(`   📄 SVG: ${svgFileName}`);
+        console.log(`   🖼️  PNG: ${pngFileName} (4K)`);
 
         try {
-            console.log(`🔧 Processando: ${mmdFile} → ${svgFileName}`);
+            // =================== GERAR SVG ===================
+            console.log(`   🎨 Gerando SVG...`);
             
-            // Construir comando com configurações
-            let command = `npx mmdc -i "${inputPath}" -o "${outputPath}" -t ${THEME} -b ${BACKGROUND}`;
+            // Construir comando SVG com configurações
+            let svgCommand = `npx mmdc -i "${inputPath}" -o "${svgOutputPath}" -t ${THEME} -b ${BACKGROUND}`;
             
             // Adicionar configuração personalizada se existir
             if (fs.existsSync(configFile)) {
-                command += ` -c "${configFile}"`;
+                svgCommand += ` -c "${configFile}"`;
             }
             
             // Adicionar configurações de qualidade para trabalhos acadêmicos
             if (CURRENT_THEME === 'academic') {
-                command += ` -w 1200 -H 800 -s 2`; // Maior resolução e escala
+                svgCommand += ` -w 1200 -H 800 -s 2`; // Maior resolução e escala
             }
             
-            console.log(`   💻 Comando: ${command.replace(process.cwd(), '.')}`);
+            // Executar comando SVG
+            execSync(svgCommand, { stdio: 'pipe' });
             
-            // Executar comando (suprimir output para limpeza)
-            execSync(command, { stdio: 'pipe' });
-            
-            // Verificar se o arquivo foi criado
-            if (fs.existsSync(outputPath)) {
-                const stats = fs.statSync(outputPath);
-                console.log(`✅ Sucesso! Arquivo gerado: ${Math.round(stats.size / 1024)}KB`);
-                successCount++;
+            // Verificar se o SVG foi criado
+            if (fs.existsSync(svgOutputPath)) {
+                const svgStats = fs.statSync(svgOutputPath);
+                console.log(`   ✅ SVG criado: ${Math.round(svgStats.size / 1024)}KB`);
+                svgCount++;
             } else {
                 throw new Error('Arquivo SVG não foi criado');
             }
+
+            // =================== GERAR PNG 4K ===================
+            console.log(`   🖼️  Gerando PNG 4K...`);
+            
+            // Construir comando PNG 4K
+            let pngCommand = `npx mmdc -i "${inputPath}" -o "${pngOutputPath}" -t ${THEME} -b ${BACKGROUND}`;
+            
+            // Adicionar configuração personalizada se existir
+            if (fs.existsSync(configFile)) {
+                pngCommand += ` -c "${configFile}"`;
+            }
+            
+            // Configurações específicas para PNG 4K
+            pngCommand += ` -w ${PNG_4K_CONFIG.width} -H ${PNG_4K_CONFIG.height} -s ${PNG_4K_CONFIG.scale}`;
+            
+            // Executar comando PNG
+            execSync(pngCommand, { stdio: 'pipe' });
+            
+            // Verificar se o PNG foi criado
+            if (fs.existsSync(pngOutputPath)) {
+                const pngStats = fs.statSync(pngOutputPath);
+                console.log(`   ✅ PNG 4K criado: ${Math.round(pngStats.size / 1024)}KB`);
+                pngCount++;
+            } else {
+                throw new Error('Arquivo PNG não foi criado');
+            }
+            
+            successCount++;
             
         } catch (error) {
             console.error(`❌ Erro ao processar ${mmdFile}:`, error.message);
@@ -144,9 +196,12 @@ try {
     // Relatório final
     console.log('📊 Relatório Final:');
     console.log(`   🎨 Tema usado: ${CURRENT_THEME} (${THEME})`);
-    console.log(`   ✅ Sucessos: ${successCount}`);
+    console.log(`   ✅ Arquivos processados com sucesso: ${successCount}`);
+    console.log(`   📄 SVGs gerados: ${svgCount}`);
+    console.log(`   🖼️  PNGs 4K gerados: ${pngCount}`);
     console.log(`   ❌ Erros: ${errorCount}`);
-    console.log(`   📁 Arquivos SVG em: ${OUTPUT_DIR}`);
+    console.log(`   📁 Arquivos SVG em: ${SVG_OUTPUT_DIR}`);
+    console.log(`   📁 Arquivos PNG 4K em: ${PNG_OUTPUT_DIR}`);
     
     // Limpar arquivo de configuração temporário
     if (fs.existsSync(configFile)) {
@@ -155,7 +210,7 @@ try {
     }
     
     if (errorCount === 0) {
-        console.log('\n🎉 Todos os diagramas foram convertidos com sucesso!');
+        console.log('\n🎉 Todos os diagramas foram convertidos com sucesso para SVG e PNG 4K!');
     } else {
         console.log('\n⚠️  Alguns diagramas apresentaram erros na conversão.');
         process.exit(1);

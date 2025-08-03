@@ -81,21 +81,48 @@ Descrição dos resultados frente ao percurso do plano de ação planejado. Meia
 - ignorar os arquivos que estão na pasta ./lixeira, pois eles foram descartados e não devem ser utilizados.
 - Salvo pedido em contrário, ignorar os arquivos que estão na pasta ./prompts, pois eles são meus controles de pedido.
 
+# Diagramas mermaid
+- Os diagramas mermaid devem ser gerados com a sintaxe correta, iniciando com `::: mermaid` e terminando com `:::` para delimitar o bloco de código.
+- Os diagramas mermaid inseridos no markdown também tem que ser gravados no arquivo .mmd na pasta `estudo/mermaid/`, 1 arquivo para cada diagrama, com o nome `v_999_99_nome_do_diagrama.mmd`, onde `nome_do_diagrama` é o nome do diagrama em questão, v_999 faz referencia a versão do markdown e 99 o sequencial do diagrama no texto.
+- Os agentes devem criar arquivos .svg para cada diagrama mermaid, usando ferramentas node.js inseridas no #codebase (./estudo/mermaid/generate-svgs.js) sempre com tema forest, com o nome `v_999_99_nome_do_diagrama.svg`, onde `nome_do_diagrama` é o nome do diagrama em questão, v_999 faz referencia a versão do markdown e 99 o sequencial do diagrama no texto.
+- Os arquivos .svg devem ser gerados na pasta `estudo/mermaid/svg/`, seguindo a mesma estrutura de nomeação dos arquivos .mmd.
+- No final, pode substituir no markdown o bloco de código do diagrama mermaid pela imagem SVG, usando a sintaxe `![nome_do_diagrama](./mermaid/svg/v_999_99_nome_do_diagrama.svg)`.
 
 # Geração do arquivo latex
 - Caso seja pedido a conversão do conteúdo do trabalho para LaTeX, deve ser gerado um arquivo na pasta `latex/` com o nome `01_conteudo_latex.tex`.
+- Caso arquivo exista, deve ser renomerado/gerado um novo arquivo com o nome `01_conteudo_latex_v_999.tex`, onde 999 é o número sequencial do arquivo do trabalho de pós-graduação.
 - Deve ser gerado um arquivo LaTeX na pasta `latex/` com o nome `01_conteudo_latex.tex`, que deve conter o conteúdo do trabalho de pós-graduação formatado com a seguinte estrutura:
     - \chapter
     - \section
     - \subsection
 - O arquivo LaTeX deve ser gerado com base no conteúdo do arquivo Markdown, seguindo a mesma estrutura e formatação.
 - Demais elementos do latex, como \documentclass, \usepackage, \begin{document}, \end{document}, etc. não devem ser incluídos no arquivo, pois o arquivo será utilizado como parte de um projeto maior que já possui esses elementos.
+- Copiar os diagramas mermaid gerados nas pastas `estudo/mermaid/svg/` e  `estudo/mermaid/png/` para a pasta `latex/figuras/`, mantendo a mesma estrutura de nomeação dos arquivos .svg e .png.
+- Os diagramas mermaid devem ser referenciados no arquivo LaTeX usando a sintaxe:
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.99\textwidth]{figuras/v_999_99_nome_do_diagrama.png} 
+    \caption{Adicione aqui a legenda do diagrama.}
+    \label{fig:v_999_99_nome_do_diagrama}
+\end{figure}
+onde `v_999_99_nome_do_diagrama` é o nome do diagrama em questão, v_999 faz referencia a versão do markdown e 99 o sequencial do diagrama no texto.
+- Não deve ser incluído o pacote `\usepackage{svg}` no arquivo LaTeX, pois ele já está incluído no projeto maior.
+- O arquivo LaTeX deve ser gerado com a codificação UTF-8, para garantir a compatibilidade com caracteres especiais da língua portuguesa.
+- As citações devem ser formatadas no LaTeX usando o comando `\citeaa{citationkey}`, onde `citationkey` é a chave de citação do arquivo BibTeX correspondente (latex\bibliografia\!!!bibliografia.bib), que deve ser referenciado no arquivo LaTeX.
+- Tente preservar ao máximo os \citeaa{citationkey} já existentes, elas passaram por revisão manual e devem constar de referências reais.
+- Caso o registro não esteja presente no arquivo BibTeX, deve ser criada uma nova entrada com as informações da citação, seguindo o padrão das demais.
+- Com as citações registradas no arquivo, não deve ser necessário incluir uma seção REFERENCIAS, apenas as citações devem ser referenciadas no texto usando o comando `\citeaa{citationkey}`.
+- Certificar se todas as citações estão corretas conforme o arquivo BibTeX correspondente (latex\bibliografia\!!!bibliografia.bib).
+- Evitar de alterar o conteúdo do arquivo BibTeX, a menos que seja necessário adicionar novas referências que não estejam presentes no arquivo, mas tenha certeza que está sincronizado com o conteúdo do trabalho gerado no arquivo markdown.
 
-# Diagramas mermaid
+# Criação do resumo e abstract
+- Ao final de cada rodada de trabalho ser gerado/revisado um arquivo `resumo-trabalho-pt-en.md` na pasta `estudo/` com um resumo de todo trabalho, não superior a 10 linhas, em português e inglês, com a síntese do trabalho.
+- Ao final de cada rodada de trabalho ser gerado/revisado uma lista de palavras-chave em português e inglês, com no máximo até 10 palavras-chave em cada idioma, separadas por vírgula.
+- O título do trabalho deve ser colocado em caixa normal no topo do arquivo `resumo-trabalho-pt-en.md`.
+- No fim do arquivo `resumo-trabalho-pt-en.md`, deve conter uma seção de citações, com o título "Citações", onde deve ser buscado na literatura citações famosas de cientistas renomados e escritores da literatura mundial sobre o tema de Inteligência Artificial, Arquitetura de Software e Desenvolvimento de Sistemas, com no máximo 15 citações, cada uma com o nome do autor e a obra de onde foi retirada. Ao menos 3 deles do século 19 e o restante do século 20 e 21.
 
-# Diagramas mermaid
-- Os diagramas mermaid devem ser gerados com a sintaxe correta, iniciando com `::: mermaid` e terminando com `:::` para delimitar o bloco de código.
-- Os diagramas mermaid inseridos no markdown também tem que ser gravados no arquivo .mmd na pasta `estudo/mermaid/`, 1 arquivo para cada diagrama, com o nome `v_999_99_nome_do_diagrama.mmd`, onde `nome_do_diagrama` é o nome do diagrama em questão, v_999 faz referencia a versão do markdown e 99 o sequencial do diagrama no texto.
-- Os agentes devem criar arquivos .svg para cada diagrama mermaid, usando ferramentas node.js para isso, com o nome `v_999_99_nome_do_diagrama.svg`, onde `nome_do_diagrama` é o nome do diagrama em questão, v_999 faz referencia a versão do markdown e 99 o sequencial do diagrama no texto.
-- Os arquivos .svg devem ser gerados na pasta `estudo/mermaid/svg/`, seguindo a mesma estrutura de nomeação dos arquivos .mmd.
-- No final, pode substituir no markdown o bloco de código do diagrama mermaid pela imagem SVG, usando a sintaxe `![nome_do_diagrama](./mermaid/svg/v_999_99_nome_do_diagrama.svg)`.
+# Revisão manual do latex e transcrição em markdown
+Quando solicitado que leia o arquivo 01_conteudo_latex.tex em minúcia e para transcrição para o markdown refletir o que está no texto após revisão manual, seguir essas instruções:
+- Incluir os gráficos em SVG que estão presentes no documento latex que não estão como imagens, provavelmente elas já estejam na pasta mermaid/svg.
+- Citações latex do tipo \citeaa{citationkey} vá ao arquivo !!!bibliografia.bib e pegue autor e ano a partir da citationkey para transcrever as refererências.
+- Seguir a estrutura markdown definida acima, mantendo a formatação e estrutura do arquivo LaTeX transcrita.

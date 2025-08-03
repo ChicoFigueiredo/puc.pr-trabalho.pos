@@ -1,0 +1,94 @@
+graph TB
+    subgraph "GOVERNANÇA DE SEGURANÇA E VALOR - RUPARELIA 2016"
+        subgraph "Security Governance"
+            SG1[Identity & Access Management]
+            SG2[Data Encryption at Rest/Transit]
+            SG3[Network Security Controls]
+            SG4[Vulnerability Management]
+        end
+        
+        subgraph "Price Models"
+            PM1[Pay-per-Use Resources]
+            PM2[Reserved Instances]
+            PM3[Spot Pricing Strategy]
+            PM4[Multi-Tenant Optimization]
+        end
+        
+        subgraph "Value Models"
+            VM1[TCO Reduction 60%]
+            VM2[Time-to-Market 80% Faster]
+            VM3[Operational Agility]
+            VM4[Risk Mitigation]
+        end
+        
+        subgraph "CMN 4.893/2021 Compliance"
+            CMN1[Rastreabilidade Informação]
+            CMN2[Controles Cibernéticos]
+            CMN3[Auditoria Contínua]
+            CMN4[Gestão de Incidentes]
+        end
+    end
+    
+    subgraph "DEBUGGING SISTEMÁTICO - PRESSMAN 2016"
+        subgraph "Preventive Debugging"
+            PD1[Health Checks Automatizados]
+            PD2[Monitoring Proativo]
+            PD3[Alertas Inteligentes]
+            PD4[Performance Profiling]
+        end
+        
+        subgraph "Quality Metrics"
+            QM1[Índice Manutenibilidade: 0.73]
+            QM2[Taxa Sucesso Deploy: 94%]
+            QM3[MTTR: 1.2 horas]
+            QM4[Complexidade Ciclomática: 8]
+        end
+    end
+    
+    subgraph "ARQUITETURA COMPUTADORES - NETTO 2019"
+        subgraph "Visão Software-Máquina"
+            VSM1[Container Orchestration]
+            VSM2[Resource Allocation]
+            VSM3[CPU/Memory Optimization]
+            VSM4[I/O Performance Tuning]
+        end
+    end
+    
+    SG1 --> CMN1
+    SG2 --> CMN2
+    SG3 --> CMN3
+    SG4 --> CMN4
+    
+    PM1 --> VM1
+    PM2 --> VM1
+    PM3 --> VM1
+    PM4 --> VM2
+    
+    VM2 --> VM3
+    VM3 --> VM4
+    
+    PD1 --> QM1
+    PD2 --> QM2
+    PD3 --> QM3
+    PD4 --> QM4
+    
+    VSM1 --> PD1
+    VSM2 --> PD2
+    VSM3 --> PD3
+    VSM4 --> PD4
+    
+    classDef security fill:#ffebee
+    classDef price fill:#e8f5e8
+    classDef value fill:#e3f2fd
+    classDef compliance fill:#fff3e0
+    classDef debugging fill:#f3e5f5
+    classDef quality fill:#e0f2f1
+    classDef architecture fill:#fce4ec
+    
+    class SG1,SG2,SG3,SG4 security
+    class PM1,PM2,PM3,PM4 price
+    class VM1,VM2,VM3,VM4 value
+    class CMN1,CMN2,CMN3,CMN4 compliance
+    class PD1,PD2,PD3,PD4 debugging
+    class QM1,QM2,QM3,QM4 quality
+    class VSM1,VSM2,VSM3,VSM4 architecture

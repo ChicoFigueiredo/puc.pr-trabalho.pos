@@ -1,0 +1,70 @@
+sequenceDiagram
+    participant Client as 📱 Client App
+    participant LB as ⚖️ Load Balancer
+    participant L1 as 🚀 Cache L1 (Redis)
+    participant L2 as 💾 Cache L2 (Cosmos)
+    participant Config as ⚙️ Config Service
+    participant Monitor as 📊 Azure Monitor
+    participant Security as 🔒 Security Layer
+
+    Note over Client, Security: Cache Hierárquico com Segurança Cibernética<br/>Conformidade Resolução CMN 4.893/2021
+
+    Client->>+Security: Request com autenticação
+    Security->>Security: Validar certificados TLS
+    Note right of Security: Art. 3º, § 2º - Criptografia obrigatória
+    Security-->>Client: Conexão segura estabelecida
+    
+    Client->>+LB: GET /parameters/{id}
+    LB->>+L1: Verificar cache local
+    
+    alt Cache L1 Hit
+        L1-->>LB: ✅ Dados encontrados
+        LB-->>Client: Resposta (latência ~2ms)
+        L1->>+Monitor: Log cache hit L1
+        Monitor-->>L1: Métrica registrada
+    else Cache L1 Miss
+        L1-->>LB: ❌ Cache miss
+        LB->>+L2: Verificar cache distribuído
+        
+        alt Cache L2 Hit
+            L2-->>LB: ✅ Dados encontrados
+            LB->>+L1: Atualizar cache local
+            L1-->>LB: Cache L1 atualizado
+            LB-->>Client: Resposta (latência ~15ms)
+            L2->>+Monitor: Log cache hit L2
+            Monitor-->>L2: Métrica registrada
+        else Cache L2 Miss
+            L2-->>LB: ❌ Cache miss
+            LB->>+Config: Buscar dados origem
+            
+            Config->>+Security: Validar acesso dados sensíveis
+            Security-->>Config: Acesso autorizado RBAC
+            Note right of Security: Art. 12, II, h - Controles de acesso<br/>para proteção de dados
+            
+            Config-->>LB: Dados originais
+            
+            par Atualização cache paralela
+                LB->>+L2: Atualizar cache distribuído
+                L2-->>LB: Cache L2 atualizado
+            and
+                LB->>+L1: Atualizar cache local
+                L1-->>LB: Cache L1 atualizado
+            end
+            
+            LB-->>Client: Resposta (latência ~50ms)
+            Config->>+Monitor: Log cache miss completo
+            Monitor-->>Config: Auditoria registrada
+        end
+    end
+    
+    Monitor->>Monitor: Análise padrões acesso
+    Note right of Monitor: Art. 3º, § 2º - Detecção de anomalias<br/>e prevenção de intrusão
+    
+    alt Padrão suspeito detectado
+        Monitor->>+Security: Alerta segurança
+        Security->>Security: Aplicar circuit breaker
+        Security-->>Monitor: Medidas aplicadas
+        Note right of Security: Proteção proativa contra<br/>softwares maliciosos (Art. 3º, § 2º)
+    end
+    
+    Note over Client, Security: ✅ Conformidade CMN 4.893/2021:<br/>• Criptografia end-to-end<br/>• Controles de acesso RBAC<br/>• Detecção de anomalias<br/>• Auditoria completa<br/>• Segregação de dados

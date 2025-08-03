@@ -4,9 +4,7 @@ O presente trabalho apresenta uma análise aprofundada da proposta arquitetural 
 
 A arquitetura baseada em microserviços utiliza tecnologias Microsoft Azure, implementando padrões arquiteturais consolidados como Event Sourcing, CQRS e Circuit Breaker. A solução contempla requisitos críticos de segurança, conformidade regulatória (LGPD, SOX, Resolução CMN 4.893/2021\footnote{veja \citeaa{BCB_CMN_4893}}) e alta disponibilidade, essenciais para o ambiente bancário. Todo o Document Architecture Software (DAS) foi produzido por IA, incluindo diagramas técnicos, especificações de componentes e estratégias de implementação.
 
-A análise crítica, fundamentada nos princípios de Arquitetura Limpa \citeaa{Martin2019}, Padrões de Arquitetura Corporativa \citeaa{Fowler2008}, práticas modernas de Cloud Computing \citeaa{Ruparelia2016} e fundamentos estabelecidos por \citeaa{Bhowmik2017}, Arquitetura de Software \citeaa{Gallotti2016}, Engenharia de Software \citeaa{Pressman2021}, DevOps \citeaa{Monteiro2021} e fundamentos de Arquitetura de Computadores \citeaa{Netto2006}, revela que a IA demonstrou capacidade notável de aplicar padrões arquiteturais consolidados, mantendo coerência sistêmica entre múltiplos artefatos técnicos. Mais importante, a IA demonstrou \textbf{conformidade proativa} com a Resolução CMN 4.893/2021 sobre segurança cibernética e computação em nuvem, regulamentação que entrou em vigor posteriormente às sessões de trabalho com IA.
-
-A implementação valida métricas de qualidade estabelecidas por \citeaa{Pressman2021}, incluindo índice de manutenibilidade de 0.73 (aceitável) e taxa de sucesso em deployment de 94\%. Os padrões arquiteturais identificados correspondem aos definidos por \citeaa{Gallotti2016}: MVC (Model-View-Controller), Repository Pattern e Pipe-and-Filter, implementados corretamente na proposta da IA. As práticas DevOps incluem Blue-Green deployment e Infrastructure as Code conforme \citeaa{Monteiro2021}.
+A análise crítica, fundamentada nos princípios de Arquitetura Limpa \citeaa{Martin2019}, Padrões de Arquitetura Corporativa \citeaa{Fowler2008}, práticas modernas de Cloud Computing \citeaa{Ruparelia2016} e fundamentos estabelecidos por \citeaa{Bhowmik2017}, revela que a IA demonstrou capacidade notável de aplicar padrões arquiteturais consolidados, mantendo coerência sistêmica entre múltiplos artefatos técnicos. Mais importante, a IA demonstrou \textbf{conformidade proativa} com a Resolução CMN 4.893/2021 sobre segurança cibernética e computação em nuvem, regulamentação que entrou em vigor posteriormente às sessões de trabalho com IA.
 
 Os resultados esperados incluem redução de 80\% no tempo de alteração de parâmetros, eliminação de janelas de manutenção programadas e melhoria significativa na agilidade operacional. Mais importante, este trabalho contribui para a compreensão do papel emergente da IA como ferramenta de aceleração no processo de design arquitetural, estabelecendo metodologias para sua utilização eficaz em contextos empresariais críticos e evidenciando capacidade preditiva em conformidade regulatória.
 
@@ -18,11 +16,9 @@ Este cenário gera múltiplos impactos negativos: (1) redução da agilidade com
 
 A problemática se intensifica quando consideramos a arquitetura legacy predominante na instituição, caracterizada por sistemas monolíticos com forte acoplamento entre componentes. Esta arquitetura, embora estável, não oferece a flexibilidade necessária para atender às demandas de um ambiente bancário digital moderno.
 
-Segundo \citeaa{Martin2019}, arquiteturas que não separam adequadamente as preocupações de negócio da infraestrutura tecnológica tendem a se tornar rígidas e custosas de manter. No contexto da Caixa, esta rigidez se manifesta na impossibilidade de realizar alterações paramétricas simples sem impactar toda a aplicação, violando princípios fundamentais de segurança cibernética como rastreabilidade e controle de mudanças.
+Segundo \citeaa{Martin2019}, arquiteturas que não separam adequadamente as preocupações de negócio da infraestrutura tecnológica tendem a se tornar rígidas e custosas de manter. No contexto da Caixa, esta rigidez se manifesta na impossibilidade de realizar alterações paramétricas simples sem impactar toda a aplicação.
 
-\citeaa{Pressman2021} identificam que aproximadamente \textbf{70\% dos incidentes em sistemas de produção estão relacionados a deployments}, sendo a configuração dinâmica uma estratégia essencial para mitigação destes riscos. A análise de risco quantitativa sugere que sistemas com alta frequência de deployment apresentam probabilidade 3.2x maior de incidentes críticos, validando a necessidade de parametrização sem deployment.
-
-\textbf{Problemática Central}: A necessidade de uma solução arquitetural que permita parametrização dinâmica, mantendo os requisitos de segurança cibernética e conformidade com a Resolução CMN 4.893/2021, constitui o problema técnico central. Paralelamente, emerge uma problemática metodológica: \textbf{como a Inteligência Artificial pode ser efetivamente utilizada para acelerar e aprimorar o processo de design arquitetural de sistemas críticos, demonstrando até mesmo capacidade preditiva de conformidade regulatória?}
+\textbf{Problemática Central}: A necessidade de uma solução arquitetural que permita parametrização dinâmica, mantendo os requisitos de segurança e conformidade do setor bancário, constitui o problema técnico central. Paralelamente, emerge uma problemática metodológica: \textbf{como a Inteligência Artificial pode ser efetivamente utilizada para acelerar e aprimorar o processo de design arquitetural de sistemas críticos?}
 
 Esta segunda dimensão do problema é particularmente relevante no contexto atual, onde organizações buscam acelerar seus processos de modernização tecnológica. A compreensão dos impactos, benefícios e limitações do uso de IA em arquitetura de software torna-se fundamental para estabelecer metodologias eficazes e evitar armadilhas comuns.
 
@@ -66,8 +62,6 @@ A proposta arquitetural produzida pela IA implementa estes princípios através 
 
 Martin Fowler, em ``Padrões de Arquitetura de Aplicações Corporativas'' \citeaa{Fowler2008}, estabelece as fundações para sistemas empresariais robustos. Os padrões Event Sourcing e CQRS, implementados na solução proposta pela IA, garantem auditabilidade completa e otimização independente de operações de leitura e escrita. A IA aplicou corretamente estes padrões, demonstrando compreensão dos trade-offs envolvidos, mas não especificou adequadamente os padrões Saga para gerenciamento de transações distribuídas.
 
-\citeaa{Gallotti2016} expande esta discussão ao abordar \textbf{linhas de produto de software}, conceito fundamental para maximizar a reutilização de componentes arquiteturais. Segundo o autor, "linhas de produto permitem que organizações desenvolvam famílias de sistemas relacionados de forma mais eficiente, reduzindo custos e time-to-market". Esta abordagem é particularmente relevante para o parametrizador, que pode ser adaptado para diferentes contextos dentro da Caixa.
-
 \section{Tecnologias Cloud e Virtualização}
 
 \citeaa{Bhowmik2017} identifica \textbf{virtualização} como um dos conceitos fundamentais do cloud computing, juntamente com \textbf{scaling} e \textbf{Service Oriented Architecture}. A solução proposta pela IA utiliza extensivamente virtualização através de containers Kubernetes e máquinas virtuais Azure, demonstrando aplicação correta dos princípios estabelecidos.
@@ -75,10 +69,6 @@ Martin Fowler, em ``Padrões de Arquitetura de Aplicações Corporativas'' \cite
 O conceito de \textbf{scaling} descrito por \citeaa{Bhowmik2017} - diferenciando \textbf{vertical scaling} (scale up) e \textbf{horizontal scaling} (scale out) - foi implementado corretamente pela IA através de auto-scaling políticas no Azure Kubernetes Service, priorizando horizontal scaling como abordagem mais cloud-native.
 
 Nayan B. Ruparelia, em ``Cloud Computing'' \citeaa{Ruparelia2016}, define computação em nuvem como modelo que permite acesso conveniente e sob demanda a recursos computacionais configuráveis. A arquitetura proposta pela IA utiliza predominantemente serviços PaaS do Azure, incluindo Cosmos DB, Event Grid e Kubernetes Service, demonstrando conhecimento profundo do ecossistema e seleção apropriada para cada componente arquitetural.
-
-\citeaa{Ruparelia2016} detalha os \textbf{modelos de preço e valor} em cloud computing, identificando três características fundamentais: \textbf{elasticidade} (capacidade de escalar recursos dinamicamente), \textbf{multitenancy} (compartilhamento eficiente de recursos) e \textbf{pay-per-use} (modelo de cobrança baseado no consumo real). O autor apresenta framework para avaliação de ROI que considera não apenas custos diretos, mas também benefícios indiretos como agilidade e redução de riscos, com organizações alcançando redução de TCO de até 45\% em comparação com infraestruturas tradicionais.
-
-\citeaa{Netto2006} aborda a \textbf{visão do software sobre a máquina}, conceito fundamental para compreender como aplicações devem ser projetadas para tirar máximo proveito da infraestrutura cloud. O autor enfatiza que "a arquitetura de software moderna deve considerar as características específicas da infraestrutura de execução, incluindo aspectos de virtualização, containerização e orquestração".
 
 Eduarda Rodrigues Monteiro, em ``DevOps'' \citeaa{Monteiro2021}, estabelece DevOps como cultura organizacional de integração entre desenvolvimento e operações. A IA propôs corretamente práticas de CI/CD adequadas para ambiente bancário, incluindo Infrastructure as Code, testes automatizados e deployment Blue/Green. Contudo, não abordou adequadamente os aspectos culturais e organizacionais fundamentais para transformações DevOps.
 
@@ -98,24 +88,13 @@ A Resolução CMN 4.893/2021 estabelece requisitos abrangentes para política de
 
 A implementação centralizada de parametrização permite auditoria completa, atendendo aos requisitos de rastreabilidade estabelecidos no Art. 3º, III. A solução implementa controles RBAC, criptografia end-to-end e segregação de funções para conformidade com os procedimentos e controles especificados no Art. 3º, § 2º, incluindo autenticação, criptografia, prevenção de intrusão e controles de acesso.
 
-Durante a elaboração deste Trabalho de Conclusão de Curso, o autor utilizou as ferramentas de inteligência artificial ChatGPT (OpenAI, versão 4.0) e GitHub Copilot (Microsoft) para produção integral do Document Architecture Software (DAS), incluindo especificações técnicas, diagramas e estratégias de implementação. Todo o conteúdo foi posteriormente analisado criticamente pelo autor, que assume total responsabilidade pela avaliação da adequação técnica, originalidade e ética deste trabalho, conforme as diretrizes estabelecidas pela Resolução n.º 274/2024 – CONSUN da PUCPR\footnote{Vide fonte \citeaa{PUCPR2024IA}}.
+Durante a elaboração deste Trabalho de Conclusão de Curso, o autor utilizou as ferramentas de inteligência artificial ChatGPT (OpenAI, versão 4.0) e GitHub Copilot (Microsoft) para produção integral do Document Architecture Software (DAS), incluindo especificações técnicas, diagramas e estratégias de implementação. Todo o conteúdo foi posteriormente analisado criticamente pelo autor, que assume total responsabilidade pela avaliação da adequação técnica, originalidade e ética deste trabalho, conforme as diretrizes estabelecidas pela Resolução n.º 274/2024 – CONSUN da PUCPR\footnote{\citeaa{PUCPR2024IA}}.
 
 \chapter{METODOLOGIA DA PESQUISA}
 
 \section{Abordagem Metodológica}
 
 Esta pesquisa adota abordagem qualitativa exploratória, utilizando estudo de caso único: a elaboração de uma proposta arquitetural para sistema parametrizador de canais digitais, desenvolvida integralmente por ferramentas de Inteligência Artificial.
-
-A implementação segue uma metodologia híbrida, combinando práticas de DevOps \citeaa{Monteiro2021} com arquitetura em microsserviços. Conforme \citeaa{Netto2006}, a aplicação de padrões arquiteturais específicos pode reduzir a complexidade de manutenção em até 60\%. Para o parametrizador, foram selecionados os seguintes padrões:
-
-\begin{itemize}
-    \item \textbf{Configuration Management Pattern}: Centralização de configurações com versionamento
-    \item \textbf{Circuit Breaker Pattern}: Proteção contra falhas em cascata durante mudanças de parâmetros
-    \item \textbf{Strategy Pattern}: Flexibilidade na aplicação de diferentes regras de negócio
-    \item \textbf{Observer Pattern}: Notificação automática de mudanças para sistemas dependentes
-\end{itemize}
-
-A parametrização será implementada através de uma arquitetura event-driven, onde mudanças nos parâmetros geram eventos que são propagados assincronamente para os sistemas consumidores.
 
 \section{Processo de Elaboração do DAS com IA}
 
@@ -131,13 +110,11 @@ O DAS foi produzido em três sessões estruturadas utilizando ChatGPT 4.0 e GitH
 
 Para análise crítica do DAS, desenvolveu-se framework estruturado baseado em cinco dimensões:
 
-\begin{enumerate}[]
-	\item \textbf{Adequação Técnica}: Conformidade com padrões arquiteturais consolidados 
-	\item \textbf{Completude}: Cobertura de aspectos essenciais para sistema bancário crítico 
-	\item \textbf{Viabilidade}: Factibilidade de implementação com recursos propostos 
-	\item \textbf{Conformidade}: Aderência a regulamentações bancárias brasileiras 
-	\item \textbf{Inovação}: Presença de soluções criativas ou diferenciais competitivos
-\end{enumerate}
+\textbf{1. Adequação Técnica}: Conformidade com padrões arquiteturais consolidados \\
+\textbf{2. Completude}: Cobertura de aspectos essenciais para sistema bancário crítico \\
+\textbf{3. Viabilidade}: Factibilidade de implementação com recursos propostos \\
+\textbf{4. Conformidade}: Aderência a regulamentações bancárias brasileiras \\
+\textbf{5. Inovação}: Presença de soluções criativas ou diferenciais competitivos
 
 O processo de validação incluiu revisão bibliográfica confrontando DAS com princípios teóricos, análise técnica multidisciplinar, avaliação de viabilidade e verificação de compliance regulatório.
 
@@ -150,28 +127,6 @@ A IA produziu uma arquitetura robusta baseada em microserviços, demonstrando ap
 A arquitetura implementa corretamente os princípios de cloud computing estabelecidos por \citeaa{Bhowmik2017}: \textbf{elasticidade} (através de auto-scaling), \textbf{resource pooling} (via Azure shared infrastructure), \textbf{broad network access} (APIs REST padronizadas), \textbf{rapid elasticity} (deployment automático) e \textbf{measured service} (monitoramento via Application Insights).
 
 \section{Diagramas Técnicos Relevantes}
-
-\subsection{Diagrama de Linhas de Produto de Software}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.99\textwidth]{figuras/v_008_01_linhas_produto_software.png} 
-    \caption{Estrutura de Linhas de Produto para Parametrizador Bancário conforme Gallotti (2021)}
-    \label{fig:v_008_01_linhas_produto_software}
-\end{figure}
-
-O diagrama ilustra a aplicação dos conceitos de \textbf{linhas de produto de software} de \citeaa{Gallotti2016} ao parametrizador. A estrutura demonstra como o \textbf{produto base} pode ser adaptado para diferentes variabilidades (Mobile Banking, Internet Banking, ATM, Correspondentes) enquanto mantém \textbf{assets compartilhados} para auditoria, segurança e integração. A \textbf{governança e evolução} assegura qualidade e conformidade em todas as instâncias da linha de produto.
-
-\subsection{Diagrama de Governança, Segurança e Valor}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.99\textwidth]{figuras/v_008_02_governanca_seguranca_valor.png} 
-    \caption{Framework integrado de Governança, Segurança e Valor baseado em Ruparelia (2016), Pressman (2016) e Netto (2019)}
-    \label{fig:v_008_02_governanca_seguranca_valor}
-\end{figure}
-
-	Este diagrama integra os \textbf{modelos de preço e valor} de \citeaa{Ruparelia2016}, as técnicas de \textbf{debugging sistemático} de \citeaa{Pressman2021} e a \textbf{visão software-máquina} de \cite{Netto2006}. A estrutura demonstra como \textbf{Security Governance} conecta-se com os requisitos da CMN 4.893/2021, enquanto \textbf{Price Models} (Pay-per-Use, Reserved Instances) geram \textbf{Value Models} mensuráveis (TCO redução 60\%, Time-to-Market 80\% mais rápido).
 
 \subsection{Diagrama de Sequência: Criação de Parâmetro Crítico}
 
@@ -210,8 +165,6 @@ A IA demonstrou compreensão sólida das trade-offs entre diferentes abordagens 
 \subsection{1. Adequação Técnica (8.5/10)}
 
 \textbf{Pontos Fortes}: Event Sourcing e CQRS implementados adequadamente conforme Fowler (2002); arquitetura em camadas seguindo Martin (2019); Circuit Breaker e patterns de resiliência aplicados corretamente; cache hierárquico bem projetado.
-
-Segundo as métricas de qualidade de \citeaa{Pressman2021}, a arquitetura demonstra: Índice de Manutenibilidade de 0.73 (aceitável), Complexidade Ciclomática média de 8 (adequada para sistemas críticos), Taxa de Sucesso em Deployment de 94\% (conforme benchmark bancário), e Tempo Médio de Recuperação (MTTR) de 1.2 horas.
 
 \textbf{Limitações}: Bounded Contexts não modelados explicitamente; Saga Pattern incompleto para transações distribuídas; Anti-Corruption Layers não especificados; estratégia de versionamento de eventos não detalhada.
 
@@ -273,8 +226,6 @@ A implementação incorporará refinamentos não contemplados pela IA: bounded c
 
 \textbf{Redução de 80\%} no tempo de alteração de parâmetros, eliminação de janelas de manutenção e \textbf{redução de 60\%} nos custos operacionais relacionados à gestão de parâmetros. A arquitetura estabelecerá fundação para modernizações futuras, criando capacidade organizacional em tecnologias cloud-native.
 
-A implementação de \textbf{linhas de produto de software} \citeaa{Gallotti2016} permitirá reutilização do core arquitetural em diferentes contextos, multiplicando o ROI do investimento inicial. Os \textbf{modelos de valor} de \citeaa{Ruparelia2016} sugerem payback period de 18 meses, considerando economia operacional e ganhos de agilidade, com organizações alcançando redução de TCO de até 45\% em comparação com infraestruturas tradicionais.
-
 \section{Contribuições Científicas}
 
 \subsection{Metodologia Validada para IA em Arquitetura}
@@ -297,38 +248,28 @@ A implementação de \textbf{linhas de produto de software} \citeaa{Gallotti2016
 
 \textbf{Trabalhos Futuros}: Implementação piloto para validação prática; estudos comparativos com arquiteturas produzidas por humanos; aplicação da metodologia em outros domínios críticos (saúde, governo).
 
-\section{Síntese Conclusiva}
+\chapter{REFERÊNCIAS}
 
-A análise crítica da arquitetura produzida por IA, fundamentada em \citeaa{Martin2019}, \citeaa{Fowler2008}, \citeaa{Bhowmik2017}, \citeaa{Gallotti2016}, \citeaa{Pressman2021}, \citeaa{Monteiro2021}, \citeaa{Netto2006} e \citeaa{Ruparelia2016}, demonstra que ferramentas de Inteligência Artificial possuem capacidade técnica significativa para produzir arquiteturas de software adequadas a contextos críticos. 
+BANCO CENTRAL DO BRASIL. \textbf{Resolução CMN 4.893: Segurança Cibernética e Governança de Riscos}. Brasília: BCB, 2021.
 
-A conformidade proativa com a Resolução CMN 4.893/2021, observada nas sessões com IA, sugere capacidade preditiva de requisitos regulatórios. As métricas de qualidade alcançadas (índice de manutenibilidade 0.73, taxa de sucesso em deployment 94\%) superam benchmarks setoriais, validando a viabilidade técnica da abordagem.
+BHOWMIK, Sandeep. \textbf{Cloud Computing: Concepts, Technology \& Architecture}. London: Pearson, 2017.
 
-A implementação de \textbf{linhas de produto de software} e \textbf{modelos de preço e valor} demonstra que a solução transcende o caso específico, oferecendo framework reutilizável para outras instituições financeiras. A aplicação dos princípios de \textbf{debugging sistemático} e \textbf{visão software-máquina} valida a integração harmoniosa entre teoria acadêmica e implementação prática.
+FOWLER, Martin. \textbf{Padrões de Arquitetura de Aplicações Corporativas}. Porto Alegre: Bookman, 2002.
 
-Contudo, as limitações identificadas - particularmente em contexto organizacional, trade-offs complexos e inovação - reforçam que a IA funciona melhor como ferramenta de apoio especializada, não como substituto do arquiteto humano. O modelo de colaboração humano-IA proposto maximiza as capacidades de ambos, estabelecendo novo paradigma para desenvolvimento de arquiteturas em domínios críticos.
+GALLOTT, Giocondo Marino Antonio. \textbf{Arquitetura de Software}. São Paulo: Pearson, 2021.
 
-%\chapter{REFERÊNCIAS}
+JORNADA COLABORATIVA. \textbf{Jornada DevOps 2ª edição}. São Paulo: Casa do Código, 2021.
 
-%BANCO CENTRAL DO BRASIL. \textbf{Resolução CMN 4.893: Segurança Cibernética e Governança de Riscos}. Brasília: BCB, 2021.
+MARTIN, Robert C. \textbf{Arquitetura Limpa: O Guia do Artesão para Estrutura e Design de Software}. Rio de Janeiro: Alta Books, 2019.
 
-%BHOWMIK, Sandeep. \textbf{Cloud Computing: Concepts, Technology \& Architecture}. London: Pearson, 2017.
+MONTEIRO, Eduarda Rodrigues. \textbf{DevOps: Práticas e Ferramentas para Integração Contínua}. São Paulo: Novatec, 2021.
 
-%FOWLER, Martin. \textbf{Padrões de Arquitetura de Aplicações Corporativas}. Porto Alegre: Bookman, 2008.
+NETTO, Eduardo Braulio Wanderley. \textbf{Arquitetura de Computadores: Conceitos e Aplicações}. Rio de Janeiro: LTC, 2019.
 
-%GALLOTTI, Giocondo Marino Antonio. \textbf{Arquitetura de Software}. São Paulo: Pearson, 2021.
+PRESSMAN, Roger S.; MAXIM, Bruce R. \textbf{Engenharia de Software: Uma Abordagem Profissional}. 8. ed. Porto Alegre: AMGH, 2016.
 
-%JORNADA COLABORATIVA. \textbf{Jornada DevOps 2ª edição}. São Paulo: Casa do Código, 2021.
+PUCPR. \textbf{Resolução n.º 274/2024 – CONSUN: Diretrizes Para Uso Da Inteligência Artificial – IA Na PUCPR}. Curitiba: PUCPR, 2024.
 
-%MARTIN, Robert C. \textbf{Arquitetura Limpa: O Guia do Artesão para Estrutura e Design de Software}. Rio de Janeiro: Alta Books, 2019.
-
-%MONTEIRO, Eduarda Rodrigues. \textbf{DevOps: Práticas e Ferramentas para Integração Contínua}. São Paulo: Novatec, 2021.
-
-%NETTO, Eduardo Braulio Wanderley. \textbf{Arquitetura de Computadores}. São Paulo: LTC, 2019.
-
-%PRESSMAN, Roger S.; MAXIM, Bruce R. \textbf{Engenharia de Software: Uma Abordagem Profissional}. 8. ed. Porto Alegre: AMGH, 2016.
-
-%PUCPR. \textbf{Resolução n.º 274/2024 – CONSUN: Diretrizes Para Uso Da Inteligência Artificial – IA Na PUCPR}. Curitiba: PUCPR, 2024.
-
-%RUPARELIA, Nayan B. \textbf{Cloud Computing}. Cambridge: MIT Press, 2016.
+RUPARELIA, Nayan B. \textbf{Cloud Computing}. Cambridge: MIT Press, 2016.
 
 

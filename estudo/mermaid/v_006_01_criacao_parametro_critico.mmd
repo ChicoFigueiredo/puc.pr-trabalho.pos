@@ -1,0 +1,38 @@
+sequenceDiagram
+    participant Admin as Administrador
+    participant UI as Interface Web
+    participant Auth as Azure AD
+    participant ParamSvc as Parameter Service
+    participant EventStore as Event Store
+    participant AuditSvc as Audit Service
+    participant NotifSvc as Notification Service
+    participant BCB as Sistema BCB
+    
+    Note over Admin, BCB: Workflow Segurança Cibernética (Art. 3º, § 2º, Resolução CMN 4.893/2021)
+    
+    Admin->>UI: Solicita criação parâmetro crítico
+    UI->>Auth: Valida credenciais + MFA
+    Auth-->>UI: Token JWT + Roles
+    
+    Note over UI, ParamSvc: Controles de Acesso (Resolução CMN 4.893/2021)
+    UI->>ParamSvc: CreateCriticalParameter(data, token)
+    ParamSvc->>ParamSvc: Valida permissões RBAC
+    
+    Note over ParamSvc, EventStore: Rastreabilidade (Art. 3º, III)
+    ParamSvc->>EventStore: Store(ParameterCreationRequested)
+    EventStore-->>ParamSvc: EventId + Timestamp
+    
+    Note over ParamSvc, AuditSvc: Auditoria Automática Compliance
+    ParamSvc->>AuditSvc: LogSecurityEvent(eventId, userId, action)
+    AuditSvc->>EventStore: Store(SecurityAuditEvent)
+    
+    Note over ParamSvc, NotifSvc: Comunicação Obrigatória (Art. 15)
+    ParamSvc->>NotifSvc: NotifyRegulatory(paramChange, bcbRequired)
+    NotifSvc->>BCB: SendComplianceNotification(changeDetails)
+    BCB-->>NotifSvc: AckReceived + RefNumber
+    
+    Note over NotifSvc, EventStore: Registro Imutável para Auditoria
+    NotifSvc->>EventStore: Store(RegulatoryNotificationSent)
+    
+    ParamSvc-->>UI: ParameterCreated + AuditTrail
+    UI-->>Admin: Confirmação com rastreabilidade completa

@@ -1,7 +1,7 @@
 {
   "name": "mermaid-diagrams-generator",
   "version": "1.0.0",
-  "description": "Gerador automatizado de diagramas SVG a partir de arquivos Mermaid para o trabalho de pós-graduação",
+  "description": "Gerador automatizado de diagramas SVG e PNG (4K) a partir de arquivos Mermaid para o trabalho de pós-graduação",
   "main": "generate-svgs.js",
   "scripts": {
     "generate": "node generate-svgs.js",
@@ -11,12 +11,14 @@
     "generate:academic": "node generate-svgs.js academic",
     "generate:default": "node generate-svgs.js default",
     "generate-single": "npx mmdc -i",
-    "clean": "rm -rf svg/*.svg",
+    "clean": "rm -rf svg/*.svg png/*.png",
+    "clean:svg": "rm -rf svg/*.svg",
+    "clean:png": "rm -rf png/*.png",
     "build": "npm run clean && npm run generate",
     "build:academic": "npm run clean && npm run generate:academic",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["mermaid", "svg", "diagrams", "automation", "trabalho-pos-graduacao"],
+  "keywords": ["mermaid", "svg", "png", "4k", "diagrams", "automation", "trabalho-pos-graduacao"],
   "author": "Francisco Lima Figueiredo",
   "license": "MIT",
   "dependencies": {

@@ -1,0 +1,116 @@
+graph TB
+    subgraph "Camada de Apresentação (MVC - View)"
+        WebApp[🖥️ Web Application<br/>Angular SPA]
+        MobileApp[📱 Mobile App<br/>React Native]
+        AdminPortal[👨‍💼 Admin Portal<br/>Vue.js]
+    end
+    
+    subgraph "Camada de Controle (MVC - Controller)"
+        APIGateway[🌐 API Gateway<br/>Azure APIM]
+        LoadBalancer[⚖️ Load Balancer<br/>Azure Front Door]
+    end
+    
+    subgraph "Camada de Lógica de Negócio (MVC - Model)"
+        subgraph "Microserviços Core"
+            ConfigService[⚙️ Configuration Service<br/>Event Sourcing + CQRS]
+            WorkflowService[🔄 Workflow Service<br/>State Machine Pattern]
+            AuthService[🔐 Authentication Service<br/>OAuth 2.0 + JWT]
+            AuditService[📋 Audit Service<br/>Event Store Pattern]
+        end
+        
+        subgraph "Serviços de Qualidade (Pressman 2016)"
+            QualityMetrics[📊 Quality Metrics Service<br/>ISO/IEC 25010]
+            RiskAnalysis[⚠️ Risk Analysis Engine<br/>FMEA + Monte Carlo]
+            SecurityScanner[🛡️ Security Scanner<br/>OWASP + SAST]
+        end
+    end
+    
+    subgraph "Camada de Dados (Repository Pattern - Gallotti 2021)"
+        subgraph "Repositórios"
+            ConfigRepo[(🗃️ Config Repository<br/>Azure Cosmos DB)]
+            AuditRepo[(📝 Audit Repository<br/>Azure SQL Database)]
+            MetricsRepo[(📈 Metrics Repository<br/>Azure Data Explorer)]
+        end
+        
+        subgraph "Cache Hierárquico"
+            RedisCache[(⚡ Redis Cache<br/>L1 - Application)]
+            CDNCache[(🌍 CDN Cache<br/>L2 - Geographic)]
+        end
+    end
+    
+    subgraph "Camada de Infraestrutura (DevOps - Monteiro 2021)"
+        subgraph "Container Orchestration"
+            AKS[☸️ Azure Kubernetes Service<br/>Auto-scaling + Health Checks]
+            ServiceMesh[🕸️ Istio Service Mesh<br/>Traffic Management]
+        end
+        
+        subgraph "CI/CD Pipeline"
+            AzureDevOps[🚀 Azure DevOps<br/>Blue-Green Deployment]
+            GitOps[📦 GitOps<br/>Infrastructure as Code]
+        end
+        
+        subgraph "Monitoring & Observability"
+            AppInsights[📊 Application Insights<br/>APM + Distributed Tracing]
+            LogAnalytics[📋 Log Analytics<br/>Centralized Logging]
+        end
+    end
+    
+    subgraph "Sistemas Externos"
+        BCB[🏛️ Banco Central do Brasil<br/>Regulatory Compliance]
+        LegacySystems[🏛️ Legacy Banking Systems<br/>COBOL + Mainframe]
+    end
+    
+    %% Fluxos de Dados (Pipe-and-Filter Pattern)
+    WebApp --> APIGateway
+    MobileApp --> APIGateway
+    AdminPortal --> APIGateway
+    
+    APIGateway --> LoadBalancer
+    LoadBalancer --> AuthService
+    LoadBalancer --> ConfigService
+    LoadBalancer --> WorkflowService
+    
+    ConfigService --> QualityMetrics
+    ConfigService --> RiskAnalysis
+    WorkflowService --> AuditService
+    AuthService --> SecurityScanner
+    
+    ConfigService --> ConfigRepo
+    AuditService --> AuditRepo
+    QualityMetrics --> MetricsRepo
+    
+    ConfigService --> RedisCache
+    APIGateway --> CDNCache
+    
+    AKS --> ConfigService
+    AKS --> WorkflowService
+    AKS --> AuthService
+    AKS --> AuditService
+    
+    ServiceMesh --> AKS
+    AzureDevOps --> AKS
+    GitOps --> AzureDevOps
+    
+    AppInsights --> ConfigService
+    AppInsights --> WorkflowService
+    LogAnalytics --> AuditService
+    
+    AuditService --> BCB
+    ConfigService --> LegacySystems
+    
+    %% Estilos dos Componentes
+    classDef presentation fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef control fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef business fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+    classDef data fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef infrastructure fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+    classDef external fill:#f5f5f5,stroke:#424242,stroke-width:2px
+    classDef quality fill:#e0f2f1,stroke:#00695c,stroke-width:2px
+    
+    class WebApp,MobileApp,AdminPortal presentation
+    class APIGateway,LoadBalancer control
+    class ConfigService,WorkflowService,AuthService,AuditService business
+    class ConfigRepo,AuditRepo,MetricsRepo,RedisCache,CDNCache data
+    class AKS,ServiceMesh,AzureDevOps,GitOps,AppInsights,LogAnalytics infrastructure
+    class BCB,LegacySystems external
+    class QualityMetrics,RiskAnalysis,SecurityScanner quality

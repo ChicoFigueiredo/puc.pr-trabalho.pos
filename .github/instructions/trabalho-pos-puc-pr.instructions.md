@@ -39,27 +39,3 @@ Descrição dos resultados frente ao percurso do plano de ação planejado. Meia
 ## REFERÊNCIAS
 Deverão apresentar apenas as referências utilizadas no texto. As referências, com todos os dados da obra citada, devem seguir as normas da ABNT.
 
-
-# Geração dos arquivos na pasta estudo/
-- Com base no pedido feito pelo prompt do usuário, o conteúdo do trabalho deve ser gerado em arquivos Markdown (.md) e organizados na pasta `estudo/` do repositório.
-- Deve ser gerado um único arquivo com o nome `v_999_trabalho-pos-puc-pr.md`, contendo todo o conteúdo do trabalho de pós-graduação, seguindo a estrutura definida acima, onde 999 é um número sequencial.
-- A cada novo pedido, o número sequencial deve ser incrementado em 1, sendo gerado um novo arquivo e não alterando o arquivo anterior.
-- Para cada novo arquivo gerado, deve ser mantida a mesma estrutura e formatação do arquivo anterior, garantindo a consistência do trabalho.
-- Para cada novo arquivo, deve ser criado um novo arquivo de ata na pasta `estudo/atas/`, com o nome `ata_v_999_trabalho-pos-puc-pr.md`, onde 999 é o mesmo número sequencial do arquivo do trabalho, contendo todas as mudanças e sugestões coletadas na discussão.
-
-# Geração do arquivo latex
-- Caso seja pedido a conversão do conteúdo do trabalho para LaTeX, deve ser gerado um arquivo na pasta `latex/` com o nome `01_conteudo_latex.tex`.
-- Deve ser gerado um arquivo LaTeX na pasta `latex/` com o nome `01_conteudo_latex.tex`, que deve conter o conteúdo do trabalho de pós-graduação formatado com a seguinte estrutura:
-    - \chapter
-    - \section
-    - \subsection
-- O arquivo LaTeX deve ser gerado com base no conteúdo do arquivo Markdown, seguindo a mesma estrutura e formatação.
-- Demais elementos do latex, como \documentclass, \usepackage, \begin{document}, \end{document}, etc. não devem ser incluídos no arquivo, pois o arquivo será utilizado como parte de um projeto maior que já possui esses elementos.
-- Não copiar a seção de bibliografia do arquivo markdown, pois ela já está no arquivo bibtex ./latex/bibliografia/!!!bibliografia.bib e deve ser referenciada no arquivo LaTeX.
-
-# Diagramas mermaid
-- Os diagramas mermaid devem ser gerados com a sintaxe correta, iniciando com `::: mermaid` e terminando com `:::` para delimitar o bloco de código.
-- Os diagramas mermaid inseridos no markdown também tem que ser gravados no arquivo .mmd na pasta `estudo/mermaid/`, 1 arquivo para cada diagrama, com o nome `v_999_99_nome_do_diagrama.mmd`, onde `nome_do_diagrama` é o nome do diagrama em questão, v_999 faz referencia a versão do markdown e 99 o sequencial do diagrama no texto.
-- Os agentes devem criar arquivos .svg para cada diagrama mermaid, usando ferramentas node.js para isso, com o nome `v_999_99_nome_do_diagrama.svg`, onde `nome_do_diagrama` é o nome do diagrama em questão, v_999 faz referencia a versão do markdown e 99 o sequencial do diagrama no texto.
-- Os arquivos .svg devem ser gerados na pasta `estudo/mermaid/svg/`, seguindo a mesma estrutura de nomeação dos arquivos .mmd.
-- No final, pode substituir no markdown o bloco de código do diagrama mermaid pela imagem SVG, usando a sintaxe `![nome_do_diagrama](./mermaid/svg/v_999_99_nome_do_diagrama.svg)`.

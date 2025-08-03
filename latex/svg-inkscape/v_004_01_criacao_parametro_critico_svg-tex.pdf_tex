@@ -1,0 +1,131 @@
+%% Creator: Inkscape 1.4.2 (f4327f4, 2025-05-13), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'v_004_01_criacao_parametro_critico_svg-tex.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1752bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.375)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.96767979,0.01412671){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}SignalR\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.88206336,0.01412671){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Redis\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.79644692,0.01412671){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Events\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.71083048,0.01412671){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}API Cliente\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.61579623,0.01412671){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Client SDK\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.53017979,0.01412671){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Distribution API\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.44456336,0.01412671){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Aprovador\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.34439212,0.01412671){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Workflow Engine\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.23994007,0.01412671){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Management API\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.12521404,0.01412671){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Configuration Portal\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.03232021,0.01412671){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Administrador\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.96767979,0.36087329){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}SignalR\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.88206336,0.36087329){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Redis\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.79644692,0.36087329){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Events\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.71083048,0.36087329){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}API Cliente\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.61579623,0.36087329){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Client SDK\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.53017979,0.36087329){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Distribution API\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.44456336,0.36087329){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Aprovador\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.34439212,0.36087329){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Workflow Engine\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.23994007,0.36087329){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Management API\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.12521404,0.36087329){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Configuration Portal\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=22]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.03232021,0.36087329){\color[rgb]{0.80392157,0.89411765,0.59607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Administrador\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=23]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.37178938,0.05115582){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Total time: <2 minutes\end{tabular}}}}%
+    \put(0.078125,0.34053938){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Criar parâmetro crítico\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=24]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.18214897,0.32170377){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}POST /parameters (critical)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=25]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.24036815,0.30286815){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Validar schema\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=26]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.29173801,0.27119007){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Trigger approval workflow\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=27]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.39404966,0.25235445){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Notificação Teams/Email\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=28]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.28574486,0.23351884){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Revisar e aprovar\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=29]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.18214897,0.21468322){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}PUT /parameters/{id}/approve\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=30]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.51776541,0.1958476){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Publish ParameterApproved\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=31]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.66416952,0.17701199){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Event notification\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=32]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.70569349,0.15817637){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Update cache\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=33]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.74850171,0.13934075){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Push notification\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=34]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.79259418,0.12050514){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Real-time update\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=35]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.61622432,0.10166952){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Update local cache\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=36]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+    \put(0.66288527,0.06999144){\color[rgb]{0.2,0.2,0.2}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Configuration available\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=37]{v_004_01_criacao_parametro_critico_svg-tex.pdf}}%
+  \end{picture}%
+\endgroup%

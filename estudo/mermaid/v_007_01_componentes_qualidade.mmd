@@ -1,0 +1,63 @@
+sequenceDiagram
+    participant Usuario as 👤 Usuário Bancário
+    participant UI as 🖥️ Interface Web
+    participant Gateway as 🌐 API Gateway
+    participant AuthService as 🔐 Auth Service
+    participant ConfigService as ⚙️ Config Service
+    participant WorkflowEngine as 🔄 Workflow Engine
+    participant QualityMetrics as 📊 Quality Metrics
+    participant AuditService as 📋 Audit Service
+    participant Repository as 🗃️ Config Repository
+    participant Cache as ⚡ Redis Cache
+    participant BCB as 🏛️ Banco Central
+
+    Note over Usuario, BCB: Diagrama baseado em Gallotti (2021) - Padrões Arquiteturais
+    Note over Usuario, BCB: Métricas de Qualidade conforme Pressman (2016)
+
+    Usuario->>UI: Solicita criação de parâmetro crítico
+    UI->>Gateway: POST /api/parameters/critical
+    Gateway->>AuthService: Validar credenciais + RBAC
+    
+    alt Autenticação Válida
+        AuthService-->>Gateway: Token JWT válido
+        Gateway->>ConfigService: Processar criação
+        
+        ConfigService->>QualityMetrics: Registrar métrica de complexidade
+        Note over QualityMetrics: ISO/IEC 25010 - Maintainability Index
+        QualityMetrics-->>ConfigService: Complexidade = 0.73 (Aceitável)
+        
+        ConfigService->>Repository: Validar padrão Repository
+        Repository-->>ConfigService: Schema validado (Gallotti Pattern)
+        
+        ConfigService->>WorkflowEngine: Iniciar workflow multi-nível
+        WorkflowEngine->>AuditService: Log de iniciação
+        
+        loop Aprovação Multi-nível (3 níveis)
+            WorkflowEngine->>AuditService: Registrar estágio aprovação
+            Note over AuditService: Conformidade Resolução CMN 4.893/2021
+        end
+        
+        WorkflowEngine->>ConfigService: Aprovação completa
+        ConfigService->>Repository: Persistir configuração
+        Repository->>Cache: Invalidar cache hierárquico
+        
+        ConfigService->>QualityMetrics: Métricas pós-implementação
+        Note over QualityMetrics: Pressman (2016) - Deployment Success Rate = 94%
+        
+        ConfigService->>AuditService: Audit completo
+        AuditService->>BCB: Notificação regulatória automática
+        
+        ConfigService-->>Gateway: Sucesso + Métricas qualidade
+        Gateway-->>UI: Parâmetro criado (Status: Ativo)
+        UI-->>Usuario: ✅ Parâmetro crítico criado com sucesso
+        
+    else Falha Autenticação
+        AuthService-->>Gateway: Erro 401 - Unauthorized
+        Gateway->>AuditService: Log de tentativa não autorizada
+        Gateway-->>UI: Erro de autenticação
+        UI-->>Usuario: ❌ Acesso negado
+    end
+
+    Note over Usuario, BCB: Padrão MVC implementado (Gallotti, 2021)
+    Note over Usuario, BCB: Repository Pattern para persistência
+    Note over Usuario, BCB: Pipe-and-Filter para processamento

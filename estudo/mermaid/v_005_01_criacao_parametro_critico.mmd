@@ -1,0 +1,57 @@
+sequenceDiagram
+    participant User as 👤 Usuário Solicitante
+    participant WF as 🔄 Workflow Engine
+    participant Auth as 🔐 Auth Service
+    participant Config as ⚙️ Config Management
+    participant Approval as ✅ Approval Service
+    participant Audit as 📝 Audit Service
+    participant Event as 📊 Event Store
+    participant Notify as 📧 Notification Service
+    participant BCB as 🏛️ BCB Compliance
+
+    Note over User, BCB: Fluxo de Criação de Parâmetro Crítico<br/>Conformidade Resolução CMN 4.893/2021
+
+    User->>+Auth: Login e autenticação RBAC
+    Auth-->>User: Token JWT validado
+    
+    User->>+WF: Solicitar criação parâmetro crítico
+    WF->>+Config: Validar existência e tipo
+    Config-->>WF: Validação OK
+    
+    WF->>+Approval: Iniciar workflow aprovação
+    Note right of Approval: Art. 3º, III - Controles específicos<br/>para informações sensíveis
+    
+    Approval->>+Audit: Registrar início processo
+    Audit->>+Event: Store evento "ParameterCreationStarted"
+    Event-->>Audit: Evento persistido
+    Audit-->>Approval: Registro confirmado
+    
+    Approval->>+Notify: Notificar aprovadores (L1)
+    Notify-->>Approval: Notificação enviada
+    
+    Note over Approval: Aguarda aprovação Nível 1<br/>(Segregação de funções - SOX)
+    
+    Approval->>+Audit: Registrar aprovação L1
+    Audit->>+Event: Store evento "Level1Approved"
+    Event-->>Audit: Evento auditável salvo
+    
+    Approval->>+Notify: Notificar aprovadores (L2)
+    Notify-->>Approval: Notificação L2 enviada
+    
+    Note over Approval: Aprovação Nível 2<br/>(Parâmetros críticos)
+    
+    Approval->>+Config: Aplicar configuração
+    Config->>+Event: Store evento "ParameterApplied"
+    
+    Config->>+BCB: Comunicar alteração crítica
+    Note right of BCB: Art. 15 - Comunicação obrigatória<br/>para alterações relevantes
+    BCB-->>Config: Protocolo recebido
+    
+    Config->>+Audit: Registrar aplicação final
+    Audit->>+Event: Store evento "ParameterActive"
+    Event-->>Audit: Rastreabilidade completa
+    
+    Audit->>+Notify: Notificar conclusão
+    Notify-->>User: ✅ Parâmetro ativo
+    
+    Note over User, BCB: ✅ Conformidade CMN 4.893/2021:<br/>• Rastreabilidade (Art. 3º, III)<br/>• Segregação de funções<br/>• Auditoria completa<br/>• Comunicação BCB

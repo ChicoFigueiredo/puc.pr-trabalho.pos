@@ -31,6 +31,7 @@
 \usepackage{indentfirst}						% Indenta o primeiro parágrafo de cada seção.
 \usepackage[dvipsnames,svgnames,table]{xcolor}			% Controle das cores
 \usepackage{graphicx}							% Inclusão de gráficos
+\usepackage{svg}                                %inclusão de svg
 \usepackage{microtype} 							% para melhorias de justificação
 \usepackage{lipsum}								% para geração de dummy text
 \usepackage[brazilian,hyperpageref]{backref}	% Paginas com as citações na bibl
@@ -55,7 +56,6 @@
 \usepackage{xargs}
 \usepackage{dsfont}
 
-\usepackage{svg}  %inclusão de svg
 
 %\usepackage[style=abnt]{biblatex}
 
@@ -200,7 +200,7 @@
 	\or MAI% 5
 	\or JUN% 6
 	\or JUL% 7
-	\or AUG% 8
+	\or AGO% 8
 	\or SET% 9
 	\or OUT% 10
 	\or NOV% 11
@@ -290,6 +290,7 @@
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 % Personalizações de cores da UDESC
+\definecolor{PretoPUC}{RGB}{94,109,254}		% Especializacao
 \definecolor{CapaAmareloUDESC}{RGB}{243,186,83}		% Especializacao
 \definecolor{CapaVerdeUDESC}{RGB}{0,112,52}			% Mestrado
 \definecolor{CapaVermelhoUDESC}{RGB}{171,35,21}		% Doutorado
@@ -327,11 +328,11 @@
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % -----------------------------------------------------------------
 \tipotrabalho{
-    Tese de Apoio
+    Projeto de Aplicação
 }
 
 \titulo{
-	Criação de arquitetura de parâmetros configuráveis on-line para aplicações backend C\# e AKS em nuvem Azure para o aplicativo CAIXA
+	Impactos e ensinamentos do uso de Inteligência Artificial para elaboração de proposta de arquitetura para um parametrizador de dados para canais digitais
 }%
 
 % ATENÇÃO: O símbolo {} indica o sobrenome para a ficha catalográfica.
@@ -388,7 +389,7 @@
 	%\imprimircapaTese			% Capa UDESC para Teses
 	%\imprimircapaPosDoc		% Capa UDESC para Pós-Doutorado
 
-	\imprimirCapaCustom{CapaAmareloUDESC}{\imprimirtipotrabalho}{\imprimirinstituicao}  %Capa UDESC para Pós-Doutorado
+	\imprimirCapaCustom{PretoPUC}{\imprimirtipotrabalho}{\imprimirinstituicao}  %Capa UDESC para Pós-Doutorado
 
 	%\imprimircapa				% Capa padrão
 
@@ -612,15 +613,13 @@
 				\hspace{.35\textwidth}
 				{\begin{minipage}{.6\textwidth}
 					\begin{flushright}
-						\textit{``Um homem é uma fração cujo numerador corresponde ao que ele é, enquanto o denominador é o que acredita ser.``\\
-							(Leon Tolstoi)}
+						\textit{``Qualquer tecnologia suficientemente avançada é indistinguível da magia.``\\
+							(Arthur C. Clarke - Profiles of the Future - 1973)}
 					\end{flushright}
 				\end{minipage}}%
 			\end{epigrafe}
 		}
 		% ---
-		
-		
 		
 		
 		\label{oculto:resumo}
@@ -631,10 +630,16 @@
 			% resumo em português
 			\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 			\begin{resumo}
-			 O artigo apresenta uma aplicação prática da matemática na engenharia, com o objetivo de calcular a área alagada da barragem do rio Bonito. Foram utilizadas aproximações para integrais definidas e ajustes de curvas, além de softwares matemáticos para facilitar os cálculos. O estudo destaca a importância da integração da tecnologia e do ensino de matemática para o desenvolvimento de habilidades importantes para a vida social e para o mundo do trabalho. Em resumo, o artigo apresenta uma aplicação interessante da matemática na engenharia, que pode ser útil para profissionais da área e estudantes que desejam aprimorar seus conhecimentos.\\
 			 
+			 Este trabalho analisa os impactos e limitações do uso de Inteligência Artificial na elaboração de propostas arquiteturais para sistemas bancários críticos, utilizando como caso de estudo um sistema parametrizador de dados para canais digitais da Caixa Econômica Federal. A arquitetura foi desenvolvida integralmente por IA (ChatGPT 4.0 e GitHub Copilot) em três sessões estruturadas, utilizando microserviços Azure com padrões como Event Sourcing, CQRS e Circuit Breaker. A análise crítica baseada em cinco dimensões (Adequação Técnica, Completude, Viabilidade, Conformidade e Inovação) revelou que a IA demonstrou capacidade notável na aplicação de padrões arquiteturais consolidados e manutenção de coerência entre artefatos técnicos. \textbf{Descoberta científica inédita}: a IA demonstrou \textbf{conformidade proativa} com a Resolução CMN 4.893/2021 sobre segurança cibernética, regulamentação que entrou em vigor após as sessões de trabalho, evidenciando \textbf{capacidade preditiva regulatória}. Contudo, identificaram-se limitações em aspectos de governança organizacional, trade-offs complexos e inovação arquitetural. Os resultados esperados incluem redução de 80\% no tempo de alteração de parâmetros e estabelecimento de metodologia validada para uso eficaz de IA em projetos arquiteturais empresariais, contribuindo para a compreensão do papel emergente da IA como ferramenta de aceleração no design arquitetural e sua capacidade preditiva em conformidade regulatória.
+			 
+			 
+			 \vspace{\onelineskip}
+			 
+			 \noindent 			 
 
-			 \textbf{Palavras-chave}: Integral definida, cálculo.
+			 \textbf{Palavras-chave}: Inteligência Artificial, Arquitetura de Software, Sistemas Bancários, Microserviços, Event Sourcing, CQRS, Parametrizador, Azure, Design Arquitetural, Conformidade Regulatória, Segurança Cibernética, Capacidade Preditiva.
+			 
 			\end{resumo}
 		}
 		
@@ -645,16 +650,17 @@
 		% ---
 		% Abstract
 		% ---
-		\ImprimirSimOuNao[Não]{
+		\ImprimirSimOuNao[Sim]{
 			% resumo em inglês
 			\begin{resumo}[Abstract]
 			 \begin{otherlanguage*}{english}
-			   This is the english abstract.
+			   This work analyzes the impacts and limitations of using Artificial Intelligence in developing architectural proposals for critical banking systems, using as a case study a data parameterization system for digital channels at Caixa Econômica Federal. The architecture was developed entirely by AI (ChatGPT 4.0 and GitHub Copilot) in three structured sessions, utilizing Azure microservices with patterns such as Event Sourcing, CQRS, and Circuit Breaker. Critical analysis based on five dimensions (Technical Adequacy, Completeness, Viability, Compliance, and Innovation) revealed that AI demonstrated remarkable capability in applying consolidated architectural patterns and maintaining coherence between technical artifacts. \textbf{Unprecedented scientific discovery}: AI demonstrated \textbf{proactive compliance} with CMN Resolution 4.893/2021 on cybersecurity, regulation that entered into force after the working sessions, evidencing \textbf{predictive regulatory capability}. However, limitations were identified in organizational governance aspects, complex trade-offs, and architectural innovation. Expected results include an 80\% reduction in parameter change time and establishment of a validated methodology for effective AI use in enterprise architectural projects, contributing to understanding the emerging role of AI as an acceleration tool in architectural design and its predictive capability in regulatory compliance.
 
 			   \vspace{\onelineskip}
 			 
 			   \noindent 
-			   \textbf{Keywords}: latex. abntex. text editoration.
+			   \textbf{Keywords}: Artificial Intelligence, Software Architecture, Banking Systems, Microservices, Event Sourcing, CQRS, Parameterization, Azure, Architectural Design, Regulatory Compliance, Cybersecurity, Predictive Capability.
+			   
 			 \end{otherlanguage*}
 			\end{resumo}
 		}
