@@ -1,0 +1,20 @@
+sequenceDiagram
+    participant Primary as Primary Region
+    participant Monitor as Health Monitor
+    participant DNS as Traffic Manager
+    participant Secondary as Secondary Region
+    participant SDK as Configuration SDK
+    
+    Primary->>Monitor: Health check timeout
+    Monitor->>Monitor: Validate failure (3 attempts)
+    Monitor->>DNS: Failover to secondary
+    
+    DNS->>Secondary: Route traffic
+    Secondary->>Secondary: Activate read/write
+    
+    SDK->>DNS: Request parameters
+    DNS->>Secondary: Route to secondary
+    Secondary->>SDK: Return parameters
+    
+    Note over Primary,Secondary: RTO: <30 minutes
+    Note over Monitor,SDK: Automatic failover

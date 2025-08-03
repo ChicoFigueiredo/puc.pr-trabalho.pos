@@ -1,0 +1,63 @@
+graph TB
+    subgraph "Internet"
+        USERS[Usuários Administrativos]
+        APIS[APIs Clientes]
+    end
+    
+    subgraph "Azure Front Door"
+        AFD[Azure Front Door + WAF]
+    end
+    
+    subgraph "Primary Region - Brasil Sul"
+        subgraph "AKS Cluster"
+            subgraph "System Node Pool"
+                MGMT_POD[Management API Pods]
+                DIST_POD[Distribution API Pods]
+                PORTAL_POD[Portal Pods]
+            end
+            
+            subgraph "User Node Pool"
+                WORKFLOW_POD[Workflow Pods]
+                AUDIT_POD[Audit Pods]
+            end
+        end
+        
+        subgraph "Data Services"
+            COSMOS_P[(Cosmos DB Primary)]
+            REDIS_P[(Redis Enterprise Primary)]
+            STORAGE_P[(Blob Storage Primary)]
+        end
+        
+        subgraph "Platform Services"
+            EVENTGRID[Event Grid]
+            KEYVAULT[Key Vault]
+            APPINSIGHTS[Application Insights]
+        end
+    end
+    
+    subgraph "Secondary Region - Brasil Sudeste"
+        subgraph "AKS Cluster DR"
+            MGMT_POD_DR[Management API Pods]
+            DIST_POD_DR[Distribution API Pods]
+        end
+        
+        subgraph "Data Services DR"
+            COSMOS_S[(Cosmos DB Secondary)]
+            REDIS_S[(Redis Enterprise Secondary)]
+            STORAGE_S[(Blob Storage Secondary)]
+        end
+    end
+    
+    USERS --> AFD
+    APIS --> AFD
+    AFD --> MGMT_POD
+    AFD --> DIST_POD
+    AFD --> PORTAL_POD
+    
+    MGMT_POD --> COSMOS_P
+    DIST_POD --> REDIS_P
+    WORKFLOW_POD --> EVENTGRID
+    
+    COSMOS_P --> COSMOS_S
+    REDIS_P --> REDIS_S
+    STORAGE_P --> STORAGE_S

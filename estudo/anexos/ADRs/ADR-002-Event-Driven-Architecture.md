@@ -48,7 +48,7 @@ A arquitetura atual utiliza polling para verificação de mudanças de parâmetr
 ### Arquitetura Proposta
 
 #### Event Flow
-![Event Flow](./mermaid/svg/event_flow.svg)
+![Event Flow](../mermaid/svg/criacao_parametro_critico.svg)
 
 #### Componentes
 

@@ -1,0 +1,47 @@
+graph TB
+    subgraph "APIs Clientes (43)"
+        API1[API Login]
+        API2[API Antifraude]
+        API3[API Pagamentos]
+        APIX[...]
+    end
+    
+    subgraph "Sistema de Parametrização"
+        PORTAL[Configuration Portal<br/>Angular]
+        MGMT[Configuration Management API<br/>.NET 8]
+        DIST[Configuration Distribution API<br/>.NET 8]
+        SDK[Configuration SDK<br/>.NET Standard 2.1]
+    end
+    
+    subgraph "Azure Infrastructure"
+        COSMOS[(Cosmos DB)]
+        REDIS[(Redis Cache)]
+        EVENTS[Event Grid]
+        STORAGE[(Blob Storage)]
+    end
+    
+    subgraph "External Services"
+        AAD[Azure AD]
+        INSIGHTS[Application Insights]
+        KEYVAULT[Key Vault]
+    end
+    
+    API1 --> SDK
+    API2 --> SDK
+    API3 --> SDK
+    APIX --> SDK
+    
+    SDK --> DIST
+    PORTAL --> MGMT
+    MGMT --> COSMOS
+    MGMT --> EVENTS
+    DIST --> REDIS
+    DIST --> COSMOS
+    
+    PORTAL --> AAD
+    MGMT --> AAD
+    DIST --> AAD
+    
+    MGMT --> INSIGHTS
+    DIST --> INSIGHTS
+    MGMT --> KEYVAULT

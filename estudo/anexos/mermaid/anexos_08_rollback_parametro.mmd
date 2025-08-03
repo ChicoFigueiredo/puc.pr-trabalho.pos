@@ -1,0 +1,26 @@
+sequenceDiagram
+    participant Monitor as Monitoring
+    participant Alert as Alert System
+    participant Admin as Administrador
+    participant Portal as Configuration Portal
+    participant MGMT as Management API
+    participant DIST as Distribution API
+    participant APIs as API Clientes
+    
+    Monitor->>Alert: Detect anomaly
+    Alert->>Admin: Critical alert
+    
+    Admin->>Portal: Initiate rollback
+    Portal->>MGMT: POST /parameters/{id}/rollback
+    
+    MGMT->>MGMT: Get previous version
+    MGMT->>Events: Publish ParameterRolledBack
+    
+    Events->>DIST: Event notification
+    DIST->>Redis: Update cache immediately
+    DIST->>SignalR: Push notification
+    
+    SignalR->>APIs: Rollback notification
+    APIs->>APIs: Update configurations
+    
+    Note over Monitor,APIs: Rollback time: <1 minute

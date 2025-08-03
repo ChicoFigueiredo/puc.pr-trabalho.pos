@@ -1,0 +1,38 @@
+graph TB
+    subgraph "Canais Digitais CAIXA"
+        APP[App Mobile CAIXA]
+        WEB[Internet Banking]
+        POS[Pontos de Atendimento]
+        API[APIs Internas]
+    end
+    
+    subgraph "Sistema de Parametrização"
+        SPCD[SPCD - Sistema de Parametrização<br/>de Configurações Dinâmicas]
+    end
+    
+    subgraph "Sistemas Internos"
+        CORE[Core Banking]
+        FRAUD[Antifraude]
+        AUTH[Autenticação]
+        PAYMENT[Pagamentos]
+    end
+    
+    subgraph "Governança"
+        ADMIN[Administradores]
+        AUDIT[Auditoria]
+        SEC[Segurança]
+    end
+    
+    APP --> SPCD
+    WEB --> SPCD
+    POS --> SPCD
+    API --> SPCD
+    
+    SPCD --> CORE
+    SPCD --> FRAUD
+    SPCD --> AUTH
+    SPCD --> PAYMENT
+    
+    ADMIN --> SPCD
+    AUDIT --> SPCD
+    SEC --> SPCD

@@ -1,0 +1,26 @@
+graph TB
+    Q[Qualidade] --> P[Performance]
+    Q --> A[Availability]
+    Q --> S[Security]
+    Q --> U[Usability]
+    Q --> M[Maintainability]
+    
+    P --> P1[Latência < 100ms]
+    P --> P2[Throughput 2.5M req/dia]
+    P --> P3[Propagação < 2min críticos]
+    
+    A --> A1[Uptime 99.95%]
+    A --> A2[RTO < 30min]
+    A --> A3[RPO < 15min]
+    
+    S --> S1[Authentication Azure AD]
+    S --> S2[RBAC granular]
+    S --> S3[Audit trail 7 anos]
+    
+    U --> U1[Portal intuitivo]
+    U --> U2[SDK fácil de usar]
+    U --> U3[Documentação clara]
+    
+    M --> M1[Cobertura testes 80%]
+    M --> M2[Código limpo]
+    M --> M3[Monitoring completo]

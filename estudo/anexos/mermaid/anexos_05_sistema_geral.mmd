@@ -1,0 +1,53 @@
+graph TB
+    subgraph "Presentation Layer"
+        PORTAL[Configuration Portal]
+        API_EXT[External APIs]
+    end
+    
+    subgraph "Application Layer"
+        MGMT[Configuration Management Service]
+        DIST[Configuration Distribution Service]
+        WORKFLOW[Workflow Engine]
+        AUDIT[Audit Service]
+    end
+    
+    subgraph "Domain Layer"
+        PARAM[Parameter Domain]
+        APPROVAL[Approval Domain]
+        USER[User Domain]
+        CHANGE[Change Domain]
+    end
+    
+    subgraph "Infrastructure Layer"
+        COSMOS[(Cosmos DB)]
+        REDIS[(Redis Cache)]
+        EVENTS[Event Grid]
+        BLOB[(Blob Storage)]
+        QUEUE[Service Bus]
+    end
+    
+    subgraph "Cross-Cutting"
+        AUTH[Authentication]
+        LOG[Logging]
+        MONITOR[Monitoring]
+        SECURITY[Security]
+    end
+    
+    PORTAL --> MGMT
+    API_EXT --> DIST
+    
+    MGMT --> PARAM
+    MGMT --> APPROVAL
+    DIST --> PARAM
+    WORKFLOW --> CHANGE
+    AUDIT --> USER
+    
+    PARAM --> COSMOS
+    PARAM --> REDIS
+    APPROVAL --> EVENTS
+    CHANGE --> QUEUE
+    
+    AUTH --> AAD[Azure AD]
+    LOG --> INSIGHTS[App Insights]
+    MONITOR --> ALERTS[Azure Monitor]
+    SECURITY --> VAULT[Key Vault]

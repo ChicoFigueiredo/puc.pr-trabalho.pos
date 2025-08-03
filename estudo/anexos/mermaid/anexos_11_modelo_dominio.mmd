@@ -1,0 +1,61 @@
+classDiagram
+    class Parameter {
+        +string Id
+        +string Domain
+        +string Name
+        +string CurrentVersion
+        +Classification Classification
+        +Criticality Criticality
+        +object Value
+        +Metadata Metadata
+        +string Environment
+        +DateTime CreatedAt
+        +DateTime UpdatedAt
+    }
+    
+    class ParameterVersion {
+        +string Id
+        +string ParameterId
+        +string Version
+        +object Value
+        +ChangeLog ChangeLog
+        +Status Status
+        +DateTime CreatedAt
+    }
+    
+    class ChangeRequest {
+        +string Id
+        +string ParameterId
+        +object RequestedValue
+        +string RequestedBy
+        +string Reason
+        +Criticality Criticality
+        +ApprovalWorkflow ApprovalWorkflow
+        +DateTime ScheduledFor
+        +Status Status
+    }
+    
+    class AuditLog {
+        +string Id
+        +EventType EventType
+        +string ParameterId
+        +string UserId
+        +DateTime Timestamp
+        +object Details
+        +Compliance Compliance
+    }
+    
+    class User {
+        +string Id
+        +string Email
+        +string Name
+        +Role[] Roles
+        +string[] Domains
+        +bool IsActive
+    }
+    
+    Parameter "1" --o "*" ParameterVersion : "has versions"
+    Parameter "1" --o "*" ChangeRequest : "has changes" 
+    Parameter "1" --o "*" AuditLog : "generates logs"
+    User "1" --o "*" ChangeRequest : "creates"
+    User "1" --o "*" AuditLog : "performs actions"
