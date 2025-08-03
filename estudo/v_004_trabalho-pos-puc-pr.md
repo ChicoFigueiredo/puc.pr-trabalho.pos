@@ -109,79 +109,13 @@ A IA produziu uma arquitetura robusta baseada em microserviços, demonstrando ap
 
 #### Diagrama de Sequência: Criação de Parâmetro Crítico
 
-::: mermaid
-sequenceDiagram
-    participant Admin as Administrador
-    participant Portal as Configuration Portal
-    participant MGMT as Management API
-    participant Workflow as Workflow Engine
-    participant Approver as Aprovador
-    participant DIST as Distribution API
-    participant SDK as Client SDK
-    participant API as API Cliente
-    
-    Admin->>Portal: Criar parâmetro crítico
-    Portal->>MGMT: POST /parameters (critical)
-    MGMT->>MGMT: Validar schema
-    MGMT->>Workflow: Trigger approval workflow
-    
-    Workflow->>Approver: Notificação Teams/Email
-    Approver->>Portal: Revisar e aprovar
-    Portal->>MGMT: PUT /parameters/{id}/approve
-    
-    MGMT->>Events: Publish ParameterApproved
-    Events->>DIST: Event notification
-    DIST->>Redis: Update cache
-    DIST->>SignalR: Push notification
-    
-    SignalR->>SDK: Real-time update
-    SDK->>SDK: Update local cache
-    SDK->>API: Configuration available
-    
-    Note over Admin,API: Total time: <2 minutes
-::: 
+![criacao_parametro_critico](./mermaid/svg/v_004_01_criacao_parametro_critico.svg)
 
 **Análise**: O diagrama demonstra compreensão adequada do workflow de aprovação bancário, implementando segregação de funções (SOX compliance) e auditoria automática. A IA incorporou corretamente requisitos de rastreabilidade e notificação em tempo real.
 
 #### Diagrama de Sequência: Cache Hierárquico
 
-::: mermaid
-sequenceDiagram
-    participant API as API Cliente
-    participant SDK as Configuration SDK
-    participant L1 as L1 Cache (Memory)
-    participant DIST as Distribution API
-    participant L2 as L2 Cache (Redis)
-    participant COSMOS as Cosmos DB
-    
-    API->>SDK: GetParameter("login.timeout")
-    SDK->>L1: Check local cache
-    
-    alt Cache Hit (L1)
-        L1->>SDK: Return cached value
-        SDK->>API: Configuration value
-        Note over API,L1: Latency: ~1ms
-    else Cache Miss (L1)
-        SDK->>DIST: GET /parameters/login.timeout
-        DIST->>L2: Check Redis cache
-        
-        alt Cache Hit (L2)
-            L2->>DIST: Return cached value
-            DIST->>SDK: Configuration value
-            SDK->>L1: Update local cache
-            SDK->>API: Configuration value
-            Note over API,L2: Latency: ~10ms
-        else Cache Miss (L2)
-            DIST->>COSMOS: Query parameter
-            COSMOS->>DIST: Parameter data
-            DIST->>L2: Update Redis cache
-            DIST->>SDK: Configuration value
-            SDK->>L1: Update local cache
-            SDK->>API: Configuration value
-            Note over API,COSMOS: Latency: ~50ms
-        end
-    end
-::: 
+![cache_hierarquico](./mermaid/svg/v_004_02_cache_hierarquico.svg)
 
 **Análise**: Demonstra aplicação correta dos princípios de localidade de referência, com hierarquia de cache otimizada para redução de latência, aspecto crítico em sistemas bancários de alto volume.
 
