@@ -1,0 +1,81 @@
+graph TB
+    %% External Users
+    ADMIN[👥 Administradores<br/>Configuração de Parâmetros]
+    DEV[👥 Desenvolvedores<br/>Squads CAIXA]
+    OPS[👥 Operações<br/>Monitoramento 24x7]
+    AUDIT[👥 Auditoria<br/>Compliance e Relatórios]
+    
+    %% The System
+    SPCD[🎛️ Sistema de Parametrização<br/>de Configurações Dinâmicas<br/><br/>Gerencia parâmetros de configuração<br/>para canais digitais com propagação<br/>em tempo real e workflow de aprovação]
+    
+    %% External Systems - CAIXA
+    subgraph "Canais Digitais CAIXA"
+        APP[📱 App Mobile CAIXA<br/>iOS/Android]
+        WEB[🌐 Internet Banking<br/>Portal Web]
+        ATM[🏧 Caixas Eletrônicos<br/>Rede Própria]
+        POS[🏪 Correspondentes<br/>Lotéricas/Bancos]
+    end
+    
+    subgraph "APIs Internas CAIXA"
+        API_LOGIN[🔐 API Login<br/>Autenticação/Autorização]
+        API_FRAUD[🛡️ API Antifraude<br/>Detecção de Fraudes]
+        API_PAY[💰 API Pagamentos<br/>PIX/TED/Boletos]
+        API_CORE[🏦 Core Banking<br/>Sistema Central]
+    end
+    
+    %% External Systems - Azure
+    subgraph "Microsoft Azure"
+        AAD[🔑 Azure AD<br/>Identity Provider]
+        INSIGHTS[📊 Application Insights<br/>Observabilidade]
+        MONITOR[⚠️ Azure Monitor<br/>Alertas e Métricas]
+    end
+    
+    %% External Systems - Corporate
+    subgraph "Sistemas Corporativos"
+        TEAMS[💬 Microsoft Teams<br/>Notificações]
+        OUTLOOK[📧 Outlook<br/>Email Corporativo]
+        SERVICEDESK[🎫 ServiceNow<br/>Gestão de Incidentes]
+        DATAHUB[📊 Data Lake<br/>Analytics e BI]
+    end
+    
+    %% Relationships - Users to System
+    ADMIN -->|Configura parâmetros<br/>Aprova mudanças| SPCD
+    DEV -->|Consulta parâmetros<br/>Integra SDKs| SPCD
+    OPS -->|Monitora sistema<br/>Resolve incidentes| SPCD
+    AUDIT -->|Gera relatórios<br/>Verifica compliance| SPCD
+    
+    %% Relationships - System to CAIXA Channels
+    SPCD -->|Distribui parâmetros<br/>Push notifications| APP
+    SPCD -->|Fornece configurações<br/>Feature flags| WEB
+    SPCD -->|Parâmetros operacionais<br/>Timeouts/limites| ATM
+    SPCD -->|Configurações de rede<br/>URLs/certificados| POS
+    
+    %% Relationships - System to Internal APIs
+    SPCD -->|Parâmetros de login<br/>Timeouts/tentativas| API_LOGIN
+    SPCD -->|Thresholds antifraude<br/>Regras de negócio| API_FRAUD
+    SPCD -->|Limites de pagamento<br/>Configurações PIX| API_PAY
+    SPCD -->|Parâmetros centrais<br/>Conectividade| API_CORE
+    
+    %% Relationships - System to Azure
+    SPCD -->|Autentica usuários<br/>Autoriza operações| AAD
+    SPCD -->|Envia telemetria<br/>Logs de aplicação| INSIGHTS
+    SPCD -->|Métricas de sistema<br/>Alertas proativos| MONITOR
+    
+    %% Relationships - System to Corporate
+    SPCD -->|Notifica aprovações<br/>Alertas críticos| TEAMS
+    SPCD -->|Emails de workflow<br/>Relatórios agendados| OUTLOOK
+    SPCD -->|Cria incidentes<br/>Escalation automático| SERVICEDESK
+    SPCD -->|Eventos de auditoria<br/>Dados analíticos| DATAHUB
+    
+    %% Styling
+    classDef systemStyle fill:#1e88e5,stroke:#0d47a1,stroke-width:3px,color:#fff
+    classDef userStyle fill:#43a047,stroke:#1b5e20,stroke-width:2px,color:#fff
+    classDef caixaStyle fill:#ff8f00,stroke:#e65100,stroke-width:2px,color:#fff
+    classDef azureStyle fill:#0078d4,stroke:#004578,stroke-width:2px,color:#fff
+    classDef corpStyle fill:#7b1fa2,stroke:#4a148c,stroke-width:2px,color:#fff
+    
+    class SPCD systemStyle
+    class ADMIN,DEV,OPS,AUDIT userStyle
+    class APP,WEB,ATM,POS,API_LOGIN,API_FRAUD,API_PAY,API_CORE caixaStyle
+    class AAD,INSIGHTS,MONITOR azureStyle
+    class TEAMS,OUTLOOK,SERVICEDESK,DATAHUB corpStyle

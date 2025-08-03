@@ -77,3 +77,13 @@ Garanta que ao gerar o arquivo latex #file:01_conteudo_latex.tex  ele esteja fid
 ----
 Agora leia #file:01_conteudo_latex.tex em minúcia e faça #file:v_008_trabalho-pos-puc-pr.md  em markdown refletir o que está no texto. Incluir os gráficos em SVG que estão presentes no documento latex que não estão.
 Citações latex vá ao arquivo #file:!!!bibliografia.bib e pegue autor e ano para transcrever as refererências.
+
+----
+
+Preciso agora trazer da pasta `repositorio-das/DAS/Parametrizador` os documentos markdown de lá e trazer para a pasta `estudo/anexos` com as seguintes instruções:
+- cópiar todos os arquivos e suas subpastas
+- após copiado, analizar todos os markdowns em busca de diagramas mermaid e extrair elas para arquivos .mmd em subpastas próprias
+- uma vez extraído os arquivos .mmd, gerar arquivos SVG e PNG nessas mesmas subpastas
+- criadas as figuras SVG, remova os diagramas dos arquivos markdown e insira um no seu lugar a imagem .svg
+- garanta que todos os diagramas foram extraídos e colocado as imagens no seu lugar
+

@@ -1,0 +1,118 @@
+graph TB
+    %% External Users
+    ADMIN[👥 Administrador<br/>Browser]
+    DEV[👥 Desenvolvedor<br/>APIs Clientes]
+    
+    %% External Systems
+    AAD[🔑 Azure AD<br/>Identity Provider]
+    INSIGHTS[📊 Application Insights<br/>Observability]
+    TEAMS[💬 Microsoft Teams<br/>Notifications]
+    
+    subgraph "Sistema de Parametrização de Configurações Dinâmicas"
+        subgraph "Presentation Layer"
+            PORTAL[🌐 Configuration Portal<br/>Angular 16 SPA<br/><br/>Interface administrativa para<br/>gestão de parâmetros, aprovações<br/>e dashboards de analytics]
+            
+            WEBAPP[📱 Web App<br/>Azure Static Web Apps<br/><br/>Hospedagem do portal Angular<br/>com CDN e custom domains]
+        end
+        
+        subgraph "Application Services"
+            MGMT[⚙️ Configuration Management API<br/>ASP.NET Core 8 Web API<br/><br/>CRUD de parâmetros, versionamento,<br/>workflow de aprovação e<br/>validação de schemas]
+            
+            DIST[📡 Configuration Distribution API<br/>ASP.NET Core 8 Web API<br/><br/>Distribuição otimizada de parâmetros<br/>com cache inteligente e<br/>push notifications]
+            
+            WORKFLOW[🔄 Workflow Engine<br/>Azure Functions v4<br/><br/>Orquestração de aprovações,<br/>notificações e agendamento<br/>de mudanças]
+            
+            AUDIT[📋 Audit Service<br/>Azure Functions v4<br/><br/>Processamento de eventos de<br/>auditoria e geração de<br/>relatórios compliance]
+        end
+        
+        subgraph "Data Layer"
+            COSMOS[(🗄️ Configuration Database<br/>Azure Cosmos DB<br/><br/>Repositório principal com<br/>parâmetros, versões e<br/>change requests)]
+            
+            REDIS[(⚡ Cache Layer<br/>Azure Cache for Redis<br/><br/>Cache distribuído para<br/>performance e redução<br/>de latência)]
+            
+            BLOB[(📦 Backup Storage<br/>Azure Blob Storage<br/><br/>Backup de configurações<br/>e arquivos de fallback<br/>durante migração)]
+        end
+        
+        subgraph "Integration Layer"
+            EVENTGRID[📨 Event Grid<br/>Azure Event Grid<br/><br/>Event routing para<br/>propagação de mudanças<br/>e integração assíncrona]
+            
+            SIGNALR[🔔 SignalR Service<br/>Azure SignalR Service<br/><br/>Push notifications em<br/>tempo real para clientes<br/>conectados]
+            
+            SDK[📚 Configuration SDK<br/>.NET Standard 2.1 Library<br/><br/>Cliente library com cache<br/>local, circuit breaker e<br/>fallback automático]
+        end
+        
+        subgraph "Security & Monitoring"
+            KEYVAULT[🔐 Key Vault<br/>Azure Key Vault<br/><br/>Gerenciamento de secrets,<br/>connection strings e<br/>certificados]
+            
+            GATEWAY[🚪 API Gateway<br/>Azure API Management<br/><br/>Rate limiting, authentication<br/>proxy e API versioning]
+        end
+    end
+    
+    %% User Interactions
+    ADMIN -->|HTTPS/Angular<br/>Gestão de parâmetros| PORTAL
+    PORTAL -->|HTTPS/REST<br/>CRUD operations| MGMT
+    
+    DEV -->|HTTPS/REST<br/>Consulta parâmetros| DIST
+    DEV -->|NuGet Package<br/>SDK integration| SDK
+    
+    %% Internal API Communications
+    MGMT -->|SQL API<br/>Read/Write| COSMOS
+    MGMT -->|Event Publishing<br/>Parameter changes| EVENTGRID
+    MGMT -->|Cache Operations<br/>Invalidation| REDIS
+    
+    DIST -->|SQL API<br/>Read-only| COSMOS
+    DIST -->|Cache Operations<br/>Get/Set| REDIS
+    DIST -->|Connection Management<br/>Client notifications| SIGNALR
+    
+    WORKFLOW -->|Event Subscription<br/>Approval workflow| EVENTGRID
+    WORKFLOW -->|Notification API<br/>Teams integration| TEAMS
+    WORKFLOW -->|SQL API<br/>Update status| COSMOS
+    
+    AUDIT -->|Event Subscription<br/>Audit events| EVENTGRID
+    AUDIT -->|Telemetry API<br/>Audit logs| INSIGHTS
+    
+    %% SDK Interactions
+    SDK -->|HTTPS/REST<br/>Parameter requests| DIST
+    SDK -->|WebSocket<br/>Real-time updates| SIGNALR
+    SDK -->|HTTPS/REST<br/>Fallback requests| BLOB
+    
+    %% Event Flow
+    EVENTGRID -->|Event Delivery<br/>Parameter changes| SIGNALR
+    EVENTGRID -->|Event Delivery<br/>Workflow triggers| WORKFLOW
+    EVENTGRID -->|Event Delivery<br/>Audit events| AUDIT
+    
+    %% Security Integrations
+    PORTAL -->|OAuth 2.0<br/>User authentication| AAD
+    MGMT -->|OAuth 2.0<br/>API authentication| AAD
+    DIST -->|OAuth 2.0<br/>API authentication| AAD
+    
+    MGMT -->|Secret Management<br/>Connection strings| KEYVAULT
+    DIST -->|Secret Management<br/>Connection strings| KEYVAULT
+    WORKFLOW -->|Secret Management<br/>API keys| KEYVAULT
+    
+    %% Gateway Integration
+    MGMT -->|API Registration<br/>Rate limiting| GATEWAY
+    DIST -->|API Registration<br/>Rate limiting| GATEWAY
+    
+    %% Monitoring
+    MGMT -->|Telemetry<br/>Logs/Metrics| INSIGHTS
+    DIST -->|Telemetry<br/>Logs/Metrics| INSIGHTS
+    WORKFLOW -->|Telemetry<br/>Function logs| INSIGHTS
+    AUDIT -->|Telemetry<br/>Audit metrics| INSIGHTS
+    
+    %% Styling
+    classDef webStyle fill:#42a5f5,stroke:#1976d2,stroke-width:2px,color:#fff
+    classDef apiStyle fill:#66bb6a,stroke:#388e3c,stroke-width:2px,color:#fff
+    classDef dataStyle fill:#ffa726,stroke:#f57c00,stroke-width:2px,color:#fff
+    classDef eventStyle fill:#ab47bc,stroke:#7b1fa2,stroke-width:2px,color:#fff
+    classDef securityStyle fill:#ef5350,stroke:#d32f2f,stroke-width:2px,color:#fff
+    classDef externalStyle fill:#78909c,stroke:#455a64,stroke-width:2px,color:#fff
+    classDef userStyle fill:#43a047,stroke:#1b5e20,stroke-width:2px,color:#fff
+    
+    class PORTAL,WEBAPP webStyle
+    class MGMT,DIST,WORKFLOW,AUDIT apiStyle
+    class COSMOS,REDIS,BLOB dataStyle
+    class EVENTGRID,SIGNALR,SDK eventStyle
+    class KEYVAULT,GATEWAY securityStyle
+    class AAD,INSIGHTS,TEAMS externalStyle
+    class ADMIN,DEV userStyle
