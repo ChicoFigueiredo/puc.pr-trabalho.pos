@@ -87,3 +87,29 @@ Preciso agora trazer da pasta `repositorio-das/DAS/Parametrizador` os documentos
 - criadas as figuras SVG, remova os diagramas dos arquivos markdown e insira um no seu lugar a imagem .svg
 - garanta que todos os diagramas foram extraídos e colocado as imagens no seu lugar
 
+----
+
+Estou mexendo no #file:01_conteudo_latex.tex e queria um texto melhor para essa seção:
+
+
+\subsection{Artefatos produzidos}
+O Document Architecture Software (DAS) é composto pelos seguintes arquivos markdown:
+
+\begin{enumerate}
+	\item DAS\_Parametrizador.md (\href{https://github.com/ChicoFigueiredo/puc.pr-trabalho.pos/blob/main/estudo/anexos/DAS_Parametrizador.md}{Formatado} | \href{https://github.com/ChicoFigueiredo/puc.pr-trabalho.pos/blob/main/estudo/anexos/DAS_Parametrizador.md?plain=1}{Arquivo Bruto})
+	
+	\item Checklist\_Compliance.md (\href{https://github.com/ChicoFigueiredo/puc.pr-trabalho.pos/blob/main/estudo/anexos/Compliance/Checklist_Compliance.md}{Formatado} | 	 \href{https://github.com/ChicoFigueiredo/puc.pr-trabalho.pos/blob/main/estudo/anexos/Compliance/Checklist_Compliance.md?plain=1}{Arquivo Bruto})
+	
+	\item C4-Container-Diagram.md (\href{https://github.com/ChicoFigueiredo/puc.pr-trabalho.pos/blob/main/estudo/anexos/Diagramas/C4-Container-Diagram.md}{Formatado} | \href{https://github.com/ChicoFigueiredo/puc.pr-trabalho.pos/blob/main/estudo/anexos/Diagramas/C4-Container-Diagram.md?plain=1}{Arquivo Bruto})
+	
+	\item C4-Context-Diagram.md (\href{https://github.com/ChicoFigueiredo/puc.pr-trabalho.pos/blob/main/estudo/anexos/Diagramas/C4-Context-Diagram.md}{Formatado} | \href{https://github.com/ChicoFigueiredo/puc.pr-trabalho.pos/blob/main/estudo/anexos/Diagramas/C4-Context-Diagram.md?plain=1}{Arquivo Bruto})
+	
+	\item ADR-001-Cosmos-DB-Primary-Storage.md (\href{https://github.com/ChicoFigueiredo/puc.pr-trabalho.pos/blob/main/estudo/anexos/ADRs/ADR-001-Cosmos-DB-Primary-Storage.md}{Formatado} | \href{https://github.com/ChicoFigueiredo/puc.pr-trabalho.pos/blob/main/estudo/anexos/ADRs/ADR-001-Cosmos-DB-Primary-Storage.md?plain=1}{Arquivo Bruto})
+	
+	\item ADR-002-Event-Driven-Architecture.md (\href{https://github.com/ChicoFigueiredo/puc.pr-trabalho.pos/blob/main/estudo/anexos/ADRs/ADR-002-Event-Driven-Architecture.md}{Formatado} | \href{https://github.com/ChicoFigueiredo/puc.pr-trabalho.pos/blob/main/estudo/anexos/ADRs/ADR-002-Event-Driven-Architecture.md?plain=1}{Arquivo Bruto})
+	
+\end{enumerate}
+
+- queria dizer que os arquivos tão disponível no github a partir do link ao lado de cada item
+- que originalmente estão em markdown
+- que são os objetos de estudo
