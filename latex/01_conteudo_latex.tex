@@ -4,7 +4,7 @@ O presente trabalho apresenta uma análise aprofundada da proposta arquitetural 
 
 A arquitetura baseada em microserviços utiliza tecnologias Microsoft Azure, implementando padrões arquiteturais consolidados como Event Sourcing, CQRS e Circuit Breaker. A solução contempla requisitos críticos de segurança, conformidade regulatória (LGPD, SOX, Resolução CMN 4.893/2021\footnote{veja \citeaa{BCB_CMN_4893}}) e alta disponibilidade, essenciais para o ambiente bancário. Todo o Document Architecture Software (DAS) foi produzido por IA, incluindo diagramas técnicos, especificações de componentes e estratégias de implementação.
 
-A análise crítica, fundamentada nos princípios de Arquitetura Limpa \citeaa{Martin2019}, Padrões de Arquitetura Corporativa \citeaa{Fowler2008}, práticas modernas de Cloud Computing \citeaa{Ruparelia2016} e fundamentos estabelecidos por \citeaa{Bhowmik2017}, Arquitetura de Software \citeaa{Gallotti2016}, Engenharia de Software \citeaa{Pressman2021}, DevOps \citeaa{Monteiro2021} e fundamentos de Arquitetura de Computadores \citeaa{Netto2006}, revela que a IA demonstrou capacidade notável de aplicar padrões arquiteturais consolidados, mantendo coerência sistêmica entre múltiplos artefatos técnicos. Mais importante, a IA demonstrou \textbf{conformidade proativa} com a Resolução CMN 4.893/2021 sobre segurança cibernética e computação em nuvem, regulamentação que entrou em vigor posteriormente às sessões de trabalho com IA.
+A análise crítica, fundamentada nos princípios de Arquitetura Limpa \citeaa{Martin2019}, Padrões de Arquitetura Corporativa \citeaa{Fowler2008}, práticas modernas de Cloud Computing \citeaa{Ruparelia2016} e fundamentos estabelecidos por \citeaa{Bhowmik2017}, Arquitetura de Software \citeaa{Gallotti2016}, Engenharia de Software \citeaa{Pressman2021}, DevOps \citeaa{Monteiro2021} e fundamentos de Arquitetura de Computadores \citeaa{Netto2006}, revela que a IA demonstrou capacidade notável de aplicar padrões arquiteturais consolidados, mantendo coerência sistêmica entre múltiplos artefatos técnicos. Mais importante, a IA demonstrou \textbf{conformidade proativa} com a Resolução CMN 4.893/2021\nocite{BCB_CMN_4893} sobre segurança cibernética e computação em nuvem, regulamentação que entrou em vigor posteriormente às sessões de trabalho com IA.
 
 A implementação valida métricas de qualidade estabelecidas por \citeaa{Pressman2021}, incluindo índice de manutenibilidade de 0.73 (aceitável) e taxa de sucesso em deployment de 94\%. Os padrões arquiteturais identificados correspondem aos definidos por \citeaa{Gallotti2016}: MVC (Model-View-Controller), Repository Pattern e Pipe-and-Filter, implementados corretamente na proposta da IA. As práticas DevOps incluem Blue-Green deployment e Infrastructure as Code conforme \citeaa{Monteiro2021}.
 
@@ -16,11 +16,11 @@ A Caixa Econômica Federal, como uma das maiores instituições financeiras do B
 
 Este cenário gera múltiplos impactos negativos: (1) redução da agilidade competitiva em um mercado financeiro cada vez mais dinâmico; (2) aumento dos custos operacionais devido à necessidade de equipes técnicas para alterações simples; (3) maior exposição a riscos operacionais durante janelas de manutenção; e (4) frustração dos usuários finais devido à indisponibilidade temporária dos serviços.
 
-A problemática se intensifica quando consideramos a arquitetura legacy predominante na instituição, caracterizada por sistemas monolíticos com forte acoplamento entre componentes. Esta arquitetura, embora estável, não oferece a flexibilidade necessária para atender às demandas de um ambiente bancário digital moderno.
+A problemática se intensifica quando consideramos a arquitetura legada predominante na instituição, caracterizada por sistemas monolíticos com forte acoplamento entre componentes. Esta arquitetura, embora estável, não oferece a flexibilidade necessária para atender às demandas de um ambiente bancário digital moderno.
 
 Segundo \citeaa{Martin2019}, arquiteturas que não separam adequadamente as preocupações de negócio da infraestrutura tecnológica tendem a se tornar rígidas e custosas de manter. No contexto da Caixa, esta rigidez se manifesta na impossibilidade de realizar alterações paramétricas simples sem impactar toda a aplicação, violando princípios fundamentais de segurança cibernética como rastreabilidade e controle de mudanças.
 
-\citeaa{Pressman2021} identificam que aproximadamente \textbf{70\% dos incidentes em sistemas de produção estão relacionados a deployments}, sendo a configuração dinâmica uma estratégia essencial para mitigação destes riscos. A análise de risco quantitativa sugere que sistemas com alta frequência de deployment apresentam probabilidade 3.2x maior de incidentes críticos, validando a necessidade de parametrização sem deployment.
+\citeaa{Pressman2021} destacam que incidentes em sistemas de produção frequentemente estão relacionados a processos de deployment, sendo a configuração dinâmica uma estratégia essencial para mitigação destes riscos. A análise de risco quantitativa sugere que sistemas com alta frequência de deployment apresentam maior probabilidade de incidentes críticos, validando a necessidade de parametrização sem deployment.
 
 \textbf{Problemática Central}: A necessidade de uma solução arquitetural que permita parametrização dinâmica, mantendo os requisitos de segurança cibernética e conformidade com a Resolução CMN 4.893/2021, constitui o problema técnico central. Paralelamente, emerge uma problemática metodológica: \textbf{como a Inteligência Artificial pode ser efetivamente utilizada para acelerar e aprimorar o processo de design arquitetural de sistemas críticos, demonstrando até mesmo capacidade preditiva de conformidade regulatória?}
 
@@ -30,7 +30,7 @@ Esta segunda dimensão do problema é particularmente relevante no contexto atua
 
 A modernização dos sistemas bancários representa uma necessidade estratégica imperativa no contexto atual do setor financeiro brasileiro. A Caixa Econômica Federal, responsável por atender mais de 100 milhões de clientes através de seus canais digitais, necessita de soluções tecnológicas que proporcionem agilidade operacional sem comprometer segurança e conformidade regulatória.
 
-O desenvolvimento de um sistema parametrizador fundamenta-se em múltiplas justificativas técnicas e de negócio. Conforme \citeaa{Fowler2008}, sistemas que implementam adequadamente padrões de configuração dinâmica podem reduzir em até 90\% o tempo necessário para alterações paramétricas. Segundo \citeaa{Pressman2021}, aproximadamente 70\% dos incidentes em sistemas de produção estão relacionados a deployments, sendo a configuração dinâmica uma das principais estratégias de mitigação deste risco.
+O desenvolvimento de um sistema parametrizador fundamenta-se em múltiplas justificativas técnicas e de negócio. Conforme \citeaa{Fowler2008}, sistemas que implementam adequadamente padrões de configuração dinâmica podem reduzir em até 90\% o tempo necessário para alterações paramétricas. \citeaa{Pressman2021} destacam que incidentes em sistemas de produção frequentemente estão relacionados a processos de deployment, sendo a configuração dinâmica uma das principais estratégias de mitigação deste risco.
 
 A escolha de computação em nuvem para implementação é fundamentada nos benefícios estabelecidos por \citeaa{Bhowmik2017}: \textbf{econômicos} (redução de custos operacionais), \textbf{operacionais} (eliminação de gerenciamento de infraestrutura), \textbf{técnicos} (elasticidade e escalabilidade automática) e \textbf{estratégicos} (foco no core business). A evolução histórica da computação, desde mainframes até cloud computing, demonstra a tendência natural de migração para modelos de serviço compartilhado \citeaa{Bhowmik2017}.
 
@@ -99,6 +99,26 @@ A Resolução CMN 4.893/2021 estabelece requisitos abrangentes para política de
 A implementação centralizada de parametrização permite auditoria completa, atendendo aos requisitos de rastreabilidade estabelecidos no Art. 3º, III. A solução implementa controles RBAC, criptografia end-to-end e segregação de funções para conformidade com os procedimentos e controles especificados no Art. 3º, § 2º, incluindo autenticação, criptografia, prevenção de intrusão e controles de acesso.
 
 Durante a elaboração deste Trabalho de Conclusão de Curso, o autor utilizou as ferramentas de inteligência artificial ChatGPT (OpenAI, versão 4.0) e GitHub Copilot (Microsoft) para produção integral do Document Architecture Software (DAS), incluindo especificações técnicas, diagramas e estratégias de implementação. Todo o conteúdo foi posteriormente analisado criticamente pelo autor, que assume total responsabilidade pela avaliação da adequação técnica, originalidade e ética deste trabalho, conforme as diretrizes estabelecidas pela Resolução n.º 274/2024 – CONSUN da PUCPR\footnote{Vide fonte \citeaa{PUCPR2024IA}}.
+
+\subsection{Ensinamentos e Impactos do Uso da Inteligência Artificial na Arquitetura}
+
+O uso de ferramentas baseadas em inteligência artificial generativa — especificamente o ChatGPT (OpenAI) e o GitHub Copilot (Microsoft) — teve papel significativo na elaboração da proposta arquitetural deste trabalho. Essas ferramentas foram utilizadas como apoio na geração de estruturas preliminares de documentos (como ADRs), revisão de coesão textual, sugestões de padrões arquiteturais e identificação de riscos potenciais.
+
+Entre os \textbf{impactos positivos}, destacam-se:
+\begin{itemize}
+	\item Agilidade na formulação de alternativas arquiteturais para o uso de cloud e eventos.
+	\item Sugestões que auxiliaram no refinamento da separação de camadas e responsabilidades.
+	\item Detecção precoce de lacunas argumentativas no texto técnico.
+\end{itemize}
+
+No entanto, também foram observadas \textbf{limitações importantes}:
+\begin{itemize}
+	\item Algumas respostas geradas pela IA sugeriam padrões genéricos, sem considerar restrições do contexto bancário ou de segurança institucional.
+	\item O excesso de confiança na IA, sem validação técnica, poderia induzir a decisões mal fundamentadas ou incorretas.
+	\item O uso contínuo da IA exigiu revisão crítica e constante por parte do autor para garantir a coerência, precisão técnica e adequação ética.
+\end{itemize}
+
+O principal ensinamento extraído é que a IA pode ser uma \textbf{aliada poderosa no processo arquitetural}, mas \textbf{não substitui o conhecimento técnico, a leitura crítica da literatura, nem a responsabilidade do autor} sobre a solução proposta.
 
 \chapter{METODOLOGIA DA PESQUISA}
 
@@ -274,6 +294,78 @@ Segundo as métricas de qualidade de \citeaa{Pressman2021}, a arquitetura demons
 
 \chapter{PERCURSO METODOLÓGICO DA INTERVENÇÃO}
 
+\section{Modelagem Conceitual do Parametrizador}
+
+O parametrizador proposto é um microserviço desacoplado responsável por prover, em tempo real, valores de parâmetros de configuração que controlam o comportamento de sistemas de canais digitais da Caixa Econômica Federal, sem a necessidade de novo ciclo de build/deploy. Sua arquitetura foi concebida de forma a garantir disponibilidade, rastreabilidade, controle de acesso e auditabilidade.
+
+Do ponto de vista estrutural, o parametrizador é composto por cinco camadas principais:
+
+\begin{enumerate}
+	\item \textbf{Camada de Interface (API RESTful):} expõe operações públicas de consulta e atualização de parâmetros, com autenticação via OAuth2 e autorização baseada em perfis.
+	\item \textbf{Camada de Serviço:} orquestra as regras de negócio associadas à leitura, versionamento e rollback de parâmetros, além de tratamento de consistência eventual com fallback em cache.
+	\item \textbf{Camada de Persistência:} realiza operações no banco NoSQL (Cosmos DB) com versionamento, time stamping e controle de origem.
+	\item \textbf{Camada de Cache:} utiliza Redis para armazenar localmente valores frequentemente acessados, com TTL e invalidation reativo via eventos.
+	\item \textbf{Camada de Observabilidade e Auditoria:} realiza logging estruturado, geração de métricas, rastreamento de chamadas (Tracing) e publicação de eventos para controle de auditoria.
+	
+	
+\end{enumerate}
+
+O serviço é agnóstico em relação ao canal solicitante (mobile, web, ATM, etc.), e pode operar tanto em modo síncrono (requisição direta) quanto assíncrono (notificações via Event Grid e SignalR), conforme o nível de criticidade do parâmetro alterado.
+
+A arquitetura segue o princípio da separação de responsabilidades (SRP) e respeita o padrão "Twelve-Factor App" para compatibilidade com ambientes em nuvem pública, privada ou híbrida.
+
+\section{Componentes Internos do Parametrizador}
+
+\begin{table}[h]
+	\centering
+	\caption{Arquitetura em Camadas do Sistema Parametrizador}
+	\label{tab:arquitetura_camadas}
+	\begin{tabular}{p{4cm}p{6cm}p{5cm}}
+		\toprule
+		\rowcolor{headerpurple}
+		\textcolor{white}{\textbf{Camada}} & \textcolor{white}{\textbf{Responsabilidade Principal}} & \textcolor{white}{\textbf{Tecnologias Utilizadas}} \\
+		\midrule
+		API RESTful & Exposição de endpoints seguros & ASP.NET Core, Swagger, OAuth2 \\
+		\rowcolor{lightpurple}
+		Serviço de Negócio & Regras de negócio, versionamento, rollback & C\# / .NET, FluentValidation, AutoMapper \\
+		Persistência & Armazenamento de parâmetros versionados & Azure Cosmos DB (NoSQL, JSON Document Store) \\
+		\rowcolor{lightpurple}
+		Cache & Leitura rápida e fallback temporário & Azure Redis Cache, TTL, Publish/Subscribe \\
+		Observabilidade \& Auditoria & Logs, rastreamento, métricas e auditoria & Application Insights, ELK Stack, Azure Monitor \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsection*{Comparativo Técnico das Soluções Arquiteturais Consideradas}
+
+A definição da solução de armazenamento e cache adotada no sistema levou em consideração uma análise comparativa entre diferentes tecnologias disponíveis no ecossistema cloud, especialmente em ambiente Azure, amplamente utilizado na Caixa Econômica Federal. Os critérios avaliados foram: \textbf{custo}, \textbf{segurança}, \textbf{latência}, \textbf{portabilidade} e \textbf{complexidade de gerenciamento}. Esses fatores são essenciais em aplicações críticas, que requerem alta disponibilidade, governança de dados e conformidade com padrões regulatórios financeiros e de segurança da informação.
+
+Segundo \citeaa{Ruparelia2016}, a elasticidade e o modelo de consistência eventual dos bancos NoSQL são mais adequados a aplicações distribuídas com alta concorrência e baixa rigidez transacional \cite{Ruparelia2016}. Esse entendimento fundamenta a escolha do Azure Cosmos DB como armazenamento primário, dada sua escalabilidade horizontal nativa, baixa latência e replicação global. Já o Redis foi escolhido como cache por sua compatibilidade com múltiplas nuvens, simplicidade operacional e latência extremamente reduzida, como enfatizado por \citeaa{Fowler2008} ao discutir padrões de leitura otimizados.
+
+A tabela a seguir resume os principais pontos analisados:
+
+\begin{table}[h]
+	\centering
+	\caption{Tabela comparativa de alternativas arquiteturais}
+	\label{tab:comparativo}
+	\begin{tabular}{p{3.2cm}p{3.8cm}p{3.8cm}p{3.8cm}}
+		\toprule
+		\rowcolor{headerpurple}
+		\textcolor{white}{\textbf{Critério}} & \textcolor{white}{\textbf{Azure Cosmos DB}} & \textcolor{white}{\textbf{PostgreSQL Gerenciado (Azure Database)}} & \textcolor{white}{\textbf{Redis (Cache)}} \\
+		\midrule
+		\textbf{Custo} & Moderado a alto, depende da configuração de throughput (RUs) e replicação global & Baixo a moderado, custo previsível com base em tamanho e operações & Baixo; ideal para caching e leitura frequente \\
+		\rowcolor{lightpurple}
+		\textbf{Segurança} & Criptografia em repouso e em trânsito, integração com Azure AD, RBAC e compliance bancária \textit{(ex: PCI, ISO 27001)} & Criptografia em repouso, controle de acesso e backups automáticos & Sem persistência por padrão; requer configuração extra para segurança e replicação \\
+		\textbf{Latência} & Muito baixa leitura local; ideal para acessos distribuídos & Boa para queries relacionais, porém com latência crescente sob alta carga & Latência extremamente baixa; ideal para recuperação de parâmetros frequentes \\
+		\rowcolor{lightpurple}
+		\textbf{Portabilidade} & Baixa; APIs específicas e dependência do ecossistema Azure & Alta; linguagem SQL padrão, compatível com múltiplos provedores & Alta; Redis é amplamente suportado por nuvens públicas e privadas \\
+		\textbf{Complexidade de Gerenciamento} & Alta curva de aprendizado; requer tuning de consistência e custo preditivo (RUs) & Moderada; tuning de índices, conexões e performance é necessário & Baixa; gerenciamento simples com escalabilidade horizontal nativa \\
+		\rowcolor{lightpurple}
+		\textbf{Casos de uso indicados} & Dados semi-estruturados, replicação global, versionamento de parâmetros & Armazenamento de dados transacionais, integridade referencial e queries complexas & Cache temporário, fallback, dados altamente acessados sem consistência forte \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
 \section{Estratégia de Implementação}
 
 A implementação seguirá metodologia ágil híbrida em quatro fases: (1) Análise e Design Detalhado (8 semanas); (2) Desenvolvimento MVP (12 semanas); (3) Implementação Incremental (16 semanas); (4) Operação e Evolução (contínua).
@@ -291,6 +383,22 @@ A implementação seguirá metodologia ágil híbrida em quatro fases: (1) Anál
 A implementação incorporará refinamentos não contemplados pela IA: bounded contexts explícitos (Configuration, Approval, Distribution, Audit); saga pattern para transações distribuídas; event versioning para evolução; circuit breaker avançado com ML.
 
 \chapter{RESULTADOS ESPERADOS}
+
+A implementação do serviço de parametrização dinâmico para canais digitais visa aumentar a agilidade operacional da Caixa Econômica Federal, reduzindo a dependência de ciclos de deploy para ajustes não-funcionais e de negócio. Espera-se que o sistema promova maior governança sobre os parâmetros utilizados em ambiente de produção, com impacto direto em produtividade, rastreabilidade e confiabilidade.
+
+Para medir o sucesso da solução arquitetural proposta, serão considerados os seguintes indicadores operacionais e técnicos:
+
+\begin{itemize}
+	\item \textbf{Tempo médio de resposta da API de parâmetros:} valor alvo inferior a \textbf{100ms} para consultas em cache, com fallback automático inferior a \textbf{300ms} em caso de cache miss;
+	
+	\item \textbf{Disponibilidade do serviço:} meta de uptime mínimo de \textbf{99,9\%} mensal, monitorado via Azure Monitor e Application Insights;
+	
+	\item \textbf{Número de alterações parametrizadas por mês:} rastreamento de eventos via trilha de auditoria para quantificar a frequência e impacto das mudanças sem deploy — expectativa de no mínimo \textbf{30 intervenções mensais} via painel de governança;
+	
+	\item \textbf{Registro de logging estruturado e auditoria:} 100\% das requisições autenticadas e alterações deverão ser registradas com carimbo de tempo, usuário e origem, garantindo rastreabilidade conforme exigido pelas normas internas da instituição.
+\end{itemize}
+
+Esses indicadores estarão visíveis para a equipe técnica via dashboards analíticos e relatórios de auditoria automática, e servirão de base para revisões contínuas da arquitetura e ajustes operacionais conforme a evolução do uso real.
 
 \section{Impactos Operacionais e Arquiteturais}
 
