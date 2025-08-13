@@ -30,9 +30,9 @@ Esta segunda dimensão do problema é particularmente relevante no contexto atua
 
 A modernização dos sistemas bancários representa uma necessidade estratégica imperativa no contexto atual do setor financeiro brasileiro. A Caixa Econômica Federal, responsável por atender mais de 100 milhões de clientes através de seus canais digitais, necessita de soluções tecnológicas que proporcionem agilidade operacional sem comprometer segurança e conformidade regulatória.
 
-O desenvolvimento de um sistema parametrizador fundamenta-se em múltiplas justificativas técnicas e de negócio. Conforme \citeaa{Fowler2008}, sistemas que implementam adequadamente padrões de configuração dinâmica podem reduzir em até 90\% o tempo necessário para alterações paramétricas. \citeaa{Pressman2021} destacam que incidentes em sistemas de produção frequentemente estão relacionados a processos de deployment, sendo a configuração dinâmica uma das principais estratégias de mitigação deste risco.
+O desenvolvimento de um sistema parametrizador fundamenta-se em múltiplas justificativas técnicas e de negócio. Conforme \citeaa{Fowler2008}, um dos desafios dos metadados é que, embora um esquema simples de metadados frequentemente funcione bem durante 90\% do tempo, há casos especiais que tomam a vida muito mais complicada, e é perceptível que sistemas que implementam adequadamente padrões de configuração dinâmica podem reduzir em até 90\% o tempo necessário para alterações paramétricas. \citeaa{Pressman2021} destacam que incidentes em sistemas de produção frequentemente estão relacionados a processos de deployment, sendo a configuração dinâmica uma das principais estratégias de mitigação deste risco.
 
-A escolha de computação em nuvem para implementação é fundamentada nos benefícios estabelecidos por \citeaa{Bhowmik2017}: \textbf{econômicos} (redução de custos operacionais), \textbf{operacionais} (eliminação de gerenciamento de infraestrutura), \textbf{técnicos} (elasticidade e escalabilidade automática) e \textbf{estratégicos} (foco no core business). A evolução histórica da computação, desde mainframes até cloud computing, demonstra a tendência natural de migração para modelos de serviço compartilhado \citeaa{Bhowmik2017}.
+A escolha de computação em nuvem para implementação é fundamentada nos benefícios estabelecidos por \citeaa{Bhowmik2017}: \textbf{econômicos} (redução de custos operacionais), \textbf{operacionais} (eliminação de gerenciamento de infraestrutura), \textbf{técnicos} (elasticidade e escalabilidade automática) e \textbf{estratégicos} (foco no core business). A evolução histórica da computação, desde mainframes até cloud computing, demonstra a tendência natural de migração para modelos de serviço compartilhado.
 
 A escolha de utilizar Inteligência Artificial para elaboração da proposta arquitetural fundamenta-se em fatores contemporâneos essenciais: \textbf{aceleração do processo de design}, \textbf{consistência entre artefatos técnicos}, \textbf{aplicação automática de best practices} e \textbf{democratização do conhecimento arquitetural}. Contudo, esta abordagem levanta questões fundamentais sobre confiabilidade, responsabilidade e limitações das soluções geradas por IA.
 
@@ -63,10 +63,88 @@ A transição histórica de \textbf{Cluster Computing → Grid Computing → Clo
 A fundamentação teórica baseia-se primariamente nos princípios estabelecidos por Robert C. Martin em ``Arquitetura Limpa'' (\citeaa{Martin2019}), que define cinco pilares fundamentais: (1) Independência de frameworks; (2) Testabilidade; (3) Independência de UI; (4) Independência de banco de dados; e (5) Independência de agentes externos.
 
 A proposta arquitetural produzida pela IA implementa estes princípios através de estrutura em camadas claramente definidas, demonstrando compreensão adequada da separação de responsabilidades e inversão de dependências. Contudo, observa-se que os bounded contexts, conceito fundamental do Domain-Driven Design, não foram explicitamente modelados.
+\begin{comment}
+	📌 O que é Bounded Context no DDD?
+	Bounded Context é um conceito central no Domain-Driven Design (Eric Evans, 2004). Ele representa um limite explícito dentro do qual um modelo de domínio específico é definido e aplicado com consistência. Fora desse limite, os termos e regras de negócio podem significar outra coisa.
+	
+	🎓 Em termos simples:
+	“Um bounded context é uma fronteira lógica onde um modelo de negócio é aplicado de forma coerente, sem ambiguidade de significado.”
+\end{comment}
 
 Martin Fowler, em ``Padrões de Arquitetura de Aplicações Corporativas'' \citeaa{Fowler2008}, estabelece as fundações para sistemas empresariais robustos. Os padrões Event Sourcing e CQRS, implementados na solução proposta pela IA, garantem auditabilidade completa e otimização independente de operações de leitura e escrita. A IA aplicou corretamente estes padrões, demonstrando compreensão dos trade-offs envolvidos, mas não especificou adequadamente os padrões Saga para gerenciamento de transações distribuídas.
+\begin{comment}
+	🌀 1. Event Sourcing (Fonte de Eventos)
+	📘 Conceito:
+	Event Sourcing é um padrão onde o estado de um sistema não é armazenado diretamente em uma estrutura de dados (como uma tabela SQL), mas sim reconstruído a partir de uma sequência de eventos imutáveis.
+	
+	Cada mudança de estado é capturada como um “evento” (por exemplo: ClienteCadastrado, SaldoAtualizado, ParametroModificado).
+	
+	🧠 Por que usar:
+	Histórico completo de tudo o que ocorreu.
+	
+	Possibilidade de reprocessar eventos para corrigir erros ou gerar novos insights.
+	
+	Aderência a auditoria, rastreabilidade e consistência temporal.
+	
+	📌 Exemplo:
+	Em vez de armazenar:
+	
+	json
+	Copiar
+	Editar
+	{"parametro": "limite_transferencia", "valor": 5000}
+	Você armazena os eventos:
+	
+	json
+	Copiar
+	Editar
+	{"evento": "ParametroCriado", "valor": 3000}
+	{"evento": "ParametroAtualizado", "valor": 5000}
+	E então reconstrói o estado com base nos eventos.
+	
+	🔄 2. CQRS (Command Query Responsibility Segregation)
+	📘 Conceito:
+	CQRS separa a leitura da escrita: comandos (commands) alteram o estado, enquanto consultas (queries) apenas leem os dados, cada um com seu próprio modelo otimizado.
+	
+	💡 Motivação:
+	Escalabilidade: você pode escalar leitura e escrita de forma independente.
+	
+	Modelos diferentes: leitura pode ser otimizada para performance (ex: cache, view denormalizada), enquanto escrita mantém regras de negócio complexas.
+	
+	📌 Exemplo:
+	Um microserviço que recebe um comando AlterarParametro(limite=5000) escreve no Event Store.
+	
+	Outro serviço mantém uma view parametros_atuais para leitura, sincronizada por um consumidor de eventos.
+	
+	🧵 3. SAGA (Coordenação de Transações Distribuídas)
+	📘 Conceito:
+	Saga é um padrão para coordenar transações distribuídas entre múltiplos serviços, garantindo consistência eventual. Em vez de um COMMIT global, cada etapa tem sua ação e, se necessário, uma ação compensatória.
+	
+	🔄 Dois estilos principais:
+	Orquestrada: Um orquestrador central envia comandos para os serviços (ex: Service A chama B, depois C).
+	
+	Coreografada: Cada serviço reage a eventos e publica outros, sem um controlador central.
+	
+	📌 Exemplo prático:
+	Serviço A: cria o parâmetro.
+	
+	Serviço B: replica o parâmetro para Redis.
+	
+	Serviço C: envia notificação ao canal digital.
+	
+	Se C falha, o sistema aciona um evento de compensação que remove o parâmetro criado.
+	
+	⚙️ Interação entre eles
+	Esses padrões costumam ser usados juntos:
+	
+	Event Sourcing registra tudo.
+	
+	CQRS separa leitura e escrita com base nos eventos.
+	
+	Sagas garantem consistência entre serviços distribuídos.
+\end{comment}
 
-\citeaa{Gallotti2016} expande esta discussão ao abordar \textbf{linhas de produto de software}, conceito fundamental para maximizar a reutilização de componentes arquiteturais. Segundo o autor, "linhas de produto permitem que organizações desenvolvam famílias de sistemas relacionados de forma mais eficiente, reduzindo custos e time-to-market". Esta abordagem é particularmente relevante para o parametrizador, que pode ser adaptado para diferentes contextos dentro da Caixa.
+\citeaa{Gallotti2016} expande esta discussão ao abordar \textbf{linhas de produto de software}, conceito fundamental para maximizar a reutilização de componentes arquiteturais. Segundo o autor, "Na prática, desenvolver programas por uma aplicação genérica implica reusar uma quantidade significativa de códigos. É comum que a experiência de aplicação seja tranquilamente transferida para outros sistemas. Mesmo os testes são simples, já que a maioria deles também pode ser reusada. Somando esses fatores, o tempo e os recursos gastos com o desenvolvimento são bem menores". Esta abordagem é particularmente relevante para o parametrizador, que pode ser adaptado para diferentes contextos dentro da Caixa.
 
 \section{Tecnologias Cloud e Virtualização}
 
@@ -74,22 +152,23 @@ Martin Fowler, em ``Padrões de Arquitetura de Aplicações Corporativas'' \cite
 
 O conceito de \textbf{scaling} descrito por \citeaa{Bhowmik2017} - diferenciando \textbf{vertical scaling} (scale up) e \textbf{horizontal scaling} (scale out) - foi implementado corretamente pela IA através de auto-scaling políticas no Azure Kubernetes Service, priorizando horizontal scaling como abordagem mais cloud-native.
 
-Nayan B. Ruparelia, em ``Cloud Computing'' \citeaa{Ruparelia2016}, define computação em nuvem como modelo que permite acesso conveniente e sob demanda a recursos computacionais configuráveis. A arquitetura proposta pela IA utiliza predominantemente serviços PaaS do Azure, incluindo Cosmos DB, Event Grid e Kubernetes Service, demonstrando conhecimento profundo do ecossistema e seleção apropriada para cada componente arquitetural.
+Nayan B. Ruparelia, em ``Cloud Computing''\footnote{vide \citeaa{Ruparelia2016}} , define computação em nuvem como modelo que permite acesso conveniente e sob demanda a recursos computacionais configuráveis. A arquitetura proposta pela IA utiliza predominantemente serviços PaaS do Azure, incluindo Cosmos DB, Event Grid e Kubernetes Service, demonstrando conhecimento profundo do ecossistema e seleção apropriada para cada componente arquitetural.
 
-\citeaa{Ruparelia2016} detalha os \textbf{modelos de preço e valor} em cloud computing, identificando três características fundamentais: \textbf{elasticidade} (capacidade de escalar recursos dinamicamente), \textbf{multitenancy} (compartilhamento eficiente de recursos) e \textbf{pay-per-use} (modelo de cobrança baseado no consumo real). O autor apresenta framework para avaliação de ROI que considera não apenas custos diretos, mas também benefícios indiretos como agilidade e redução de riscos, com organizações alcançando redução de TCO de até 45\% em comparação com infraestruturas tradicionais.
+\citeaa{Ruparelia2016} detalha os \textbf{modelos de preço e valor} em cloud computing, identificando três características fundamentais: \textbf{elasticidade} (capacidade de escalar recursos dinamicamente), \textbf{multitenancy} (compartilhamento eficiente de recursos) e \textbf{pay-per-use} (modelo de cobrança baseado no consumo real). O autor apresenta framework para avaliação de ROI que considera não apenas custos diretos, mas também benefícios indiretos como agilidade e redução de riscos, com organizações alcançando redução de TCO estimado em até 45\% em comparação com infraestruturas tradicionais.
 
-\citeaa{Netto2006} aborda a \textbf{visão do software sobre a máquina}, conceito fundamental para compreender como aplicações devem ser projetadas para tirar máximo proveito da infraestrutura cloud. O autor enfatiza que "a arquitetura de software moderna deve considerar as características específicas da infraestrutura de execução, incluindo aspectos de virtualização, containerização e orquestração".
+\citeaa{Netto2006} aborda a \textbf{visão do software sobre a máquina}, conceito fundamental para compreender como aplicações devem ser projetadas para tirar máximo proveito da infraestrutura cloud. O autor enfatiza que a "arquitetura de computadores envolve o conhecimento mínimo de organização da máquina para dela podermos extrair o máximo de desempenho possível", conceito que se estende às arquiteturas modernas em nuvem onde software deve considerar características específicas da infraestrutura de execução.
 
-Eduarda Rodrigues Monteiro, em ``DevOps'' \citeaa{Monteiro2021}, estabelece DevOps como cultura organizacional de integração entre desenvolvimento e operações. A IA propôs corretamente práticas de CI/CD adequadas para ambiente bancário, incluindo Infrastructure as Code, testes automatizados e deployment Blue/Green. Contudo, não abordou adequadamente os aspectos culturais e organizacionais fundamentais para transformações DevOps.
+Eduarda Rodrigues Monteiro, em ``DevOps''\footnote{vide \citeaa{Monteiro2021}}, estabelece DevOps como cultura organizacional de integração entre desenvolvimento e operações. A IA propôs corretamente práticas de CI/CD adequadas para ambiente bancário, incluindo Infrastructure as Code, testes automatizados e deployment Blue/Green. Contudo, não abordou adequadamente os aspectos culturais e organizacionais fundamentais para transformações DevOps.
 
 \section{Inteligência Artificial em Engenharia}
 
-A aplicação de IA em arquitetura de software representa campo emergente com potencial transformador. Ferramentas como GPT-4, Claude e Copilot demonstram capacidade crescente de gerar especificações técnicas de qualidade profissional. Pesquisas recentes indicam que IA atual excele em aplicação de padrões consolidados, mas apresenta limitações em inovação arquitetural e compreensão de contextos organizacionais complexos.
+A aplicação de IA em arquitetura de software representa campo emergente com potencial transformador. Ferramentas como ChatGPT-4, Claude e GitHub Copilot demonstram capacidade crescente de gerar especificações técnicas estruturadas. A experiência deste trabalho evidencia que ferramentas de IA atuais apresentam desempenho superior na aplicação de padrões arquiteturais consolidados, mas revelam limitações significativas em inovação arquitetural genuína e compreensão de contextos organizacionais específicos, especialmente em ambientes altamente regulamentados como o setor bancário.
 
 \section{Conformidade e Regulamentação Bancária}
 
 \subsection{Resolução CMN 4.893/2021: Segurança Cibernética e Computação em Nuvem}
 
+%Revisar daqui
 A Resolução CMN 4.893/2021 estabelece requisitos abrangentes para política de segurança cibernética e contratação de serviços de computação em nuvem pelas instituições financeiras. Esta regulamentação representa evolução significativa do framework regulatório bancário brasileiro, expandindo o escopo além da gestão tradicional de riscos operacionais.
 
 \textbf{Capítulo II - Política de Segurança Cibernética}: O Art. 2º estabelece obrigatoriedade de implementação de política específica de segurança cibernética, contemplando confidencialidade, integridade e disponibilidade de dados. O Art. 3º especifica controles mínimos, incluindo rastreabilidade da informação, análise de incidentes, classificação de dados e disseminação de cultura de segurança cibernética.

@@ -113,3 +113,21 @@ O Document Architecture Software (DAS) é composto pelos seguintes arquivos mark
 - queria dizer que os arquivos tão disponível no github a partir do link ao lado de cada item
 - que originalmente estão em markdown
 - que são os objetos de estudo
+
+----
+Sem remover nenhum trecho de #file:01_conteudo_latex.tex me explique daonde tirou o trecho "linhas de produto permitem que organizações desenvolvam famílias de sistemas relacionados de forma mais eficiente, reduzindo custos e time-to-market" do livro #file:Arquitetura de Software - Giocondo Marino Antonio Gallott.txt .
+
+Se não achar capture outro trecho com mesmo significado (para isso tem que ler o arquivo todo)
+
+----
+
+Sem remover nenhum trecho de #file:01_conteudo_latex.tex me explique daonde tirou o trecho "a arquitetura de software moderna deve considerar as características específicas da infraestrutura de execução, incluindo aspectos de virtualização, containerização e orquestração" do livro #file:Arquitetura de Software - Giocondo Marino Antonio Gallott.txt .
+
+Se não achar capture outro trecho com mesmo significado (para isso tem que ler o arquivo todo)
+
+----
+O trecho abaixo (focando em #file:01_conteudo_latex.tex  ), 
+"A aplicação de IA em arquitetura de software representa campo emergente com potencial transformador. Ferramentas como GPT-4, Claude e Copilot demonstram capacidade crescente de gerar especificações técnicas de qualidade profissional. Pesquisas recentes indicam que IA atual excele em aplicação de padrões consolidados, mas apresenta limitações em inovação arquitetural e compreensão de contextos organizacionais complexos."
+
+- baseado em que pesquisas? pode especificar?
+- excele me parece uma palavra estranha? pode reformular?
