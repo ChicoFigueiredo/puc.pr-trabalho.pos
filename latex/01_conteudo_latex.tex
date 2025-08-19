@@ -168,20 +168,20 @@ A aplicação de IA em arquitetura de software representa campo emergente com po
 
 \subsection{Resolução CMN 4.893/2021: Segurança Cibernética e Computação em Nuvem}
 
-%Revisar daqui
+
 A Resolução CMN 4.893/2021 estabelece requisitos abrangentes para política de segurança cibernética e contratação de serviços de computação em nuvem pelas instituições financeiras. Esta regulamentação representa evolução significativa do framework regulatório bancário brasileiro, expandindo o escopo além da gestão tradicional de riscos operacionais.
 
 \textbf{Capítulo II - Política de Segurança Cibernética}: O Art. 2º estabelece obrigatoriedade de implementação de política específica de segurança cibernética, contemplando confidencialidade, integridade e disponibilidade de dados. O Art. 3º especifica controles mínimos, incluindo rastreabilidade da informação, análise de incidentes, classificação de dados e disseminação de cultura de segurança cibernética.
 
 \textbf{Capítulo III - Computação em Nuvem}: Os Arts. 11-17 estabelecem requisitos específicos para contratação de serviços cloud, incluindo procedimentos de governança (Art. 12), definição de serviços cloud (Art. 13), responsabilidades da instituição contratante (Art. 14), comunicação obrigatória ao BCB (Art. 15) e requisitos para contratação no exterior (Arts. 16-17).
 
-A implementação centralizada de parametrização permite auditoria completa, atendendo aos requisitos de rastreabilidade estabelecidos no Art. 3º, III. A solução implementa controles RBAC, criptografia end-to-end e segregação de funções para conformidade com os procedimentos e controles especificados no Art. 3º, § 2º, incluindo autenticação, criptografia, prevenção de intrusão e controles de acesso.
+A implementação centralizada de parametrização permite auditoria completa, atendendo aos requisitos de rastreabilidade estabelecidos no Art. 3º, III. A solução implementa controles RBAC\footnote{RBAC (Role-Based Access Control) é um modelo de controle de acesso em que permissões são atribuídas a papéis (roles)}, criptografia end-to-end e segregação de funções para conformidade com os procedimentos e controles especificados no Art. 3º, § 2º, incluindo autenticação, criptografia, prevenção de intrusão e controles de acesso.
 
 Durante a elaboração deste Trabalho de Conclusão de Curso, o autor utilizou as ferramentas de inteligência artificial ChatGPT (OpenAI, versão 4.0) e GitHub Copilot (Microsoft) para produção integral do Document Architecture Software (DAS), incluindo especificações técnicas, diagramas e estratégias de implementação. Todo o conteúdo foi posteriormente analisado criticamente pelo autor, que assume total responsabilidade pela avaliação da adequação técnica, originalidade e ética deste trabalho, conforme as diretrizes estabelecidas pela Resolução n.º 274/2024 – CONSUN da PUCPR\footnote{Vide fonte \citeaa{PUCPR2024IA}}.
 
 \subsection{Ensinamentos e Impactos do Uso da Inteligência Artificial na Arquitetura}
 
-O uso de ferramentas baseadas em inteligência artificial generativa — especificamente o ChatGPT (OpenAI) e o GitHub Copilot (Microsoft) — teve papel significativo na elaboração da proposta arquitetural deste trabalho. Essas ferramentas foram utilizadas como apoio na geração de estruturas preliminares de documentos (como ADRs), revisão de coesão textual, sugestões de padrões arquiteturais e identificação de riscos potenciais.
+O uso de ferramentas baseadas em inteligência artificial generativa — especificamente o ChatGPT (OpenAI) e o GitHub Copilot (Microsoft) — teve papel significativo na elaboração da proposta arquitetural deste trabalho. Essas ferramentas foram utilizadas como apoio na geração de estruturas preliminares de documentos (como ADRs\footnote{Um Architecture Decision Record (ADR) é um documento conciso que registra uma decisão arquitetural relevante}), revisão de coesão textual, sugestões de padrões arquiteturais e identificação de riscos potenciais.
 
 Entre os \textbf{impactos positivos}, destacam-se:
 \begin{itemize}
@@ -205,7 +205,7 @@ O principal ensinamento extraído é que a IA pode ser uma \textbf{aliada podero
 
 Esta pesquisa adota abordagem qualitativa exploratória, utilizando estudo de caso único: a elaboração de uma proposta arquitetural para sistema parametrizador de canais digitais, desenvolvida integralmente por ferramentas de Inteligência Artificial.
 
-A implementação segue uma metodologia híbrida, combinando práticas de DevOps \citeaa{Monteiro2021} com arquitetura em microsserviços. Conforme \citeaa{Netto2006}, a aplicação de padrões arquiteturais específicos pode reduzir a complexidade de manutenção em até 60\%. Para o parametrizador, foram selecionados os seguintes padrões:
+A implementação segue uma metodologia híbrida, combinando práticas de DevOps \citeaa{Monteiro2021} com arquitetura em microsserviços. Segundo \citeaa{Netto2006}, o conhecimento adequado da organização da máquina permite "extrair o máximo da organização de um computador", conceito aplicável ao design de sistemas que devem tirar proveito otimizado da infraestrutura subjacente. Para o parametrizador, foram selecionados os seguintes padrões:
 
 \begin{itemize}
     \item \textbf{Configuration Management Pattern}: Centralização de configurações com versionamento
@@ -315,23 +315,24 @@ O diagrama ilustra a aplicação dos conceitos de \textbf{linhas de produto de s
     \label{fig:v_006_02_cache_hierarquico}
 \end{figure}
 
-\textbf{Análise}: Demonstra aplicação correta dos princípios de localidade de referência, com hierarquia de cache otimizada para redução de latência, aspecto crítico em sistemas bancários de alto volume. A implementação alinha-se com as estratégias de \textbf{load balancing} descritas por \citeaa{Bhowmik2017}, incluindo distribuição dinâmica de cargas e monitoramento de performance. O diagrama implementa \textbf{horizontal scaling} como abordagem cloud-native preferencial.
+\textbf{Análise}: Demonstra aplicação correta dos princípios de localidade de referência, com hierarquia de cache otimizada para redução de latência, aspecto crítico em sistemas bancários de alto volume. A implementação alinha-se com as estratégias e padrões de \textbf{load balancing} descritas por \citeaa{Bhowmik2017}, incluindo distribuição dinâmica de cargas e monitoramento de performance. O diagrama implementa \textbf{horizontal scaling} como abordagem cloud-native preferencial.
 
 \section{Comparativo de Tecnologias}
 
 A IA demonstrou compreensão sólida das trade-offs entre diferentes abordagens tecnológicas. As recomendações incluem:
 
-\textbf{Azure SQL Database vs. CosmosDB}: Seleção correta baseada em requisitos ACID vs. eventual consistency, validando os princípios de \textbf{data management} descritos por \citeaa{Bhowmik2017}. A escolha de SQL Database para dados transacionais bancários demonstra compreensão adequada dos requisitos de conformidade financeira.
+\textbf{Azure SQL Database vs. CosmosDB}: Seleção correta baseada em requisitos ACID vs. eventual consistency, validando os princípios de \textbf{Database Technology} descritos por \citeaa{Bhowmik2017}, bem como o data management. A escolha de SQL Database para dados transacionais bancários demonstra compreensão adequada dos requisitos de conformidade financeira.
 
 \textbf{Service Bus vs. Azure Functions}: Implementação de event-driven architecture apropriada para sistemas de alta disponibilidade, alinhando-se com as estratégias de \textbf{message queuing} estabelecidas por \citeaa{Bhowmik2017} e com os requisitos de continuidade operacional da Resolução CMN 4.893/2021.
 
-\textbf{Application Gateway vs. API Management}: Seleção adequada considerando requisitos de throttling, rate limiting e conformidade regulatória, implementando os padrões de \textbf{API governance} recomendados por \citeaa{Bhowmik2017}.
+\textbf{Application Gateway vs. API Management}: Seleção adequada considerando requisitos de throttling, rate limiting e conformidade regulatória, implementando os padrões de \textbf{GRC\footnote{Governança, Risco e Conformidade}} recomendados por \citeaa{Bhowmik2017}.
 
+%Revisar daqui
 \section{Avaliação por Dimensões}
 
 \subsection{1. Adequação Técnica (8.5/10)}
 
-\textbf{Pontos Fortes}: Event Sourcing e CQRS implementados adequadamente conforme Fowler (2002); arquitetura em camadas seguindo Martin (2019); Circuit Breaker e patterns de resiliência aplicados corretamente; cache hierárquico bem projetado.
+\textbf{Pontos Fortes}: Event Sourcing e CQRS implementados adequadamente conforme \citeaa{Fowler2008}; arquitetura em camadas seguindo \citeaa{Martin2019}; Circuit Breaker e patterns de resiliência aplicados corretamente; cache hierárquico bem projetado.
 
 Segundo as métricas de qualidade de \citeaa{Pressman2021}, a arquitetura demonstra: Índice de Manutenibilidade de 0.73 (aceitável), Complexidade Ciclomática média de 8 (adequada para sistemas críticos), Taxa de Sucesso em Deployment de 94\% (conforme benchmark bancário), e Tempo Médio de Recuperação (MTTR) de 1.2 horas.
 
