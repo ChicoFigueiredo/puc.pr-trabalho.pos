@@ -327,12 +327,14 @@ A IA demonstrou compreensão sólida das trade-offs entre diferentes abordagens 
 
 \textbf{Application Gateway vs. API Management}: Seleção adequada considerando requisitos de throttling, rate limiting e conformidade regulatória, implementando os padrões de \textbf{GRC\footnote{Governança, Risco e Conformidade}} recomendados por \citeaa{Bhowmik2017}.
 
-%Revisar daqui
 \section{Avaliação por Dimensões}
+
+As análises, notas e percentuais apresentados nas seções a seguir foram fundamentados na percepção crítica, experiência prática e compreensão técnica do autor sobre os critérios avaliados, não se constituindo como métricas auditáveis, mas sim como uma ferramenta interpretativa de apoio à decisão arquitetural.
 
 \subsection{1. Adequação Técnica (8.5/10)}
 
 \textbf{Pontos Fortes}: Event Sourcing e CQRS implementados adequadamente conforme \citeaa{Fowler2008}; arquitetura em camadas seguindo \citeaa{Martin2019}; Circuit Breaker e patterns de resiliência aplicados corretamente; cache hierárquico bem projetado.
+
 
 Segundo as métricas de qualidade de \citeaa{Pressman2021}, a arquitetura demonstra: Índice de Manutenibilidade de 0.73 (aceitável), Complexidade Ciclomática média de 8 (adequada para sistemas críticos), Taxa de Sucesso em Deployment de 94\% (conforme benchmark bancário), e Tempo Médio de Recuperação (MTTR) de 1.2 horas.
 
@@ -420,6 +422,7 @@ A arquitetura segue o princípio da separação de responsabilidades (SRP) e res
 
 A definição da solução de armazenamento e cache adotada no sistema levou em consideração uma análise comparativa entre diferentes tecnologias disponíveis no ecossistema cloud, especialmente em ambiente Azure, amplamente utilizado na Caixa Econômica Federal. Os critérios avaliados foram: \textbf{custo}, \textbf{segurança}, \textbf{latência}, \textbf{portabilidade} e \textbf{complexidade de gerenciamento}. Esses fatores são essenciais em aplicações críticas, que requerem alta disponibilidade, governança de dados e conformidade com padrões regulatórios financeiros e de segurança da informação.
 
+%Revisar DAQUI
 Segundo \citeaa{Ruparelia2016}, a elasticidade e o modelo de consistência eventual dos bancos NoSQL são mais adequados a aplicações distribuídas com alta concorrência e baixa rigidez transacional \cite{Ruparelia2016}. Esse entendimento fundamenta a escolha do Azure Cosmos DB como armazenamento primário, dada sua escalabilidade horizontal nativa, baixa latência e replicação global. Já o Redis foi escolhido como cache por sua compatibilidade com múltiplas nuvens, simplicidade operacional e latência extremamente reduzida, como enfatizado por \citeaa{Fowler2008} ao discutir padrões de leitura otimizados.
 
 A tabela a seguir resume os principais pontos analisados:
