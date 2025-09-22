@@ -1,0 +1,950 @@
+% Compressão
+\pdfminorversion=5
+\pdfcompresslevel=9
+\pdfobjcompresslevel=2
+
+\documentclass[
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	%twoside,			% para impressão em recto e verso. Oposto a oneside
+	oneside,
+	a4paper,			% tamanho do papel.
+	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	sumario=abnt-6027-2012,
+	english,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
+]{abntex2}
+
+\label{oculto:packages}
+% ----------------------------------------------------------
+% Pacotes básicos
+% ----------------------------------------------------------
+\usepackage{import}                            % package import tem o comando import que faz a importação com "novo path"
+\usepackage{amsmath}							% Pacote matemático
+\usepackage{amssymb}							% Pacote matemático
+\usepackage{amsfonts}							% Pacote matemático
+\usepackage{lmodern}							% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}						% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}						% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}							% Usado pela Ficha catalográfica
+\usepackage{indentfirst}						% Indenta o primeiro parágrafo de cada seção.
+\usepackage[dvipsnames,svgnames,table]{xcolor}			% Controle das cores
+\usepackage{graphicx}							% Inclusão de gráficos
+\usepackage{svg}                                %inclusão de svg
+\usepackage{microtype} 							% para melhorias de justificação
+\usepackage{lipsum}								% para geração de dummy text
+\usepackage[brazilian,hyperpageref]{backref}	% Paginas com as citações na bibl
+%\usepackage[alf]{abntex2cite}					% Citações padrão ABNT
+\usepackage[num]{abntex2cite}					% Citações padrão ABNT numérica
+\usepackage{adjustbox}							% Pacote de ajuste de boxes
+\usepackage{subcaption}							% Inclusão de Subfiguras e sublegendas
+\usepackage{enumitem}							% Personalização de listas
+\usepackage{siunitx}							% Grandezas e unidades
+\usepackage[section]{placeins}					% Manter as figuras delimitadas na respectiva seção com a opção [section]
+\usepackage{multirow}							% Multi colunas nas tabelas
+\usepackage{array,tabularx} 					% Pacotes de tabelas
+\usepackage{booktabs}							% Pacote de tabela profissonal
+\usepackage{rotating}							% Rotacionar figuras e tabelas
+\usepackage{xfrac}								% Fazer frações n/d em linha
+\usepackage{bm}									% Negrito em modo matemático
+\usepackage{xstring}							% Manipulação de strings
+\usepackage{pgfplots}							% Pacote de Gráficos
+\usepackage{tikz}								% Pacote de Figuras
+\usepackage[american, cuteinductors,smartlabels, fulldiode, siunitx, americanvoltages, oldvoltagedirection, smartlabels]{circuitikz}						% Pacote de circuitos elétricos
+\usepackage{lipsum}
+\usepackage{xargs}
+\usepackage{dsfont}
+\usepackage{comment}
+
+%\usepackage[style=abnt]{biblatex}
+
+\usepackage{hyperref}
+% informações do PDF
+\makeatletter
+	\hypersetup{
+		%pagebackref=true,
+		pdftitle={\@title},
+		pdfauthor={\@author},
+		pdfsubject={\imprimirpreambulo},
+		pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho academico},
+		colorlinks=true,       		% false: boxed links; true: colored links
+		linkcolor=NavyBlue,          	% color of internal links
+		citecolor=NavyBlue,        	% color of links to bibliography
+		filecolor=black,      		% color of file links
+		urlcolor=NavyBlue,
+		bookmarksdepth=4,
+		linktoc=all
+	}
+\makeatother
+
+
+% Centraliza captions of pictures
+\usepackage[justification=centering]{caption}
+
+
+% glossário, com fix para erros
+%\usepackage[acronym]{glossaries}
+
+
+% To use externalize consider
+%https://tex.stackexchange.com/questions/182783/tikzexternalize-not-compatible-with-miktex-2-9-abntex2-package
+%Lauro Cesar digged into the problem until he came with a solution for me to test. And it Works!
+%
+%According to this link:
+%
+%The package calc changed the commands \setcounter and friends to be fragile. So you have to make them robust. The example below uses etoolbox with \robustify:
+%
+\usepackage{etoolbox}
+\robustify\setcounter
+\robustify\addtocounter
+\robustify\setlength
+\robustify\addtolength
+
+\usepackage[]{tocloft}
+%\setlength\cftsectionnumwidth{4em}
+%\setlength{\cftchapterindent}{2em}
+%\setlength{\cftsectionindent}{5em}
+%\setlength{\cftsubsectionindent}{8em}
+
+\usepackage{pstricks-add}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+%<<<<<<<WARNING>>>>>>>
+% PGF/Tikz doesn't support the following mathematical functions:
+% cosh, acosh, sinh, asinh, tanh, atanh,
+% x^r with r not integer
+
+% Plotting will be done using GNUPLOT
+% GNUPLOT must be installed and you must allow Latex to call external
+% programs by adding the following option to your compiler
+% shell-escape    OR    enable-write18 
+% Example: pdflatex --shell-escape file.tex 
+
+
+%% How to silence memoir class warning against the use of caption package?
+%% https://tex.stackexchange.com/questions/391993/how-to-silence-memoir-class-warning-against-the-use-of-caption-package
+%\usepackage{silence}
+%\WarningFilter*{memoir}{You are using the caption package with the memoir class}
+%\WarningFilter*{Class memoir Warning}{You are using the caption package with the memoir class}
+
+
+% -----------------------------------------------------------------
+% Você pode adicionar seus pacotes a partir desta linha;
+% -----------------------------------------------------------------
+
+%\usepackage[showframe,pass]{geometry}
+%\usepackage[11,12]{pagesel}
+\usepackage{qrcode}
+\usepackage{multirow}
+
+% -----------------------------------------------------------------
+% pacote interno
+\usepackage{modulos/trabalhos.academicos}
+
+
+
+% CONFIGURAÇÕES DE PACOTES
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi
+}%
+
+% Citação online --- MODIFICAR ---
+\newcommandx{\citeaa}[2][2= ]{\citeauthoronline{#1}~(\citeyear{#1}#2)}
+
+
+\label{oculto-programinhas}
+%-----------------------------------------
+% (1) simple command for print or not
+%-----------------------------------------
+\usepackage{ifthen}
+\newcommand{\ImprimirSimOuNao}[2][Sim]
+{
+  \ifthenelse{\equal{#1}{Sim}}{#2}{}
+}
+
+% alterando o aspecto da cor azul
+%\definecolor{blue}{RGB}{41,5,195}
+% No preâmbulo:
+\definecolor{azulPrincipal}{RGB}{41, 128, 185}     % Azul corporativo
+\definecolor{azulSecundario}{RGB}{235, 245, 251}     % Azul muito claro para zebrado
+\definecolor{headerblue}{RGB}{41, 128, 185}     % Azul corporativo
+\definecolor{lightblue}{RGB}{235, 245, 251}     % Azul muito claro para zebrado
+\definecolor{headergreen}{RGB}{39, 174, 96}     % Verde moderno
+\definecolor{lightgreen}{RGB}{232, 248, 233}    % Verde muito claro
+\definecolor{headerpurple}{RGB}{142, 68, 173}   % Roxo elegante
+\definecolor{lightpurple}{RGB}{245, 238, 248}   % Roxo muito claro
+\definecolor{headerorange}{RGB}{230, 126, 34}   % Laranja moderno
+\definecolor{lightorange}{RGB}{253, 242, 233}   % Laranja muito claro
+\definecolor{headerslate}{RGB}{52, 73, 94}      % Azul acinzentado moderno
+\definecolor{lightslate}{RGB}{236, 240, 243}    % Cinza-azul muito claro
+\definecolor{vermelho}{RGB}{255, 0, 0}     % Azul muito claro para zebrado
+\definecolor{amarelo}{RGB}{255, 255, 0}     % Azul muito claro para zebrado
+\definecolor{verde}{RGB}{0, 255, 0}     % Azul muito claro para zebrado
+
+
+\makeatletter
+    \newcommand{\includetikz}[1]{%
+    	\tikzsetnextfilename{#1}%
+    	\input{#1.tex}%
+    }
+\makeatother
+
+
+\newcommand{\MONTH}{%
+	\ifcase\the\month
+	\or JAN% 1
+	\or FEV% 2
+	\or MAR% 3
+	\or ABR% 4
+	\or MAI% 5
+	\or JUN% 6
+	\or JUL% 7
+	\or AGO% 8
+	\or SET% 9
+	\or OUT% 10
+	\or NOV% 11
+	\or DEZ% 12
+	\fi}
+\makeatletter
+
+% Personalização das opções das listas
+\setlist[itemize]{leftmargin=\parindent}
+
+\newcommand{\me}[1]{Elaborado pelo autor, #1.}
+
+% Configuração do pgfplots
+\pgfplotsset{compat=newest} %compat=1.14
+\pgfplotsset{plot coordinates/math parser=false}
+\newlength\figureheight
+\newlength\figurewidth
+
+% Libraries do TiKz
+\usetikzlibrary{quotes,angles,arrows}
+\usetikzlibrary{through,calc,math}
+\usetikzlibrary{graphs,backgrounds,fit}
+\usetikzlibrary{shapes,positioning,patterns,shadows}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{external}
+
+%\tikzexternalize[]
+%\tikzexternalenable
+%\tikzexternalize
+%\tikzexternaldisable
+%\tikzset{external/force remake}
+%\tikzexternalize[shell escape=-enable-write18]
+
+% Configurações do CircuiTiKz
+\ctikzset{bipoles/thickness=1}
+%\ctikzset{bipoles/length=1.2cm}
+\ctikzset{monopoles/ground/width/.initial=.2}
+\ctikzset{bipoles/resistor/height=0.25}
+\ctikzset{bipoles/resistor/width=0.6}
+\ctikzset{bipoles/capacitor/height=0.5}
+\ctikzset{bipoles/capacitor/width=0.15}
+\ctikzset{bipoles/generic/height=0.25}
+\ctikzset{bipoles/generic/width=0.6}
+%\ctikzset{bipoles/capacitor polar/length=0.5}
+%\ctikzset{bipoles/diode/height=.375}
+%\ctikzset{bipoles/diode/width=.3}
+%\ctikzset{tripoles/thyristor/height=.8}
+%\ctikzset{tripoles/thyristor/width=1}
+\ctikzset{bipoles/vsourcesin/height=.5}
+\ctikzset{bipoles/vsourcesin/width=.5}
+\ctikzset{bipoles/cvsourceam/height=.6}
+\ctikzset{bipoles/cvsourceam/width=.6}
+%\ctikzset{tripoles/european controlled voltage source/width=.4}
+
+\tikzstyle{every node}=[font=\footnotesize]
+\tikzstyle{every path}=[line width=0.25pt,line cap=round,line join=round]
+%\tikzstyle{every path}=[line cap=round,line join=round]
+
+
+% Definição de cores MATLAB
+\definecolor{matlab_blue}{rgb}	{         0,    0.4470,    0.7410}
+\definecolor{matlab_orange}{rgb}{    0.8500,    0.3250,    0.0980}
+\definecolor{matlab_yellow}{rgb}{    0.9290,    0.6940,    0.1250}
+\definecolor{matlab_violet}{rgb}{    0.4940,    0.1840,    0.5560}
+\definecolor{matlab_green}{rgb}	{	 0.4660,    0.6740,    0.1880}
+\definecolor{matlab_lblue}{rgb}	{    0.3010,    0.7450,    0.9330}
+\definecolor{matlab_red}{rgb}	{    0.6350,    0.0780,    0.1840}
+
+% Personalização das legendas
+\usepackage[format = hang,
+			labelsep = endash,
+			singlelinecheck = false,
+			skip = 6pt,
+			listformat = simple]{caption}
+
+% Personalização das unidades
+\sisetup{output-decimal-marker = {,}}
+\sisetup{exponent-product = \cdot, output-product = \cdot}
+\sisetup{tight-spacing=true}
+\sisetup{group-digits = false}
+
+% Personalizações de tipo de colunas de tabelas
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% Personalizações de cores da UDESC
+\definecolor{PretoPUC}{RGB}{94,109,254}		% Especializacao
+\definecolor{CapaAmareloUDESC}{RGB}{243,186,83}		% Especializacao
+\definecolor{CapaVerdeUDESC}{RGB}{0,112,52}			% Mestrado
+\definecolor{CapaVermelhoUDESC}{RGB}{171,35,21}		% Doutorado
+\definecolor{CapaAzulUDESC}{RGB}{38,54,118} 		% Pós-Doutorado
+
+
+% Espaçamento depois do título
+\setlength{\afterchapskip}{0.7\baselineskip}
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.25cm}
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.15cm}  % tente também \onelineskip
+%\SingleSpacing % Espaçamento simples
+\OnehalfSpacing % Espaçamento 1,5 (UDESC/CCT)
+%\DoubleSpacing	% Espaçamento duplo
+
+% ---
+% Margens - NBR 14724/2011 - 5.1 Formato
+% ---
+\setlrmarginsandblock{3cm}{2cm}{*}
+\setulmarginsandblock{3cm}{2cm}{*}
+\checkandfixthelayout[fixed]
+% ---
+
+
+
+
+
+
+
+
+
+\label{oculto:dados-do-trabalho}
+% -----------------------------------------------------------------
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% -----------------------------------------------------------------
+\tipotrabalho{
+    Projeto de Aplicação
+}
+
+\titulo{
+	Impactos e ensinamentos do uso de Inteligência Artificial para elaboração de proposta de arquitetura para um parametrizador de dados para canais digitais
+}%
+
+% ATENÇÃO: O símbolo {} indica o sobrenome para a ficha catalográfica.
+%          Exemplo: Sherlock Holmes {}da Silva para sobrenomes compostos;
+%          Exemplo: Arnold Alois {}Schwarzenegger para sobrenome simples.
+\autor{Francisco Lima {}Figueiredo}%
+\newcommand\matricula{Matricula 3112024005764}
+\orientador{Kelly Rafaela {}Otemaier}%
+%\coorientador{}%
+\instituicao{Pontifícia Universidade Católica / Paraná}%
+
+\preambulo{
+	Trabalho apresentado à PUC/PR como requisito parcial para obtenção da aprovação na pós em Arquitetura de Software, Ciências de Dados e Cybersecurity
+}
+
+\local{Brasília}%
+\data{\MONTH/\the\year}%
+% ---
+
+
+
+
+
+
+
+
+
+
+% compila o indice
+\makeindex
+
+% -----------------------------------------------------------------
+% Início do documento
+% -----------------------------------------------------------------
+\begin{document}
+	
+	\selectlanguage{brazil}
+	\frenchspacing            % Retira espaço extra obsoleto entre as frases.
+	
+	% Você pode comentar os elementos que não deseja em seu trabalho;
+
+	% -----------------------------------------------------------------
+	% ELEMENTOS PRÉ-TEXTUAIS
+	% -----------------------------------------------------------------
+	\pretextual
+
+	\label{oculto:capa}
+	% --- 
+	% Capa
+	% --- 
+	%\imprimircapaTrabalho      % Capa UDESC para Trabalho
+	%\imprimircapaTCC			% Capa UDESC para TCC
+	%\imprimircapaDissertacao	% Capa UDESC para Dissertações
+	%\imprimircapaTese			% Capa UDESC para Teses
+	%\imprimircapaPosDoc		% Capa UDESC para Pós-Doutorado
+
+	\imprimirCapaCustom{PretoPUC}{\imprimirtipotrabalho}{\imprimirinstituicao}  %Capa UDESC para Pós-Doutorado
+
+	%\imprimircapa				% Capa padrão
+
+
+	% -----------------------------------------------------------------
+	% ELEMENTOS PRÉ-TEXTUAIS
+	% -----------------------------------------------------------------
+
+		% ---
+		% Folha de rosto
+		% (o * indica que haverá a ficha bibliográfica)
+		% ---
+		\ImprimirSimOuNao[Sim]{             % Elemento Obrigatório
+			\imprimirfolhaderosto*                                                 
+		}
+		% ---
+
+
+
+
+		\label{oculto:ficha-bibliográfica}
+		% ---
+		% Inserir a ficha bibliografica
+		% ---
+		\ImprimirSimOuNao[Não]{             % Elemento Obrigatório
+
+			% Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
+			% catalogação-na-publicação''. Você pode utilizar este modelo como referência.
+			% Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
+			% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
+			% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
+			% o conteúdo de implementação deste arquivo pelo comando abaixo:
+
+			% \begin{fichacatalografica}
+			%     \includepdf{fig_ficha_catalografica.pdf}
+			% \end{fichacatalografica}
+
+			%	\setlength{\parindent}{0cm}
+			%	\setlength{\parskip}{0pt}
+			\begin{fichacatalografica}                            
+				%\sffamily
+				%\rmfamily
+				\ttfamily \hbadness=10000
+				\vspace*{\fill}					% Posição vertical
+				\begin{center}					% Minipage Centralizado
+			%	\begin{minipage}[c]{8cm}
+			%	\centering \sffamily
+			%	 Ficha catalográfica elaborada pelo(a) autor(a), com auxílio do programa de geração automática da Biblioteca Setorial do CCT/UDESC
+			%	\end{minipage}
+				\fbox{\begin{minipage}[c]{12.5cm}		% Largura
+				\flushright
+				{\begin{minipage}[c]{10.5cm}		% Largura
+				\vspace{1.25cm}
+				%\footnotesize
+				\setlength{\parindent}{1.5em}
+				\noindent \invertname{\imprimirautor} \par
+				\imprimirtitulo{ }/{ }\imprimirautor. -- \imprimirlocal, \imprimirdata .\par
+				\pageref{LastPage} p. : il. ; 30 cm.\par
+				\vspace{1.5em}
+				\imprimirorientadorRotulo~\imprimirorientador\par
+				\imprimircoorientadorRotulo~\imprimircoorientador\par
+				\imprimirtipotrabalho~--~\imprimirinstituicao, \imprimirlocal, \imprimirdata.\par
+				\vspace{1.5em}
+					1. Sociologia.
+					2. Meio Ambiente.
+					I. \invertname{\imprimirorientador}.
+					II. \invertname{\imprimircoorientador}.
+					III. \imprimirinstituicao. %
+				\vspace{1.25cm}	%
+				\end{minipage}%
+				}%
+				\end{minipage}}%
+				\end{center}
+			\end{fichacatalografica}
+		}
+
+
+
+
+		% ---
+		% Inserir errata
+		% ---
+		\ImprimirSimOuNao[Não]{
+			\begin{errata}
+				Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
+
+				\vspace{\onelineskip}
+
+				FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
+				reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
+				rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
+				cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
+				Zootecnia, Universidade de São Paulo, São Paulo, 2011.
+
+				\begin{table}[htb]
+				\center
+				\footnotesize
+				\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
+				  \hline
+				   \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
+					\hline
+					1 & 10 & auto-conclavo & autoconclavo\\
+				   \hline
+				\end{tabular}
+				\end{table}
+				
+			\end{errata}
+			% ---
+		}
+
+
+
+
+		
+		% ---
+		% Inserir folha de aprovação
+		% ---
+		\ImprimirSimOuNao[Não]{
+			\begin{folhadeaprovacao}
+				\begin{center}
+					{\MakeTextUppercase{\ABNTEXchapterfont\large\imprimirautor}}
+
+					\vspace*{\fill} %\vspace*{\fill}
+					\begin{center}
+					  {\MakeTextUppercase{\ABNTEXchapterfont\bfseries\large\imprimirtitulo}}
+					\end{center}
+					\vspace*{\fill}
+					
+					%\hspace{.45\textwidth}
+					{\begin{minipage}[c]{1\linewidth}
+						\setlength{\parindent}{1.25cm}
+						\imprimirpreambulo
+					\end{minipage}}%
+					\vspace*{\fill}
+					\end{center}
+						
+					 
+					{\bfseries Banca Examinadora: }
+					\vspace*{\fill}
+					
+					{Orientador: \vspace{-16pt} }
+					\assinatura{\textbf{Prof. \imprimirorientador , Dr.} \\ Univ. XXX} 
+					{Coorientador: \vspace{-16pt}}   
+					\assinatura{\textbf{Prof. \imprimircoorientador , Dr.} \\ Univ. XXX}
+				   
+					{Membros: \vspace{-16pt} } 
+					
+				% --- Exemplo de assinaturas em sequência ---       
+					\setlength{\ABNTEXsignwidth}{8.5cm}
+					
+					\assinatura{\textbf{Prof. Professor, Dr.} \\ Univ. XXX}
+					\assinatura{\textbf{Prof. Professor, Dr.} \\ Univ. XXX}
+					\assinatura{\textbf{Prof. Professor, Dr.} \\ Univ. XXX}
+
+				% --- Exemplo de assinaturas lado a lado ---
+					\setlength{\ABNTEXsignwidth}{7.5cm}
+				%
+				%    \noindent\hfill\assinatura*{\textbf{Prof. Professor, Dr.} \\ Univ. XXX}%
+				%    \hfill%
+				%    \assinatura*{\textbf{Prof. Professor, Dr.} \\ Univ. XXX}%
+				%    \hfill
+				%    
+				%    \noindent\hfill\assinatura*{\textbf{Prof. Professor, Dr.} \\ Univ. XXX}%
+				%    \hfill%
+				%    \assinatura*{\textbf{Prof. Professor, Dr.} \\ Univ. XXX}%
+				%    \hfill
+					
+					\vspace*{\fill}  
+					\begin{center}
+					{\large\imprimirlocal, 01 de maio de \imprimirdata}
+				\end{center}
+				\vspace*{1cm}  
+			\end{folhadeaprovacao}
+		}
+		% ---
+
+
+
+
+		\label{oculto:dedicatória}
+		% ---
+		% Dedicatória
+		% ---
+		\ImprimirSimOuNao[Não]{
+			\begin{dedicatoria}
+			   \vspace*{\fill}
+			   \centering
+			   \noindent
+			   \textit{ Este trabalho é dedicado às minhas maiores inspirações,\\
+			   Minha esposa Daiane, minha filha Mayara Barros e minha sobrinha do coração Rachael Costa.} \vspace*{\fill}
+			\end{dedicatoria}		
+		}
+		% ---
+		
+		
+		
+		
+		\label{oculto:agradecimentos}
+		% ---
+		% Agradecimentos
+		% ---
+		\ImprimirSimOuNao[Não]{
+			\begin{agradecimentos}
+				Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson, Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real Salvador, Renato Machnievscz\footnote{Os nomes dos integrantes do primeiro projeto abn\TeX\ foram extraídos de \url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que contribuíram para que a produção de trabalhos acadêmicos conforme as normas ABNT com \LaTeX\ fosse possível.
+
+				Agradecimentos especiais são direcionados ao Centro de Pesquisa em Arquitetura da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de Brasília (CPAI), ao grupo de usuários \emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos novos voluntários do grupo \emph{\abnTeX}\footnote{\url{http://groups.google.com/group/abntex2} e \url{http://www.abntex.net.br/}}~que contribuíram e que ainda contribuirão para a evolução do \abnTeX.
+			\end{agradecimentos}
+		}
+		% ---
+
+
+
+
+		\label{oculto:epigrafe}
+		% ---
+		% Epígrafe
+		% ---
+		\ImprimirSimOuNao[Sim]{
+			\begin{epigrafe}
+				\vspace*{\fill}
+				\hspace{.35\textwidth}
+				{\begin{minipage}{.6\textwidth}
+					\begin{flushright}
+						\textit{``Qualquer tecnologia suficientemente avançada é indistinguível da magia.``\\
+							(Arthur C. Clarke - Profiles of the Future - 1973)}
+					\end{flushright}
+				\end{minipage}}%
+			\end{epigrafe}
+		}
+		% ---
+		
+		
+		\label{oculto:resumo}
+		% ---
+		% RESUMOS
+		% ---
+		\ImprimirSimOuNao[Sim]{
+			% resumo em português
+			\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+			\begin{resumo}
+			 
+			 Este trabalho analisa os impactos e limitações do uso de Inteligência Artificial na elaboração de propostas arquiteturais para sistemas bancários críticos, utilizando como caso de estudo um sistema parametrizador de dados para canais digitais da Caixa Econômica Federal. A arquitetura foi desenvolvida integralmente por IA (ChatGPT 4.0 e GitHub Copilot) em três sessões estruturadas, utilizando microserviços Azure com padrões como Event Sourcing, CQRS e Circuit Breaker. A análise crítica baseada em cinco dimensões (Adequação Técnica, Completude, Viabilidade, Conformidade e Inovação) revelou que a IA demonstrou capacidade notável na aplicação de padrões arquiteturais consolidados e manutenção de coerência entre artefatos técnicos. \textbf{Descoberta científica inédita}: a IA demonstrou \textbf{conformidade proativa} com a Resolução CMN 4.893/2021 sobre segurança cibernética, regulamentação que entrou em vigor após as sessões de trabalho, evidenciando \textbf{capacidade preditiva regulatória}. Contudo, identificaram-se limitações em aspectos de governança organizacional, trade-offs complexos e inovação arquitetural. Os resultados esperados incluem redução de 80\% no tempo de alteração de parâmetros e estabelecimento de metodologia validada para uso eficaz de IA em projetos arquiteturais empresariais, contribuindo para a compreensão do papel emergente da IA como ferramenta de aceleração no design arquitetural e sua capacidade preditiva em conformidade regulatória.
+			 
+			 
+			 \vspace{\onelineskip}
+			 
+			 \noindent 			 
+
+			 \textbf{Palavras-chave}: Inteligência Artificial, Arquitetura de Software, Sistemas Bancários, Microserviços, Event Sourcing, CQRS, Parametrizador, Azure, Design Arquitetural, Conformidade Regulatória, Segurança Cibernética, Capacidade Preditiva.
+			 
+			\end{resumo}
+		}
+		
+		
+		
+		
+		\label{oculto:abstract}
+		% ---
+		% Abstract
+		% ---
+		\ImprimirSimOuNao[Sim]{
+			% resumo em inglês
+			\begin{resumo}[Abstract]
+			 \begin{otherlanguage*}{english}
+			   This work analyzes the impacts and limitations of using Artificial Intelligence in developing architectural proposals for critical banking systems, using as a case study a data parameterization system for digital channels at Caixa Econômica Federal. The architecture was developed entirely by AI (ChatGPT 4.0 and GitHub Copilot) in three structured sessions, utilizing Azure microservices with patterns such as Event Sourcing, CQRS, and Circuit Breaker. Critical analysis based on five dimensions (Technical Adequacy, Completeness, Viability, Compliance, and Innovation) revealed that AI demonstrated remarkable capability in applying consolidated architectural patterns and maintaining coherence between technical artifacts. \textbf{Unprecedented scientific discovery}: AI demonstrated \textbf{proactive compliance} with CMN Resolution 4.893/2021 on cybersecurity, regulation that entered into force after the working sessions, evidencing \textbf{predictive regulatory capability}. However, limitations were identified in organizational governance aspects, complex trade-offs, and architectural innovation. Expected results include an 80\% reduction in parameter change time and establishment of a validated methodology for effective AI use in enterprise architectural projects, contributing to understanding the emerging role of AI as an acceleration tool in architectural design and its predictive capability in regulatory compliance.
+
+			   \vspace{\onelineskip}
+			 
+			   \noindent 
+			   \textbf{Keywords}: Artificial Intelligence, Software Architecture, Banking Systems, Microservices, Event Sourcing, CQRS, Parameterization, Azure, Architectural Design, Regulatory Compliance, Cybersecurity, Predictive Capability.
+			   
+			 \end{otherlanguage*}
+			\end{resumo}
+		}
+		
+
+
+
+		\label{oculto:listas}
+		% ---
+		% inserir lista de ilustrações
+		% ---
+		\ImprimirSimOuNao[Não]{
+			\pdfbookmark[0]{\listfigurename}{lof}
+			\listoffigures*
+			\cleardoublepage
+		}
+		% ---
+
+
+
+
+
+		% ---
+		% inserir lista de tabelas
+		% ---
+		\ImprimirSimOuNao[Não]{
+			%\pdfbookmark[0]{\listtablename}{lot}
+			%\listoftables*
+			%\cleardoublepage
+		}
+		% ---
+
+
+
+
+
+		% ---
+		% inserir lista de abreviaturas e siglas
+		% ---
+		\ImprimirSimOuNao[Não]{
+			%\begin{siglas}
+			%  \item[ABNT] Associação Brasileira de Normas Técnicas
+			%  \item[abnTeX] ABsurdas Normas para TeX
+			%\end{siglas}
+		}
+		% ---
+
+
+
+
+
+		% ---
+		% inserir lista de símbolos
+		% ---
+		\ImprimirSimOuNao[Não]{
+			%\begin{simbolos}
+			%  \item[$ \Gamma $] Letra grega Gama
+			%  \item[$ \Lambda $] Lambda
+			%  \item[$ \zeta $] Letra grega minúscula zeta
+			%  \item[$ \in $] Pertence
+			%\end{simbolos}
+		}
+		% ---
+
+
+
+		\label{oculto:sumario-índice}
+		% ---------------------
+		% inserir o sumario    
+		% ---------------------
+		\ImprimirSimOuNao[Sim]{
+			\pdfbookmark[0]{\contentsname}{toc}
+
+			% Formatação forçada do sumário identado e dot juntinho
+			\makeatletter 
+				\renewcommand{\cftdotsep}{.5}
+				\renewcommand{\cftlastnumwidth}{1em}
+				\cftsetindents{chapter}{1em}{1.5em}
+				\cftsetindents{section}{1.5em}{2em}
+				\cftsetindents{subsection}{3.75em}{2.5em}
+				\cftsetindents{subsubsection}{6.2em}{3.5em}
+			\makeatother
+
+			\tableofcontents*
+
+			\cleardoublepage
+		}
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+% -----------------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% -----------------------------------------------------------------
+\textual
+		
+\include{01_conteudo_latex}
+
+
+
+
+\label{oculto:bibliografia}
+%%---------------------------------------------------------------------
+%% BIBLIOGRAFIA - Referências Bibliográficas
+%%---------------------------------------------------------------------
+% Referências bibliográficas
+\bibliography{bibliografia/!!!bibliografia}	        % Elemento Obrigatório
+
+
+
+
+
+
+
+
+\postextual
+
+	% ----------------------------------------------------------
+	% Glossário
+	% ----------------------------------------------------------
+
+	% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+
+	\ImprimirSimOuNao[Não]{             % Elemento Opcional
+		\glossary
+	}
+
+
+
+	% ----------------------------------------------------------
+	% Apêndices
+	% ----------------------------------------------------------
+
+	\ImprimirSimOuNao[Não]{             % Elemento Opcional
+		% ---
+		% Inicia os apêndices
+		% ---
+		\begin{apendicesenv}
+
+		% Imprime uma página indicando o início dos apêndices
+		\partapendices
+
+		% ----------------------------------------------------------
+		\chapter{Sobre esse trabalho}
+		% ----------------------------------------------------------
+
+
+			Esse documento foi produzido e programado usando-se \LaTeX, MikTeX, abntex2 e todo conteúdo possui links referencias clicáveis, sejam tabelas, figuras, imagens de vídeos, autores com seu respectivo registro bibliográfico.
+			Informamos que o código fonte do projeto gerador desse PDF está disponível no endereço abaixo (legível também pelo QR Code abaixo): \\
+			
+			\qrset{link, height=4cm}
+			\begin{center}
+				\href{https://github.com/ChicoFigueiredo/Estacio-TCC-Estacio-Matematica}{
+					\qrcode{https://github.com/ChicoFigueiredo/Estacio-TCC-Estacio-Matematica}
+				}
+			\end{center}
+			\begin{center}
+				{\tiny \url{https://github.com/ChicoFigueiredo/Estacio-TCC-Estacio-Matematica} }
+			\end{center}
+			
+
+
+		% ----------------------------------------------------------
+		%\chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula
+		%ac pretium ante justo a nulla curabitur tristique arcu eu metus}
+		%% ----------------------------------------------------------
+		%\lipsum[55-57]
+
+		\end{apendicesenv}
+		% ---
+	}
+
+	\label{oculto:anexos}
+	% ----------------------------------------------------------
+	% Anexos
+	% ----------------------------------------------------------
+	%
+	% ---
+	% Inicia os anexos
+	% ---
+	\ImprimirSimOuNao[Não]{             % Elemento Opcional
+		\begin{anexosenv}
+
+			% Imprime uma página indicando o início dos anexos
+			\partanexos
+			
+			\makeatletter 
+				\def\thesection{\alph{section}}
+				\setcounter{chapter}{1}
+			\makeatother
+			
+			\section{Conteúdo desse trabalho}
+
+
+				Esse documento foi programado em \LaTeX, MikTeX, abntex2 e todo conteúdo possui links referenciais clicáveis, sejam tabelas, figuras, imagens de vídeos, autores com seu respectivo registro bibliográfico.
+				Informamos que projeto gerador desse PDF está disponível no endereço (legível também pelo QR Code abaixo): \\
+				\url{https://github.com/ChicoFigueiredo/estacio-Trab001-AASE-202004137859.git} \\
+				\qrset{link, height=4cm}
+				\begin{center}
+					\href{https://github.com/ChicoFigueiredo/estacio-Trab001-AASE-202004137859.git}{
+						\qrcode{https://github.com/ChicoFigueiredo/estacio-Trab001-AASE-202004137859.git}
+					}
+				\end{center}
+
+
+				Apresentação no OneDrive: \url{https://1drv.ms/p/s!AgRBucATAhUblzAldnG4LGnWNV-r?e=ykIvGi} \\
+				\begin{center}
+					\href{https://1drv.ms/p/s!AgRBucATAhUblzAldnG4LGnWNV-r?e=ykIvGi}{
+						\qrcode{https://1drv.ms/p/s!AgRBucATAhUblzAldnG4LGnWNV-r?e=ykIvGi}
+					}
+				\end{center}
+
+				Vídeo no YouTube: \url{https://youtu.be/szsZ_Uuk1zk} \\
+				\begin{center}
+					\href{https://youtu.be/szsZ_Uuk1zk}{
+						\qrcode{https://youtu.be/szsZ_Uuk1zk}
+					}
+				\end{center}
+
+
+				\section{Códigos e Programas utilizados}
+
+				\subsection{Programas em Python}
+					programas em python
+
+				\subsection{Programas em R}
+					programas em r
+
+				\section{Lista de questões}
+					lista de questões
+
+			
+		\end{anexosenv}
+	}
+	
+	
+	%%---------------------------------------------------------------------
+	%% INDICE REMISSIVO
+	%%---------------------------------------------------------------------
+	\ImprimirSimOuNao[Sim]{             % Elemento Opcional
+		\phantompart
+		\printindex
+	}
+	%---------------------------------------------------------------------
+
+
+\end{document}
+
+% -----------------------------------------------------------------
+% Fim do Documento
+% -----------------------------------------------------------------

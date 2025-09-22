@@ -179,3 +179,9 @@ Conto contigo
 Reuna a equipe e faça análise meticulosa da proposta apresentada.
 Após a ata da equipe com proposta analisada e ampliada (pode criar o arquivo da ata) eu autorizo mexer ou não no arquivo #file:01_conteudo_latex.tex 
 
+---
+
+Aprovado.
+
+Alterar o arquivo #file:01_conteudo_latex.tex com as alterações propostas e outros que a equipe propor.
+
