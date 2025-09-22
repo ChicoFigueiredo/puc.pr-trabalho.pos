@@ -422,6 +422,7 @@ A arquitetura segue o princípio da separação de responsabilidades (SRP) e res
 
 A definição da solução de armazenamento e cache adotada no sistema levou em consideração uma análise comparativa entre diferentes tecnologias disponíveis no ecossistema cloud, especialmente em ambiente Azure, amplamente utilizado na Caixa Econômica Federal. Os critérios avaliados foram: \textbf{custo}, \textbf{segurança}, \textbf{latência}, \textbf{portabilidade} e \textbf{complexidade de gerenciamento}. Esses fatores são essenciais em aplicações críticas, que requerem alta disponibilidade, governança de dados e conformidade com padrões regulatórios financeiros e de segurança da informação.
 
+%Revisar DAQUI
 Segundo \citeaa{Ruparelia2016}, "o modelo IaaS/PaaS de computação em nuvem é idealmente adequado para atender necessidades de web hosting por causa de sua elasticidade e modelo de preços baseado em uso", características fundamentais para aplicações que precisam escalar dinamicamente. Esse entendimento fundamenta a escolha do Azure Cosmos DB como armazenamento primário, dada sua escalabilidade horizontal nativa, baixa latência e replicação global. Já o Redis foi escolhido como cache por sua compatibilidade com múltiplas nuvens, simplicidade operacional e latência extremamente reduzida, como enfatizado por \citeaa{Fowler2008} ao discutir padrões de leitura otimizados.
 
 A tabela a seguir resume os principais pontos analisados:
@@ -448,7 +449,6 @@ A tabela a seguir resume os principais pontos analisados:
 	\end{tabular}
 \end{table}
 
-%Revisar DAQUI
 \section{Estratégia de Implementação}
 
 A implementação seguirá metodologia ágil híbrida em quatro fases: (1) Análise e Design Detalhado (8 semanas); (2) Desenvolvimento MVP (12 semanas); (3) Implementação Incremental (16 semanas); (4) Operação e Evolução (contínua).

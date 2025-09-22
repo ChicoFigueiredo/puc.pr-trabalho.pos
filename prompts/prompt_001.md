@@ -131,3 +131,51 @@ O trecho abaixo (focando em #file:01_conteudo_latex.tex  ),
 
 - baseado em que pesquisas? pode especificar?
 - excele me parece uma palavra estranha? pode reformular?
+
+---
+
+A coordenadora do curso revisou e deu o seguinte feedback:
+
+```text
+Olá, Francisco (obrigada por sua participação na Live da semana passada).
+
+Seu trabalho apresenta uma proposta bastante ambiciosa e interessante ao explorar o uso de inteligência artificial na elaboração de arquiteturas para sistemas bancários críticos.
+
+Logo no sumário executivo você conseguiu expor bem o contexto e o impacto da pesquisa, conectando o problema à solução proposta.
+
+Na problematização, você conseguiu caracterizar bem os desafios enfrentados pela Caixa em relação à parametrização de sistemas legados e às limitações de arquiteturas monolíticas. O texto mostra que há impacto em custo, agilidade e segurança.
+
+Sua justificativa e os objetivos estão bem estruturados. Você conseguiu conectar fundamentos teóricos, contexto de mercado e regulação bancária com a proposta de solução. O objetivo geral está claro e os objetivos específicos ajudam a delimitar o que será analisado.
+
+A fundamentação teórica é bastante robusta, com referências bem selecionadas e pertinentes ao tema, cobrindo desde evolução da computação, padrões arquiteturais, cloud computing, até inteligência artificial e regulamentações bancárias. No entanto, em alguns pontos o texto está mais descritivo do que analítico. Por exemplo, você apresenta conceitos de cloud e de padrões arquiteturais, mas poderia explorar melhor por que esses elementos se conectam especificamente ao projeto do parametrizador. Em outras palavras, é interessante mostrar não só que esses conceitos existem, mas justificar por que eles são relevantes neste caso. Essa articulação reforçaria a criticidade da fundamentação.
+
+Na metodologia, o detalhamento sobre o processo de elaboração do DAS com IA foi bem escrito e mostra claramente como os artefatos foram gerados e avaliados. Esse é um ponto forte do trabalho, pois explicita a forma como a IA foi utilizada e como você atuou na validação crítica. 
+
+A análise crítica do DAS é uma das seções mais ricas do trabalho, já que você não apenas apresenta o que a IA produziu, mas também faz uma avaliação baseada em métricas, padrões e regulamentações. Isso traz credibilidade ao texto. 
+
+No percurso metodológico da intervenção, você apresentou as camadas e componentes internos do parametrizador, além da estratégia de implementação em fases. 
+
+Os resultados esperados e a conclusão estão bem detalhados, com indicadores técnicos claros como tempo de resposta da API, uptime e número de parametrizações mensais. Essa objetividade é um ponto positivo.
+
+De forma geral, seu trabalho se destaca pela profundidade técnica e pelo caráter inovador da proposta.
+
+O nível de detalhamento e as referências mostram dedicação e domínio do tema.
+
+As principais oportunidades de melhoria está em justificar as escolhas técnicas feitas ao longo do trabalho na seção de fundamentação. No entanto, essa sugestão não compromete a qualidade geral do projeto, que está excelente. A leitura foi muito prazerosa e certamente o trabalho merece nota 10.
+
+Parabéns pelo resultado e obrigada pela oportunidade de acompanhar uma produção dessa qualidade.
+```
+
+Meu professor auxiliar sugeriu todo o conteúido em #file:TCC_trechos_analiticos.md 
+
+pode fazer uma análise profunda, reuna a equipe e proponha mudanças no texto para inclusão conforme o pedido da orientadora?
+
+Não modifique arquivos, só proponha e peça minha aprovação.
+
+Conto contigo
+
+---
+
+Reuna a equipe e faça análise meticulosa da proposta apresentada.
+Após a ata da equipe com proposta analisada e ampliada (pode criar o arquivo da ata) eu autorizo mexer ou não no arquivo #file:01_conteudo_latex.tex 
+
